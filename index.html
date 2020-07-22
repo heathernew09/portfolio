@@ -3,27 +3,29 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Heather New | Frontend Dev | Designer | Creative</title>
 	<meta name="description" content="This is the online resume for a Wichita Wordpress Front End Dev, Designer and Creative Heather New"/>
-	<link href="/css/bootstrap.css" rel="stylesheet" />
-	<link href="/css/style.css" rel="stylesheet" />
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+    
+    <script src="https://kit.fontawesome.com/d79f4490b8.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400&family=Palanquin+Dark:wght@400;700&display=swap" rel="stylesheet">
 	
-	<link href="/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
-	<link href="/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60" />
-	<link href="/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
-	<link href="/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
-	<link href="/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
-	<link href="/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
-	<link href="/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
-	<link href="/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
-	<link href="/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
-	<link href="/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png" />
-	<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-	<link href="/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
-	<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+	<link href="apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
+	<link href="apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60" />
+	<link href="apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+	<link href="apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+	<link href="apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+	<link href="apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+	<link href="apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+	<link href="apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+	<link href="apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+	<link href="android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+	<link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+	<link href="favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+	<link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<link href="favicon.ico" rel="icon" type="image/x-icon" />
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --><!--[if lt IE 9]>
@@ -32,236 +34,447 @@
     <![endif]-->
 </head>
 <body>
-  	<section class="intro">
+	<a class="sr-only sr-only-focusable" href="#intro-content">Skip to main content</a>
+	<header>
 		<div class="container">
-			<div class="headline">
-				<div class="logo">
-					<p class="text-center">
-						<img alt="Heather New Frontend Web Developer &amp; Designer" src="/images/Heather-Newell-Logo.png" />
-					</p>
-				</div>
-				<div class="logo2">
-					<img alt="Heather New Web Developer &amp; Designer" class="img-center" src="/images/wichita-developer-Heather-New.png" />
+			<div class="logo-menu">
+            	<div id="hnew-circle-logo">
+					<a href="#" class="logo" data-toggle="modal" data-target="#connect"><img class="img-responsive" id="heather-new-logo-vertical" src="images/heathernew09-developer-designer-logo.png" alt="Heather New Frontend Web Developer &amp; Designer" /></a>
+                </div>
+                <div class="modal fade" id="connect" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="connectLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="connectLabel">connect</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <ul class="list-unstyled">
+                        <li>
+                        	<p><span class="menu-label">Contact</span><br>
+                            Heather New</p>
+                        </li>
+                        <li>
+                            <a href="tel:3162859090;">
+                                <p><span class="menu-label">Phone</span><br>
+                                316.285.9090</p>
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="mailto:ell@heathernew.com">
+                                <p><span class="menu-label">Email</span><br>
+                                ell(at)heathernew.com</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin/in/heathernew09" target="_blank">
+                                <p><span class="menu-label">Linked In</span><br>
+                                linkedin/in/heathernew09</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/heathernew09" target="_blank">
+                                <p><span class="menu-label">GitHub</span><br>
+                                github.com/heathernew09</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/heathernew09" target="_blank">
+                                <p><span class="menu-label">Twitter</span><br>
+                                twitter.com/heathernew09</p>
+                            </a>
+                        </li>
+                        </ul>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				<ul id="anchor-navigation">
+                	<li><a href="#dev-skills">dev</a></li>
+					<li><a href="#design-tools">design</a></li>
+                    <li><a href="#experience">exp</a></li>
+                    <li><a href="#work">work</a></li>
+                    <li><a href="#education">education</a></li>
+                    <li><a href="#articles">blogs</a></li>
+                    <li><a href="#community">community</a></li>
+				</ul>
+				<div class="hamburger-menu">
+					<div class="bar"></div>
 				</div>
 			</div>
-			<!-- /headline -->
-			<div class="row">
-				<div class="col-sm-12 col-md-8 col-lg-8 col-md-offset-2">
-					<h1 class="text-center grey">frontend developer &amp; creative</h1>
-					<p>Hello, I'm Heather. Thank you for visiting my personal site, feel free to reach out to me any time to discuss projects, process, or tech things. I create scalable websites with a tailored content management system. Listening to clients difficulties and creating solutions that alleviate issues and improve user experience is my jam. I build modern progressive websites and am constantly learning and seeking out new trends and technologies.  </p>
-				</div>
-			</div>
-	  </div>
-  </section>
+		</div>
+	</header>
+  	<section id="intro-content" class="intro" >
+		<div class="container">
+        	<div class="row align-items-center">
+            	<div class="col-6 offset-3 col-md-4 offset-md-2 col-lg-3 ">
+                	<img class="img-responsive" src="images/heathernew-developer-designer.png" alt="Heather New Frontend Web Developer &amp; Designer" />
+                </div>
+                <div class="col-8 offset-2 col-md-8 offset-md-2 col-lg-7 offset-lg-0">
+                    <div class="headline">
+                        <p class="jumbo dkgray">Hi</p>
+                        <h1 class="dkgray smaller">I'm a Developer &amp; Creative</h1>
+                        <p class="intro">Thank you for visiting my site, feel free to reach out to me any time to discuss projects, process, or tech things. I create scalable websites with a tailored content management system. Listening to clients difficulties and creating solutions that alleviate issues and improve user experience is my jam. Building modern progressive websites is my focus and I am consistently learning and seeking out new trends and technologies.</p>
+                    </div>
+                </div>
+            </div>
+	  	</div>
+  	</section>
 
-  <section class="headshoulders">
+  <section id="dev-skills" class="ltgreyBk">
     <div class="container">
       <div class="row">
-		  <div class="col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
-			  <img alt="Code Heather New" class="img-responsive" src="/images/heather-code.png" />
+		  <div class="col-8 offset-2 col-md-4 offset-md-1">
+			  <h2 class="dkgrey">development skills</h2>
+              <h3>HTML</h3>
+              <h3>PHP</h3>
+              <h3>CSS/SASS</h3>
+              <h3>Javascript</h3>
+              <h3>jQuery</h3>
+              <h3>Git/Github</h3>
+              <h3>Taskrunners</h3>
+              <h3>CMS</h3>
 		  </div>
+          <div class="col-12 col-md-6 col-lg-6">
+          		<img class="img-responsive" src="images/heather-code-preview.png" alt="Image showing code examples and colored syntax" />
+          </div>
       </div>
     </div>
   </section>
-
-  <section class="skills">
+  <section id="design-skills"> 
       <div class="container">
           <div class="row">
-              <div class="col-md-10 col-md-offset-1">
-                  <h2 class="text-center">skills</h2>
-
-                  <div class="col-md-6">
-                      <h3 class="text-left teal">development</h3>
-                      <ul class="dots">
-                          <li>HTML</li>
-                          <li>PHP</li>
-                          <li>CSS/SASS</li>
-                          <li>Javascript</li>
-                          <li>jQuery</li>
-                          <li>Git</li>
-                          <li>Taskrunners</li>
-                          <li>CMS</li>
-                      </ul>
-                  </div>
-                  <div class="col-md-6">
-                      <h3 class="text-left teal">design</h3>
-                      <ul class="dots">
-                          <li>Illustrator</li>
-                          <li>Photoshop</li>
-                          <li>UX/UI</li>
-                      </ul>
-                      <h3 class="text-left teal">other</h3>
-                      <ul class="dots">
-                          <li>CAD Design</li>
-                          <li>Maker Skills</li>
-                          <li>Home Renovation / DIY</li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <section class="skills visible-sm visible-md visible-lg">
-      <div class="container">
-          <div class="row">
-          </div>
-      </div>
-  </section>
-
-  <section class="computer ">
-      <div class="container-fluid"></div>
-  </section>
-
-  <section class="experience">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-12">
-                  <h2 class="text-center">experience</h2>
-
-                  <div class="col-md-6">
-                      <div id="experience">
-                          <h3 class="teal">Senior Digital Developer</h3>
-
-                          <h4>Greteman Group</h4>
-                          <h5>March 2016 - Current</h5>
-                          <p>I lead and consult for web projects and IT at Greteman Group. My role is evaluating creative and design deliverables which is followed by rapidly prototyping. I often guide the client through the entire process of choosing a host, setting up accounts, launch, training followed by support. I transform creative into scalable, fluidly responsive, performant and accessible websites. I hone in and tailor skills required to accommodate to a large variety of clients and technical requirements.
-                          </p>
-                      </div>
-
-                      <div id="experience2">
-                          <h3 class="teal">Web Developer / Designer</h3>
-
-                          <h4>Prime Concepts Group, Inc.</h4>
-
-                          <h5>March 2014 - March 2016</h5>
-                          <p>At Prime Concepts I started incorporating more marketing efforts, campaigns and strategies into the structure and content in the websites I created. Creating websites and landing pages quickly and efficiently pushed my development process helping me to level up to fully customized solutions for clients. I switched from making adaptive websites to fully responsive websites during this time.</p>
-                      </div>
-                  </div>
-
-                  <div class="col-md-6">
-                      <div id="experience3">
-                          <h3 class="teal">Web Developer</h3>
-
-                          <h4>Whistler Media Group</h4>
-
-                          <h5>March 2013 - March 2014</h5>
-                          <p>During my time at Whistler Media, I became familiar with Wordpress. I created custom themes, customized preexisting themes and designed website elements and UI. I started building my knowledge of the ins and outs of SEO and SEM by strategizing campaigns, optimizing websites and setting up pay per click advertisements.</p>
-                      </div>
-
-                      <div id="experience4">
-                          <h3 class="teal">Graphic Designer / Supervisor</h3>
-
-                          <h4>HaysTees &amp; JoeBobOutfitters.com</h4>
-
-                          <h5>January 2009 - January 2013</h5>
-                          <p>Start ups are a great way to flex the new skills you learned in college and I did just that for Haystees and JoeBobOutfitters. In addition to designing the logo, website and marketing materials I also facilitated the implementation of an ecommerce platform. In addition to creating the creative, I also helped with the logistics and managed the HaysTees shop and employees. I wore many hats and this speaks to my adaptibility and wide range of skills.</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <section class="learning">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-6 col-lg-offset-3 text-center">
-                  <h2>education</h2>
-                  <h3 class="fhsu">BFA Graphic Design</h3>
-                  <h4 class="white">Fort Hays State University - 2009</h4>
-                  <h4 class="white">Bishop Carroll High School - 2004</h4>
-                  <h2>certifications</h2>
-                  <ul>
-                      <li><a href="https://www.codecademy.com/users/heathernew09/achievements" target="_blank"></a>codeacademy.com</a></li>
-                      <li><a href="https://www.linkedin.com/in/heathernew09/" target="_blank">Lynda.com / Linkedin Learning</a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </section>
-  <section class="articles">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-6 col-lg-offset-3 text-center">
-				  <h2>articles</h2>
-                  <ul>
-                      <li>
-                          <h4>
-							  <a href="https://www.primeconcepts.com/8-ways-roller-derby-like-web-development/" title="Link to Web Development and Roller Derby" target="_blank">8 Ways Roller Derby is Like Web Development</a>
-						  </h4>
-                      </li>
-                      <li>
-						  <h4>
-                          	<a href="https://www.gretemangroup.com/simplify-your-website/" title="Link to Simplify Your Website" target="_blank">Simplify Your Website</a>
-						  </h4>
-                      </li>
-                      <li>
-						  <h4>
-                          	<a href="https://www.gretemangroup.com/content-management-made-easy/" title="Link to Content Management Systems made Easy" target="_blank">Content Management Made Easy</a>
-						  </h4>
-                      </li>
-				  </ul>
-              </div>
-          </div>
-      </div>
-  </section>
-  <section class="learning">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-6 col-lg-offset-3 text-center">
-                  <h2>in the community</h2>
-                  <h4 class="devict">DevICT member</h4>
-                  <h4 class="aiga">AIGA Wichita - Best Practice in UI/UX Panel - 2018</h4>
-                  <audio controls src="/audio/AIGA-UX-Best-Practices.mp3" title="UX/UI AIGA Panel"></audio>
-                  <h4 class="pride">Wichita Pride IT Director - 2019/2020</h4>
-                  <h4 class="ict">ICT Roller Derby Marketing Head - 2 seasons</h4>
-
-              </div>
+              <div div class="col-8 offset-2 col-md-4 offset-md-1 order-2">
+			  <h2 class="dkgrey">design skills</h2>
+              <h3>Illustrator</h3>
+              <h3>Photoshop</h3>
+              <h3>Dreamweaver</h3>
+              <h3>UX/UI</h3>
+              <h3>Frameworks</h3> 
+              <h3>CAD</h3>
+              <h3>DIY/Reno</h3>
 		  </div>
-		  <div class="row">
-			  <div class="col-lg-6 col-lg-offset-3 text-center">
-				  <h3>connect</h3>
-				  <ul>
-				  	<li>
-						<a href="https://twitter.com/heathernew09">
-				  		<i class="fa fa-twitter" aria-hidden="true"></i>
-				  		</a>
-					</li>
-					<li>
-						<a href="https://github.com/heathernew09">
-				  		<i class="fa fa-github" aria-hidden="true"></i>
-				  		</a>
-					</li>
-					<li>
-						<a href="https://linkedin/in/heathernew09">
-				  		<i class="fa fa-linkedin" aria-hidden="true"></i>
-				  		</a>
-					</li>
-				  </ul>
-			  </div>
+          <div class="col-12 col-md-6 col-lg-6 order-1">
+          		<img class="img-responsive" src="images/heather-code-preview.png" alt="Image showing code examples and colored syntax"/>
+          </div> 
           </div>
       </div>
   </section>
-  <div class="clear"></div>
-	<section class="contact">
-		<div class="container">
-            <div class="row top-pad">
-                <div class="col-lg-12">
-                    <p class="text-center contact"><a href="mailto:ell@heathernew.com">ell@heathernew.com</a> | <a href="tel:7856358437">785.635.8437</a> | <a href="#">heathernew.com</a></p>
+  <section id="experience">
+      <div class="container">
+          <div class="row">
+              <div class="col-8 offset-2">
+                  <h2 class="text-center dkgray">experience</h2>
+				<div class="accordion" id="experience-accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                          <h3 class="teal">Senior Digital Developer</h3>
+                          <p>Greteman Group <span class="text-right">March 2016 - Current</span></p>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#experience-accordion">
+                      <div class="card-body">
+                      	<p>I lead and consult for web projects and IT at Greteman Group. My role is evaluating creative and design deliverables which is followed by rapidly prototyping. I often guide the client through the entire process of choosing a host, setting up accounts, launch, training followed by support. I transform creative mocks into scalable, fluidly responsive, performant and accessible websites. I hone in and tailor skills required to accommodate to a large variety of clients and technical requirements.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header whiteBk" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          <h3 class="teal">Web Developer / Designer</h3>
+                          <p>Prime Concepts Group, Inc. March 2014 - March 2016</p>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#experience-accordion">
+                      <div class="card-body">
+                          <p>At Prime Concepts I started incorporating advanced marketing efforts, campaigns and strategies into the structure and content in the websites I created. Building websites and landing pages quickly and efficiently pushed my development process helping me to level up to fully customized solutions for clients. I adapted to the switch of importance of responsive websites at this time and adapting to new ways of coding for a variety of devices.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          <h3 class="teal">Web Developer</h3>
+                          <p>Whistler Media Group March 2013 - March 2014</p>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#experience-accordion">
+                      <div class="card-body">
+                          <p>During my time at Whistler Media, I became familiar with Wordpress. I created custom themes, customized preexisting themes and designed website elements and user interfaces. I started building my knowledge and implementation of SEO and SEM by strategizing campaigns, optimizing websites and configuring and monitoring pay per click campaigns.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header whiteBk" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                          <h3 class="teal">Graphic Designer / Supervisor</h3>
+                          <p>HaysTees &amp; JoeBobOutfitters.com January 2009 - January 2013</p>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#experience-accordion">
+                      <div class="card-body">
+                          <p>Start ups are a great way to flex the new skills you learned in college and I did just that for Haystees and JoeBobOutfitters. In addition to designing the creative branding assets, marketing materials and website I also facilitated the implementation of a scalable ecommerce CMS platform to sell products. I was promoted to manage HaysTees the custom apparel segment of the business and not only was I creating custom designs but also managing employees and providing gold star customer service. I gathered wide range of design, production, management skills as well as business knowledge.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section id="work" class="ltgreyBk">
+  	<div class="container">
+		<div class="row">
+        	<div class="col-12">
+              <h2 class="dkgrey text-center bot-pad">work examples</h2>
+            </div>
+            <div class="col-12 col-md-6">
+              <ul class="list-unstyled text-right">
+                <li><a href="https://foundation.wichita.edu" target="_blank"><h5>Wichita State University Foundation<sup>*</sup></h5></a></li>
+				<li><a href="https://soliddesignsolutions.com" target="_blank"><h5>Solid Design Solutions<sup>*</sup></h5></a></li>
+                <li><a href="https://larryschwarm.com" target="_blank"><h5>Larry Schwarm Photography</h5></a></li>
+                <li><a href="https://historicdunbartheatre.com" target="_blank"><h5>Historic Dunbar Theatre<sup>*</sup></h5></a></li>
+                <li><a href="https://buildupks.com" target="_blank"><h5>Build Up Kansas (AGCKS)<sup>*</sup></h5></a></li>
+                <li><a href="https://2ndsatict.com" target="_blank"><h5>2nd Sat ICT</h5></a></li>
+                <li><a href="https://mkec.com/" target="_blank"><h5>MKEC Engineering<sup>*</sup></h5></a></li>
+                <li><a href="https://thursdayafternooncookingclub.com" target="_blank"><h5>Thursday Afternoon Cooking Club<sup>*</sup></h5></a></li> 
+                <li><a href="http://globalpolymer.com" target="_blank"><h5>Global Polymer<sup>*</sup></h5></a></li>
+                <li><a href="https://wichitapride.org" target="_blank"><h5>Wichita Pride</h5></a></li>
+                <li><a href="http://ictrollerderby.com" target="_blank"><h5>ICT Roller Derby</h5></a></li>
+                <li><a href="http://coachcowboy.com/" target="_blank"><h5>Coach &amp; Cowboy<sup>*</sup></h5></a></li>
+                <li><a href="https://planethairusa.com/" target="_blank"><h5>Planet Hair USA<sup>*</sup></h5></a></li>
+                <li><a href="https://spayneuterkansas.com/" target="_blank"><h5>Spay Neuter Kansas<sup>*</sup></h5></a></li>
+                <li><a href="https://saintfrancisministries.org/" target="_blank"><h5>Saint Francis Ministries<sup>*</sup></h5></a></li>
+                
+              </ul>
+            </div>
+            <div class="col-12 col-md-6">
+              <ul class="list-unstyled">
+                <li><a href="https://flightsafetyacademy.com" target="_blank"><h5>FlightSafety Academy<sup>*</sup></h5></a></li>
+                <li><a href="https://jethq.com" target="_blank"><h5>JetHQ<sup>*</sup></h5></a></li>
+                <li><a href="https://www.flywichita.com/travel/" taget="_blank"><h5>Eisenhower Air Magazine<sup>*</sup></h5></a></li>
+                <li><a href="https://aviationpartners.com" target="_blank"><h5>Aviation Partners<sup>*</sup></h5></a></li>
+                <li><a href="https://kingaerospace.com" target="_blank"><h5>King Aerospace<sup>*</sup></h5></a></li>
+                <li><a href="https://flyaag.com" target="_blank"><h5>Associated Aircraft Group<sup>*</sup></h5></a></li>
+                <li><a href="https://chrysalisglobal.com" target="_blank"><h5>Chrysalis Global<sup>*</sup></h5></a></li>
+                <li><a href="https://iawa.org" target="_blank"><h5>International Aviation Womens Association<sup>*</sup></h5></a></li>
+                <li><a href="https://southwindglobal.com/" target="_blank"><h5>Southwind Global<sup>*</sup></h5></a></li>
+                <li><a href="https://wichitaaviationhistory.com" target="_blank"><h5>Wichita Aviation History Book<sup>*</sup></h5></a></li>
+                <li><a href="https://iflywichita.com" target="_blank"><h5>iFlyWichita<sup>*</sup></h5></a></li>
+                <li><a href="https://villagetours.net/" target="_blank"><h5>Village Travel<sup>*</sup></h5></a></li>
+                <li><a href="https://wichitawaterworks.com/" target="_blank"><h5>Wichita Water Works<sup>*</sup></h5></a></li>
+                <li><a href="https://watersmartkansas.com/" target="_blank"><h5>Water Smart Kansas<sup>*</sup></h5></a></li>
+              </ul>
+              <p class="disclaimer">*Design by Greteman Group Team</p>
+            </div>
+        </div>
+     </div>
+  </section>
+  <section id="education" class="tealBk">
+      <div class="container">
+          <div class="row">
+              <div class="col-12 col-md-4 col-lg-4">
+                  <h2>education</h2>
+                  <h4>BFA Graphic Design</h4>
+                  <p>Fort Hays State University - 2009</p>
+                  <h4>General Studies</h4>
+                  <p>Bishop Carroll High School - 2004</p>
+              </div>
+              <div class="col-12 col-md-4 col-lg-4"> 
+              	<a name="articles"></a>  
+                <h2>certifications</h2>
+                  <div class="accordion" id="certification-accordion">
+                      <div class="card">
+                        <div class="card-header" id="certificateOne" data-toggle="collapse" data-target="#certOne" aria-expanded="false" aria-controls="collapseOne">
+                            <h5>LinkedIn Learning / Lynda.com</h5>
+                        </div>
+                        <div id="certOne" class="collapse" aria-labelledby="certOne" data-parent="#certification-accordion">
+                          <div class="card-body">
+                              <p>WordPress: REST API  - 2/20</p>
+                              <p>WP Secure Sites  - 11/19</p>
+                              <p>jQuery UI &amp; UI Widgets - 10/19</p>
+                              <p>UX Foundation: Accessibility - 10/19</p>
+                              <p>UX Foundation: Prototyping - 10/19</p>
+                              <p>All Units HTML &amp; CSS - 6/16</p>
+                              <p>WP: Dev Blocks w/Gutenberg - 5/19</p>
+                              <p>WordPress 5 Essentials - 12/18</p>
+                              <p>Building Themes with DW &amp; WP - 2/18</p>
+                              <p>CSS: Animation - 7/18</p>
+                              <p>GitHub for Web Designers - 7/18</p>
+                              <p>Learning SVG - 7/18</p>
+                              <p>Version Control for Everyone - 7/18</p>
+                              <p>WP Plugins: Adv. Cus. Fields - 7/18</p>
+                              <p>Workflow Tools for Web Dev - 7/18</p>
+                              <p>Dreamweaver - Git Version - 6/18</p>
+                              <p>Git Essential Training - 6/18</p>
+                              <p>Gulp.js, Git, Browserify - 6/18</p>
+                              <p>JavaScript Essentials - 6/18</p>
+                              <p>Learning Git and GitHub - 6/18</p>
+                              <p>WP: Dev with Sass and Grunt.js - 6/18</p>
+                              <p>Illustrator for UX Design - 2/17</p>
+                              <p>UX Design: 1 Overfiew - 2/17</p>
+                              <p>Designing Web for Performance - 1/17</p>
+                              <p>UX for Web Designers - 1/17</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="certificateTwo" data-toggle="collapse" data-target="#certTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          <h5>Codeacademy.com Badges</h5>
+                      </div>
+                      <div id="certTwo" class="collapse" aria-labelledby="certTwo" data-parent="#certification-accordion">
+                        <div class="card-body">
+                        	<p>Learn JavaScript Functions  - 10/17</p>
+                        	<p>Learn JavaScript Control Flow  - 10/17</p>
+                        	<p>Learn JavaScript Intro - 10/17</p>
+                        	<p>Learn Sass - 10/17</p>
+                        	<p>Learn Git - 6/16</p>
+                        	<p>All Units HTML &amp; CSS - 6/16</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-12 col-md-4 offset-lg-1 col-lg-3">
+              	<a name="articles"></a>
+              	<h2>articles</h2>
+                  <ul class="list-unstyled">
+                      <li>
+						<a href="https://www.gretemangroup.com/content-management-made-easy/" title="Link to Content Management Systems made Easy" target="_blank"><p>Content Management Made Easy</p></a>
+                      </li>
+                      <li>
+                        <a href="https://www.gretemangroup.com/simplify-your-website/" title="Link to Simplify Your Website" target="_blank"><p>Simplify Your Website</p></a>
+                      </li>
+                      <li>
+                      	<a href="https://www.primeconcepts.com/8-ways-roller-derby-like-web-development/" title="Link to Web Development and Roller Derby" target="_blank"><p>Roller Derby is Like Web Development</p></a>
+                      </li>
+				  </ul>
+              </div>
+          </div>
+      </div>
+	</section>
+	<section id="contact">
+    	<a href="#" name="form"></a>
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-1 col-lg-4">
+                      <h3>connect</h3>
+                      <ul class="list-unstyled">
+                        <li>
+                        	<p><span class="menu-label">Contact</span><br>
+                            Heather New</p>
+                        </li>
+                        <li>
+                            <a href="tel:3162859090;">
+                                <p><span class="menu-label">Phone</span><br>
+                                316.285.9090</p>
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="mailto:ell@heathernew.com">
+                                <p><span class="menu-label">Email</span><br>
+                                ell(at)heathernew.com</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin/in/heathernew09" target="_blank">
+                                <p><span class="menu-label">Linked In</span><br>
+                                linkedin/in/heathernew09</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/heathernew09" target="_blank">
+                                <p><span class="menu-label">GitHub</span><br>
+                                github.com/heathernew09</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/heathernew09" target="_blank">
+                                <p><span class="menu-label">Twitter</span><br>
+                                twitter.com/heathernew09</p>
+                            </a>
+                        </li>
+                      </ul>
+                </div>
+                <div class="offset-lg-2 col-lg-4">
+                	  <h2 class="dkgray">in the community</h2>
+                      <p>Wichita Pride IT Director<br>
+                      2019/2020</p>
+                      <p>MakeICT member<br>
+                      February 2019</p>
+                      <p>DevICT member<br>
+                      November 2018</p>
+                      <p>ICT Roller Derby Marketing Head<br>
+                      2016-2018</p>
+                      <p>AIGA Wichita - Best Practice in UI/UX Panel<br>
+                      November 2018</p>
+                      <audio controls src="audio/AIGA-UX-Best-Practices.mp3" title="UX/UI AIGA Panel"></audio>
+                </div>
+                <!--<div class="col-lg-3 offset-lg-1">
+                	<h3>contact</h3>
+                  <div class="clearfix" id="form-container">
+                    <form class="clearfix" id="ctsForm" role="form" name="ctsForm" onsubmit="return validateForm()" action="">
+                      <div class="form-group clearfix">
+                        <label class="menu-label">Name</label>
+                        <input class="form-control" placeholder="Name" name="formName" required="required"/>
+                      </div>
+                      <div class="form-group clearfix">
+                        <label class="menu-label">Phone</label>
+                        <input class="form-control" placeholder="Phone Number" name="formPhone"/>
+                      </div>
+                      <div class="form-group clearfix">
+                        <label class="menu-label">Email</label>
+                        <input class="form-control" id="form-email" placeholder="Email Address" name="formEmail" type="email" required="required"/>
+                      </div>
+                      <div class="form-group clearfix">
+                        <label class="menu-label">Message</label>
+                        <textarea class="form-control" placeholder="Go for it, I like receiving email from real people." name="formMessage" required></textarea>
+                      </div>
+                      <div class="col-xs-3 submit-wrap">
+                        <button class="btn tealBk btn-submit" type="submit" value="submit">Submit</button><img class="loading" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85807/loading.gif" alt=""/>
+                      </div>
+                      <div class="col-xs-9 alert-wrap"></div>
+                    </form>
+                  </div>
+                </div>-->
             </div>
 		</div>
 	</section>
-	<footer class="text-center feet">
-      <div class="container">
-          <div class="row">
-              <div class="col-xs-12">
-                  <p class="text-center">Copyright &copy; 2020&nbsp;Heather New - All rights reserved.</p>
+	<footer id="feet">
+		<div class="container">
+			<div class="row">
+              <div class="col-12">
+                  <p>&copy; 2020 &nbsp;Heather New | <a href="#" data-toggle="modal" data-target="#privacyModal">Privacy</a></p>
               </div>
+			</div>
+		</div>
+        <!-- Modal -->
+        <div class="modal fade" id="privacyModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                 <p>Hey There, I don't sell or use your data. I will use your email to contact in response to your inquiry. It's simple as that. The site may collect cookies but only to serve the site to you as fast as possible. The opinions expressed here are my own. The development work I presented and marked with an asterick indicate a website that was designed by my team members at Greteman Group. The remaining sites were designed and developed by me. There are a couple sites (Village Travel and SouthwindGlobal) that I reskinned existing themes. I pledge to build sites in an accessiblty compliant way and design with the user in mind. Any questions? Feel free to contact me.</p>
+                 <p>Thanks for stopping by,<br>
+                 Heather</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn tealBk" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
-      </div>
+        </div>
+
 	</footer>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/form.js"></script>
 </body>
 </html>

@@ -1,19 +1,41 @@
 /* CSS Document for Heather New's Resume - Addon's to the Bootstrap v3.3.5*/
 body, p{font-family: 'Overpass', sans-serif;}
 .headline{font-family: 'Palanquin Dark', sans-serif;}
-h1, h2, h3{
-	font-family: 'Overpass', sans-serif;
-	/*font-family:"Raleway", Helvetica, sans-serif;*/
-	font-weight:400;
-}
 
+h1{
+    font-family: 'Palanquin Dark', sans-serif;
+    font-weight: 700;
+}
+h2{
+    font-family: 'Palanquin Dark', sans-serif;
+    font-weight: 400;
+}
+h3 {
+    font-family: 'overpass',sans-serif;
+    font-weight: 400;
+	color:#21838D;
+}
+.jumbo{
+	font-size:155px;
+	font-family: 'Palanquin Dark', sans-serif;
+    font-weight: 700;
+	line-height:125px;
+}
 h4, h5, h6, body{
 	font-family: 'Overpass', sans-serif;
-	/*font-family:"Open Sans", Arial, sans-serif;*/
 	font-weight:400;
 }
 .teal{
 	color:#21838D;
+}
+.tealBk{
+	background-color:#21838D;
+}
+.tealBk h1, .tealBk h2, .tealBk h3, .tealBk h4, .tealBk h5, .tealBk h6, .tealBk p, .tealBk a, .teamBk li{
+	color:#fff;
+}
+.tealBk a:hover {
+    color: rgba(255, 255, 255, 0.55);
 }
 .white{
 	color:#fff;
@@ -21,8 +43,28 @@ h4, h5, h6, body{
 .black{
 	color:#000;
 }
-.grey{
+.dkgrey, .dkgray {
+    color: #666666;
+}
+.dkgreyBk, .dkgrayBk{
+	background-color:#666666;
+}
+.grey, .gray{
 	color:#9D9FA2;
+}
+.greyBk, .grayBk{
+	background-color:#9D9FA2;
+}
+.ltgrey, .ltgray{
+	color:#f2f2f2;
+}
+.ltgreyBk, .ltgrayBk{
+	background-color:#f2f2f2;
+}
+/*Header*/
+#heather-new-logo-vertical {
+	max-height:180px;
+	width:auto;
 }
 .logo2 {
     padding: 3em 0 0em;
@@ -33,89 +75,129 @@ h4, h5, h6, body{
 img.img-responsive.img-center{
 	margin:0 auto;
 }
+.img-responsive{width:100%;}
 .img-center{
 	margin:0 auto;
 	display: block;
     max-width: 100%;
     height: auto;
 }
-.headshoulders p {
-    font-size: .9em;
-    padding: 3.0em;
-    color: gray;
+#feet p{
+	margin-bottom:0;
 }
-
-.kneesandtoes p{
-	font-size:1.4em;
-	padding:3.4em;
-}
-
-@media only screen and (min-width: 768px) {
-.headshoulders p {
-    font-size: 1.3em;
-    padding: 1.2em;
-    color:#9D9FA2;
-}
-.kneesandtoes p{
-	font-size:1.4em;
-}
-}
-
-section.kneesandtoes {
-    background-color: #DBDBDB;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e3e3e3), to(fff));
-    background: -webkit-linear-gradient(top, #fff, #e3e3e3);
-    background: -moz-linear-gradient(top, #fff, #e3e3e3);
-    background: -ms-linear-gradient(top, #fff, #e3e3e3);
-    background: -o-linear-gradient(top, #fff, #e3e3e3);
-}
-section.computer {
-    background: url("/images/heaaather-new-wordpress-engineer-min.png")no-repeat no-repeat;
-    min-height: 380px;
-    background-size: cover;
-}
-
-@media only screen and (min-width: 768px) {
-section.computer {
-    background: url("/images/heaaather-new-wordpress-engineer-min.png")no-repeat no-repeat;
-    min-height: 500px;
-    background-attachment: fixed;
-    background-size: cover;
-}
-}
-ul.dots {
-    list-style-type: none;
-    font-size: 1.4em;
-	text-align:left;
-	padding-left: 0px!important;
-}
-section.skills {
-    padding: 4em 0;
-}
-section.learning{
-	padding: 4em 0;
+#feet{
+	padding:2em 0;
 	background-color:#21838D;
-	color:#fff!important;
 }
-section.experience{
-	padding:4em 0;
+#feet a:hover {
+    color: #cac7c7;
 }
-i.fa.fa-circle, i.fa.fa-circle-o {
-    color: grey;
-    margin-left: 4px;
-}
-.feet{
-	min-height: 20px;
-    padding: 19px;
-    margin-bottom: 0px;
-    background-color: #f5f5f5;
-    border: 1px solid #e3e3e3;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+
+#feet p, #feet a {
+    color: #fff;
 }
 .clear{
 	clear:both;
 }
 .top-pad {
     padding-top: 1em;
+}
+@media only screen and (min-width: 992px) {
+.headline .d-lg-block {
+    display: inline-block!important;
+}
+}
+.headline h1, .headline p{text-align:center;}
+@media only screen and (min-width: 992px) {
+.headline h1, .headline p{text-align:left;}
+}
+.headline{padding:10em 0;}
+
+#dev-skills, #design-skills, #work, #education, #community, #contact {
+    padding: 4em 0;
+}
+#experience-accordion .btn, #certification-accordion .btn {
+    text-align: left;
+}
+
+div#experience-accordion{
+    padding: 0 0 4em;
+}
+#experience-accordion .card-header::after {
+    top: 31px;
+    right: 35px;
+    font-size: 1.4em;
+}
+#experience h2, #certification h2 {
+    padding: 1em 0 1em;
+}
+#experience .card-header.whiteBk {
+    background-color: #fff;
+}
+#experience .card {
+    border-radius: 0;
+    border: 0;
+}
+#certification-accordion .card {
+    border-radius: 0!important;
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+#certification-accordion h5 {
+    margin-bottom: 0;
+}
+.bot-pad{padding-bottom:1em;}
+sup {
+    top: -1em;
+}
+sub, sup {
+    position: relative;
+    font-size: 50%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+a{
+	color:#000;
+	text-decoration:none;
+}
+a:hover {
+    color: #21838D;
+    text-decoration: none;
+}
+/*Contact Section*/
+.menu-label {
+    text-transform: uppercase;
+    color: teal;
+    font-size: 78%;
+    letter-spacing: 2px;
+}
+label.menu-label {
+    font-size: .9em;
+    margin-bottom: 0;
+}
+
+#contact li {
+    margin-bottom: 8px;
+    line-height: 1.4em;
+}
+.btn.tealBk {
+    color: #fff;
+}
+.disclaimer{font-size:80%;}
+/*Accordion*/
+.card-header {
+  position: relative;
+}
+  
+.card-header::after {
+	content: "\f107";
+	color: #333;
+	top: 14px;
+    right: 20px;
+	position: absolute;
+    font-family: "FontAwesome"
+}
+
+.card-header[aria-expanded="true"]::after {
+	content: "\f106";
 }
