@@ -31,10 +31,20 @@
     width: 100%;
     height: 100%;
     border: none;
+    position: relative;
+    z-index: 2;
 }
 
 #tree-decorative-frame {
-    display: none; /* Removed for cleaner modern look */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 112%;
+    height: 122%;
+    z-index: 3;
+    pointer-events: none;
+    object-fit: fill;
 }
 
 /* Content Layout */
