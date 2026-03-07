@@ -724,7 +724,7 @@ RESULTS SECTION
     height: 140px;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.4; /* Increased opacity to make it more visible */
+    opacity: 1.0; /* Increased opacity to make it more visible */
     z-index: -1; 
     /* Updated fill to #FF7500 */
     background-image: url("data:image/svg+xml,%3Csvg width='265' height='266' viewBox='0 0 265 266' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M82.8125 66.5C55.4779 66.5 33.125 88.9373 33.125 116.375V199.5H115.938V116.375H49.6875C49.6875 97.9316 64.4385 83.125 82.8125 83.125V66.5ZM198.75 66.5C171.415 66.5 149.062 88.9373 149.062 116.375V199.5H231.875V116.375H165.625C165.625 97.9316 180.376 83.125 198.75 83.125V66.5ZM49.6875 133H99.375V182.875H49.6875V133ZM165.625 133H215.312V182.875H165.625V133Z' fill='%23FF7500'/%3E%3C/svg%3E");
@@ -740,7 +740,7 @@ RESULTS SECTION
     height: 140px;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.4; /* Increased opacity to make it more visible */
+    opacity: 1.0; /* Increased opacity to make it more visible */
     z-index: -1;
     /* Updated fill to #FF7500 */
     background-image: url("data:image/svg+xml,%3Csvg width='265' height='266' viewBox='0 0 265 266' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M182.188 199.5C209.522 199.5 231.875 177.063 231.875 149.625V66.5H149.062V149.625H215.312C215.312 168.068 200.562 182.875 182.188 182.875V199.5ZM66.25 199.5C93.5846 199.5 115.938 177.063 115.938 149.625V66.5H33.125V149.625H99.375C99.375 168.068 84.624 182.875 66.25 182.875V199.5ZM215.312 133H165.625V83.125H215.312V133ZM99.375 133H49.6875V83.125H99.375V133Z' fill='%23FF7500'/%3E%3C/svg%3E");
