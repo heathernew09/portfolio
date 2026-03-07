@@ -649,6 +649,17 @@ RESULTS SECTION
     }
 }
 
+.testimonial-full-width {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial-full-width .testimonial-block {
+    width: 100%;
+}
+
 /* Typography basics */
 .testimonial-block {
     position: relative; /* Anchor for absolute positioning of icons */
