@@ -155,7 +155,7 @@
     max-width: 100% !important;
     margin: 4rem 0;
     padding: 6rem 2rem;
-    background: var(--dark-gray);
+    background: #146068; 
     color: var(--white);
     text-align: center;
 }
