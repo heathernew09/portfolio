@@ -310,6 +310,19 @@ a:hover { color: #1f6870; }
 
 .footer-nav a { text-decoration: none; color: var(--primary-teal); transition: color 0.2s ease; font-weight: 600; }
 .footer-nav a:hover { color: var(--accent-lime); }
+
+.build-info {
+    font-size: 0.75rem;
+    color: var(--medium-gray);
+    margin-top: 1rem;
+    opacity: 0.7;
+    font-family: monospace;
+}
+
+.build-info span {
+    color: var(--primary-teal);
+    font-weight: 600;
+}
 .copyright { font-size: 0.875rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* ============================================
