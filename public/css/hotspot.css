@@ -248,10 +248,13 @@
     padding: 8rem 0;
 }
 
-.bg-dark-testimonial .test-txt,
-.bg-dark-testimonial .test-auth {
+.bg-dark-testimonial .test-txt {
+    padding-top: 1em;
+    margin-top: 2.2em;
     color: #fff;
 }
+
+.bg-dark-testimonial .test-auth {
 
 /* Responsive */
 @media (max-width: 1024px) {
