@@ -3,12 +3,12 @@
 # Heather New Portfolio Deployment Script
 # Usage: ./deploy.sh
 
-# SiteGround SSH Details
-SG_USER="u2980-9skwwjljtskr"
-SG_HOST="ssh.ai.heather.codes" # Update if host is different for portfolio
+# SiteGround SSH Details (Updated for Portfolio)
+SG_USER="u1443-vg0xr9vznvhn"
+SG_HOST="ssh.heathernew.com"
 SG_PORT="18765"
 SG_PATH="www/heathernew.com/public_html"
-SG_KEY="$HOME/.ssh/siteground_id_ed25519"
+SG_KEY="$HOME/.ssh/portfolio_rsa_id"
 
 # 1. Build locally
 echo "🚀 Building project..."
