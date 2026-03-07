@@ -70,116 +70,108 @@
 }
 
 /* ============================================
-   CHARACTER SHOWCASE
+   CHARACTER SHOWCASE (DYNAMIC OVERHAUL)
    ============================================ */
 
 .characters {
-    padding: 6rem 0;
+    padding: 8rem 0;
+    overflow: hidden;
+    background-color: #fbfbfd;
 }
 
-.char-grid {
+.char-flex {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin-top: 5rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.char-card {
-    background: var(--white);
-    border-radius: 8px;
+.char-item {
+    position: relative;
     padding: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
 }
 
-.char-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+.char-item:nth-child(odd) { transform: rotate(-2deg); }
+.char-item:nth-child(even) { transform: rotate(2deg); }
+
+.char-item:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
 }
 
 .char-img {
-    height: 200px;
-    width: auto;
-    margin: 0 auto;
-    text-align: center;
+    height: auto;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
-.char-card img {
-    width: auto;
-    height: 200px;
+.char-img img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    transition: filter 0.3s ease;
 }
 
-.char-card #moxi-thumbnail {
-    height: 240px;
-    margin-top: -20px;
+.char-item:hover img {
+    filter: drop-shadow(0 20px 40px rgba(43, 138, 146, 0.2));
 }
 
-.char-card h4 {
-    font-size: 1.563rem;
-    margin: 0 0 0.5rem 0;
-    color: var(--primary-teal);
-}
-
-.char-card p {
-    font-size: 1rem;
-    color: var(--medium-gray);
-    margin-bottom: 1rem;
-}
-
-.char-tx {
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
-    font-size: 0.95rem;
-}
-
-.char-tx strong {
-    color: var(--primary-teal);
-}
-
-/* ============================================
-   FOOTPRINT SECTION
-   ============================================ */
-
-.footprint {
-    background: #fafafa;
-}
-
-.footprint-viz {
-    margin: 3rem 0;
-}
-
-.metrics {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.metric {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.metric-val {
-    font-size: 3.815rem;
+.char-item h4 {
+    font-size: 2rem;
     font-weight: 800;
     color: var(--primary-teal);
-    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.char-item p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--medium-gray);
     margin-bottom: 0.5rem;
 }
 
-.metric h4 {
-    font-size: 1.25rem;
-    margin: 0 0 0.5rem 0;
+.char-traits {
+    margin-top: 1.5rem;
 }
 
-.metric p {
-    font-size: 1rem;
-    color: var(--medium-gray);
-    margin: 0;
+.char-traits strong {
+    color: var(--primary-teal);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   TESTIMONIAL (FULL WIDTH FIX)
+   ============================================ */
+
+.testimonial-container-full {
+    width: 100%;
+    max-width: 100% !important;
+    margin: 4rem 0;
+    padding: 6rem 2rem;
+    background: var(--dark-gray);
+    color: var(--white);
+    text-align: center;
+}
+
+.testimonial-container-full .test-txt {
+    font-size: 2.25rem;
+    font-weight: 700;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.testimonial-container-full .test-auth {
+    color: var(--accent-lime);
+    font-size: 1.25rem;
 }
 
 /* ============================================
@@ -454,28 +446,6 @@ blockquote {
     margin: 0;
 }
 
-.testimonial {
-    max-width: 900px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 8px;
-    padding: 3rem;
-}
-
-.test-txt {
-    font-size: 1.563rem;
-    line-height: var(--line-height-relaxed);
-    color: var(--dark-gray);
-    margin-bottom: 1rem;
-}
-
-.test-auth {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--primary-teal);
-    margin: 0;
-}
-
 /* ============================================
    ROLE SECTION
    ============================================ */
@@ -545,7 +515,7 @@ blockquote {
     }
     
     .evolution-flow,
-    .char-grid,
+    .char-flex,
     .sprite-showcase,
     .metrics,
     .results-grid {
@@ -573,137 +543,7 @@ blockquote {
 }
 
 /* ============================================
-   PARASITE HUNTER LOGO
-   ============================================ */
-
-div#parasite-hunter-logo {
-    position: absolute;
-    display: block;
-    bottom: 60%;
-    z-index: 9;
-    left: 10%;
-    transform: scale(0.5);
-}
-
-div#parasite-hunter-logo img {
-    width: 500px;
-}
-
-/* ============================================
-   PARASITE PAGE OVERRIDES
-   ============================================ */
-
-body.parasite-page #learn-more-button {
-    display: none !important;
-}
-
-/* ============================================
-   CANVAS CONTAINER
-   ============================================ */
-
-#canvas-container {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    z-index: 1;
-}
-
-#canvas-container canvas {
-    display: block;
-    outline: none;
-}
-
-/* ============================================
-   SECTION CONTAINER
-   ============================================ */
-
-section#container-parasite-hunter {
-    overflow: visible;
-    padding: 3rem 0;
-    min-height: 600px;
-    position: relative;
-}
-
-.container-parasite-hunter {
-    overflow: visible;
-    position: relative;
-}
-
-/* ============================================
-   RESPONSIVE - MOBILE
-   ============================================ */
-
-@media (max-width: 768px) {
-    div#parasite-hunter-logo img {
-        width: 200px;
-    }
-    
-    section#container-parasite-hunter {
-        height: 70vh;
-        min-height: 500px;
-        overflow: hidden;
-    }
-    
-    .container-parasite-hunter {
-        overflow: hidden;
-        position: relative;
-    }
-    
-    #learn-more-button {
-        position: absolute !important;
-        bottom: 10% !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        z-index: 100 !important;
-        padding: 15px 30px !important;
-        background: var(--accent-lime) !important;
-        opacity: 0.9 !important;
-        color: #1a1a1a !important;
-        border-radius: 30px !important;
-        font-family: 'Manrope', sans-serif !important;
-        font-weight: 700 !important;
-        font-size: 1rem !important;
-        line-height: var(--line-height-normal) !important;
-        cursor: pointer !important;
-        pointer-events: all !important;
-        text-decoration: none !important;
-        display: inline-block !important;
-        box-shadow: 0 4px 20px rgba(191, 255, 0, 0.4) !important;
-        touch-action: manipulation !important;
-        transition: transform 0.2s ease, opacity 0.2s ease !important;
-    }
-    
-    #learn-more-button:hover {
-        opacity: 1 !important;
-        transform: translateX(-50%) scale(1.05) !important;
-    }
-    
-    section#container-parasite-hunter::after {
-        content: '↓ Scroll';
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: rgba(255, 255, 255, 0.6);
-        font-family: 'Manrope', sans-serif;
-        font-size: 0.875rem;
-        font-weight: 600;
-        line-height: var(--line-height-normal);
-        z-index: 50;
-        animation: bounce 2s infinite;
-    }
-}
-
-@keyframes bounce {
-    0%, 100% { 
-        transform: translateX(-50%) translateY(0); 
-    }
-    50% { 
-        transform: translateX(-50%) translateY(-10px); 
-    }
-}
-
-/* IMG Responsive */
+   IMG Responsive */
 .img-box-2 img {
     max-height: 280px;
     width: auto;
