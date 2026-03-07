@@ -1,0 +1,261 @@
+/* ============================================
+   HOME PAGE STYLES
+   ============================================ */
+
+/* ============================================
+   PROJECT TILES - 50/50 Layout
+   ============================================ */
+.content-section {
+    width: 100%;
+    padding: 0;
+}
+
+.project-tile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 500px;
+    position: relative;
+    background: var(--white);
+    transition: all 0.3s ease;
+}
+
+/* Alternate layout direction */
+.project-tile:nth-child(even) {
+    direction: rtl;
+}
+
+.project-tile:nth-child(even) > * {
+    direction: ltr;
+}
+
+.project-tile:hover {
+   
+}
+
+/* Project Visual (Image/Video) Side */
+.project-visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+#tile-container-parasite-hunter img {
+    max-width: 400px;
+}
+
+.project-visual img,
+.project-visual video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-tile:hover .project-visual img,
+.project-tile:hover .project-visual video {
+    transform: scale(1.08);
+}
+
+/* Project Content Side */
+.project-content {
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    background: var(--white);
+}
+
+/* Category Tag */
+.project-category {
+    display: inline-block;
+    width: fit-content;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+/* Color-coded categories */
+.project-category.design { 
+    color: var(--primary-teal); 
+    background: rgba(43, 138, 146, 0.1);
+    border: 2px solid var(--primary-teal); 
+}
+
+.project-category.code { 
+    color: var(--accent-orange); 
+    background: rgba(249, 115, 22, 0.1);
+    border: 2px solid var(--accent-orange); 
+}
+
+.project-category.strategy { 
+    color: #f1c40f; 
+    background: rgba(241, 196, 15, 0.1);
+    border: 2px solid #f1c40f; 
+}
+
+.project-category.interactive { 
+    color: var(--dark-gray); 
+    background: var(--accent-lime);
+    border: 2px solid var(--accent-lime); 
+}
+
+/* Typography */
+.project-title {
+    font-size: 2.441rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+.project-subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--medium-gray);
+    margin: 0;
+}
+
+.project-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+    margin: 0;
+}
+
+/* Tech Tags */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* CTA Button */
+.project-cta {
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--primary-teal);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: var(--dark-gray);
+    transform: translateX(8px);
+}
+
+.project-link::after {
+    content: '→';
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover::after {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   ALTERNATING BACKGROUND COLORS
+   ============================================ */
+#tile-container-parasite-hunter {
+    background: var(--white);
+}
+
+#tile-merge-built-different {
+    background: var(--light-gray);
+}
+
+#tile-decision-tree {
+    background: var(--white);
+}
+
+#tile-hotspot {
+    background: var(--light-gray);
+}
+
+#tile-bone-quiz {
+    background: var(--white);
+}
+
+#tile-studio-roadshow {
+    background: var(--light-gray);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 992px) {
+    .project-tile {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .project-tile:nth-child(even) {
+        direction: ltr;
+    }
+    
+    .project-visual {
+        min-height: 400px;
+    }
+    
+    .project-content {
+        padding: 3rem 2rem;
+    }
+    
+    .project-title {
+        font-size: 1.953rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-visual {
+        min-height: 300px;
+    }
+    
+    .project-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .project-title {
+        font-size: 1.563rem;
+    }
+    
+    .project-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .project-description {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+dist/
+backup_*.tar.gz
+*.log
+ProjectAssets/
+_notes/
+*.psd
+*.mp4
+*.mov
+*.MOV
+*.zip
+*.obj

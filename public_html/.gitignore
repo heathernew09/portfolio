@@ -1,0 +1,15 @@
+# --- System & Dreamweaver Junk ---
+.DS_Store
+Thumbs.db
+_notes/
+dws/
+*.dws
+*.log
+
+# --- Dependencies (If you use them later) ---
+/node_modules/
+/bower_components/
+/.sass-cache/
+
+# Backup
+*.zip

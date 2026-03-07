@@ -1,0 +1,146 @@
+/* ============================================
+   DECISION TREE SECTION
+   ============================================ */
+
+/* Scope: #tree-partial-container */
+#tree-partial-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* Updated from sans-serif */
+    overflow: hidden;
+}
+
+/* ============================================
+   SCREEN CONTAINER (16:9 Interactive Area)
+   ============================================ */
+
+#tree-screen-wrapper {
+    position: relative;
+    width: 80%; 
+    aspect-ratio: 16 / 9;
+    margin: 5em 0;
+    margin-bottom: 40px;
+    background: var(--white); /* Updated from #fff */
+    z-index: 1;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   IFRAME (The Decision Tree Game)
+   ============================================ */
+
+#tree-screen-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    position: relative;
+    z-index: 2;
+    background: #111;
+}
+
+/* ============================================
+   DECORATIVE FRAME (PNG Overlay)
+   ============================================ */
+
+#tree-decorative-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Scale tuning: Frame surrounds the screen */
+    width: 118%;
+    height: 128%;
+    
+    z-index: 3; /* On top to cover iframe edges */
+    pointer-events: none; /* Allows clicking through transparent areas */
+    object-fit: fill;
+}
+
+/* ============================================
+   CTA TEXT & BUTTON AREA
+   ============================================ */
+
+.tree-cta-block {
+    text-align: center;
+    max-width: 600px;
+    position: relative;
+    z-index: 5;
+    padding: 1em;
+	margin-top: 4rem;
+}
+
+.tree-cta-block h3 {
+    font-size: 2.441rem; /* Matches h3 in typography system */
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.tree-cta-block p {
+    font-size: var(--base-size);
+    font-weight: 400;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 1.25rem;
+    color: var(--dark-gray);
+}
+
+.btn-tree-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--dark-gray); /* Updated from #111 */
+    color: var(--white);
+    font-family: 'Manrope', sans-serif; /* Added for consistency */
+    font-size: 1rem; /* Explicit size for button */
+    font-weight: 700; /* Updated from bold - matches button weight */
+    line-height: var(--line-height-normal);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform transition */
+    cursor: pointer;
+}
+
+.btn-tree-link:hover {
+    background-color: #444;
+    text-decoration: none;
+    transform: translateY(-2px); /* Added subtle lift on hover */
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    #tree-screen-wrapper {
+        width: 85%;
+    }
+    
+    .tree-cta-block {
+        text-align: left;
+        max-width: 700px;
+    }
+    
+    .tree-cta-block h3 {
+        font-size: 1.75rem; /* Mobile responsive h3 */
+    }
+    
+    .tree-cta-block p {
+        font-size: 1rem;
+    }
+    
+    /* Mobile frame tuning */
+    #tree-decorative-frame {
+        width: 115%;
+        height: 125%;
+    }
+}

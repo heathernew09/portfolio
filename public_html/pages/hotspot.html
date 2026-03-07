@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall of Flame - Elanco Galliprant AVMA Booth - Heather New</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="HeatherNew" />
+	<link rel="manifest" href="/favicon/site.webmanifest" />
+	<link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/hotspot.css" />
+</head>
+<body id="galliprant-page" class="page-template">
+	<a href="#main-content" class="skip-to-content">Skip to main content</a>
+        
+		<header class="site-header">
+			<div class="header-content" data-include="nav.html"></div>
+		</header>
+
+        <main id="main-content">
+		
+		<!-- HERO -->
+		<section class="section">
+			<div class="container">
+                <div class="merge-preview">
+                    <div class="image-center">
+                        <img 
+                            src="/assets/hotspot/hotspot-screen-inplay.png" 
+                            alt="Elanco Galliprant Wall of Flame Interactive Booth Experience" 
+                            class="project-hero-placeholder img-responsive"
+                            id="project-hero-galliprant"
+                        >
+                    </div>
+                </div>
+
+                <!-- Project Meta -->
+                <div class="meta-grid">
+                    <div class="meta-item">
+                        <span class="label">Client</span>
+                        <span class="value">Elanco</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Event</span>
+                        <span class="value">AVMA 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Role</span>
+                        <span class="value">Creative Technologist &amp; Studio Manager</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Award</span>
+                        <span class="value">Best Interactive Exhibit</span>
+                    </div>
+                </div>
+				
+                <h1 style="margin-top: 2rem;">Conquesting the Floor</h1>
+                <p>In a crowded tradeshow environment dominated by a massive competitor (Z*eti$), we needed a disruption strategy. While others used clinical blue and white, we pivoted to <strong>Danger Red</strong>. The goal was stopping traffic and drawing vets away from the competition.</p>
+                        
+            </div>
+		</section>
+        
+        <!-- CONQUESTING THE FLOOR -->
+        <section class="section" id="fireball">
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+						<h2>We Set the Booth on Fire!</h2>
+						<p class="lead">Balancing Visceral Drama with Clinical Accuracy</p>
+						<p>Standard educational quizzes are passive. We designed an interaction model where the user's touch literally performs the drug's function: <strong>extinguishing inflammation</strong>.</p>
+                        <p>This tactile reinforcement created a stronger memory structure for the clinical data than reading alone. Veterinarians didn't just learn about Galliprant—they experienced its action.</p>
+                    </div>
+                    <div class="flaming-ball">
+						  <div class="fireball-quiz-container">
+								<!-- GIF backgrounds - only one will be visible at a time -->
+								<img src="https://heathernew.com/assets/hotspot/fire-incorrect.gif" 
+									 alt="Incorrect answer animation" 
+									 class="quiz-gif" 
+									 id="incorrectGif">
+
+								<img src="https://heathernew.com/assets/hotspot/smoked.gif" 
+									 alt="Correct answer animation" 
+									 class="quiz-gif" 
+									 id="correctGif">
+
+								<!-- Audio elements (hidden) -->
+								<audio id="correctAudio" preload="auto">
+									<source src="/assets/hotspot/audio/whoosh.mp3" type="audio/mpeg">
+								</audio>
+
+								<audio id="incorrectAudio" preload="auto">
+									<source src="/assets/hotspot/audio/enflame.mp3" type="audio/mpeg">
+								</audio>
+
+								<!-- AVMA Convention Sphere for correct answer -->
+								<div class="avma-sphere" id="avmaSphere">
+									<img src="https://heathernew.com/assets/hotspot/avma-convention-sphere.png" alt="AVMA Convention Sphere">
+								</div>
+
+								<!-- Quiz circle overlaid on top -->
+								<div class="quiz-circle active" id="quizCircle">
+									<div class="quiz-content">
+										<div class="quiz-question" id="quizQuestion">
+											Who won 2025 AVMA's best interactive exhibit in show?
+										</div>
+										<div class="quiz-answers" id="quizAnswers">
+											<button class="quiz-answer-btn" id="elancoBtn" onclick="checkAnswer(true)">Elanco</button>
+											<button class="quiz-answer-btn" id="competitorBtn" onclick="checkAnswer(false)">Our Competitors</button>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+                    
+                </div>
+            </div>
+        </section>
+		
+		<!-- THE SENSORY STACK -->
+        <section class="section bg-light sensory-stack">
+			<div class="sensory-container">
+				
+                <div id="sensory-text">
+					<h3>The Sensory Stack</h3>
+                	<p>Immersion requires more than pixels. I orchestrated a full soundscape to cut through the tradeshow noise. The 'Crackle' drew them in; the 'Hiss' of the fire going out provided auditory satisfaction for getting the right answer.</p>
+				</div>
+				
+                <div id="sensory-spec">
+                    <h4>Technical Specifications</h4>
+                    <ul>
+                        <li><strong>Visual:</strong> 75-inch 4K Touchscreen at 3840×2160</li>
+                        <li><strong>Haptic/Input:</strong> Reactive Touch Hotspots</li>
+                        <li><strong>Audio Layers:</strong>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Background Crackle (Ambience)</li>
+                                <li>Fire Swoop (Transition)</li>
+                                <li>Steam Hiss (Success)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Interactive Elements:</strong> Plays video, streams audio, logo re-paint, sensory map white model</li>
+                    </ul>
+                </div>
+
+			</div>
+        </section>
+
+        <!-- INTERACTION DESIGN -->
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center">Tactile Reinforcement Over Passive Learning</h2>
+                
+                <!-- Centered Video with Caption -->
+				<div style="max-width: 1200px; margin: 0 auto;">
+					<video class="img-responsive" controls>
+						<source src="/assets/hotspot/AVMA-galliprant-hot-spot-demo.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<p class="text-center" style="margin-top: 1rem;">
+						The Wall of Flame experience demo. Veterinarians engage with the 75" touchscreen to "treat" inflamed areas, physically extinguishing digital flames while learning about Galliprant's mechanism of action.
+					</p>
+				</div>
+            </div>
+        </section>
+
+        <!-- DEMO SHOWCASE -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">The Experience in Action</h2>
+				
+                   <!-- Centered Video with Caption -->
+				<div style="max-width: 800px; margin: 0 auto;">
+					<video class="img-responsive" controls>
+						<source src="/assets/hotspot/avma-galliprant-booth.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<p class="text-center" style="margin-top: 1rem;">
+						Quick Glimpse of the Booth at the AVMA event
+					</p>
+				</div>
+				
+				<!--Gallery-->
+				<div class="gallery-content" data-include="/partials/gallery.html"></div>
+                   
+            </div>
+        </section>
+
+        <!-- AWARD & TESTIMONIAL -->
+        <section class="section execution-context">
+            <div class="container">
+				<div class="grid-2 award">
+					<img src="/assets/hotspot/avma-best-interactive-exhibit.png" alt="linkedin-article-avma" class="img-responsive" id="linkedin-article-avma">
+					<div class="callout-box">
+						<h3>Best Interactive Exhibit - AVMA 2025</h3>
+
+						<blockquote class="internal-quote">
+							"Elanco gave us the opportunity to push the boundaries of engagement to create an interactive space that captivated a crowd at AVMA. Using digital flooring, a large touchscreen that gamified osteoarthritis education, steam-driven fire simulations, and fireside chats with a well-known DVM in the industry, brought to life a fun, educational, and engaging extension of the brand."
+							<span class="attrib">— George Bird, Director of Experience Design, MERGE</span>
+						</blockquote>
+
+
+                                         <div class="testimonial-container" style="margin-top: 3rem;">
+                                                <div class="testimonial-block">
+                                                       <p class="test-txt">"Wanted to pop in and shout out Heather New for her work on the Elanco Galliprant booth for AVMA! I just found out we won best interactive exhibit, and I am guessing the game Heather built had everything to do with that!"</p>
+                                                       <p class="test-auth">— Casey Luttrell, MERGE</p>
+                                                </div>
+                              
+					</div>           </div>
+				</div>
+            </div>
+        </section>
+
+        <!-- BUILD IT SECTION - Optional Deep Dive -->
+        <section class="section border-top">
+            <div class="container">
+                
+                <div class="grid-2 build">
+                    <div>
+						<h3>Building It: Audio</h3>
+                		<p class="section-intro">Creating an immersive experience for a tradeshow environment required both technical precision and creative problem-solving.</p>
+
+						<h4 style="margin-top: 3rem;">Audio Direction</h4>
+						<p>When you're in this business you run into really talented people along the way, Dave is one of those guys. He helps out with the sounds and audio for the interactive experiences I put together. Off the shelf SFX that are good are difficult to find. The creativity Dave brings to the table is what it's all about. I can tell him what I'm envisioning and he whips it up. For this fire background he used some everyday items. The fizzles and crinkles plus the distortions help create the fire illusion.</p>
+						
+                        <audio controls>
+						  <source src="https://heathernew.com/assets/hotspot/audio/fire_bg.mp3" type="audio/mpeg">
+						  <source src="https://heathernew.com/assets/hotspot/audio/fire_bg.m4a" type="audio/mp4">
+						  <source src="https://heathernew.com/assets/hotspot/audio/fire_bg.wav" type="audio/wav">
+						  Your browser does not support the audio element.
+						</audio>
+                        
+                    </div>
+
+                    <div>
+						<img src="/assets/hotspot/daves-sound-helpers.png" class="img-responsive" alt="Audio testing setup with soda and bag for sound design">
+                        <img src="/assets/hotspot/daves-audio-controllers.png" class="img-responsive" alt="Audio testing setup with soda and bag for sound design">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-narrow" style="margin-top: 2rem;">
+                <h3>Quiz Prototype: The Chicago Hot Dog</h3>
+                <p>To demo the interactive and build a proof of concept I rapidly prototyped a chicago hot dog quiz. Here is the codepen if you'd like to adjust it and make your own quiz! There are different factors that go into the interaction, giving feedback to users</p>
+                
+                <p class="codepen" data-height="600" data-slug-hash="emmxGzB" data-pen-title="Hot dog Red-Outline" data-preview="true" data-editable="true" data-user="ladywebhawk" style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/ladywebhawk/pen/emmxGzB">
+                Hot dog Red-Outline</a> by Heather New (<a href="https://codepen.io/ladywebhawk">@ladywebhawk</a>) on <a href="https://codepen.io">CodePen</a></span></p>
+                <script async src="https://public.codepenassets.com/embed/index.js"></script>  
+            </div>
+			
+        </section>
+			
+		<!-- CREDITS -->
+		<section class="section credits border-top">
+			<div class="container">
+				<h2>Credits</h2>
+				<p class="section-intro">Congrats to our partners at Elanco and the MERGE team for bringing home Best Interactive Exhibit at #AVMA2025 for the unforgettable Playing with Fire booth.</p>
+
+				<div class="credits-grid">
+                    <div class="credit-col">
+                        <h4>Wall of Flame Core Team</h4>
+                        <ul>
+                            <li><strong>Creative Technologist:</strong> Heather New</li>
+                            <li><strong>Creative Direction:</strong> Amy McVey</li>
+                            <li><strong>Studio Audio Partner:</strong> David Merriman</li>
+                            <li><strong>Studio Print Manager:</strong> Casey Luttrell</li>
+                            <li><strong>Account Leadership:</strong> Adriana Zardus, Jessica Ocampo</li>
+                        </ul>
+                    </div>
+
+					<div class="credit-col">
+						<h4>AVMA 2025 "Playing with Fire" Booth</h4>
+						<ul>
+							<li><strong>Executive Creative Leadership:</strong> George Bird, Josh Liotta, James Holden</li>
+							<li><strong>Account &amp; PM Team:</strong> Bethany Zimmermann, Malarie Claudepierre, Kellie Innocenti, Rob Tucker</li>
+							<li><strong>Studio:</strong> Casey Luttrell, Josh Ziegler, Wes Huisengo, Dan Boehne, Jody Flaherty</li>
+							<li><strong>Creative &amp; Design Team:</strong> Daniel Valencia, Kellsey Martin, Spencer Tetik</li>
+							<li><strong>Medical &amp; Editorial:</strong> Kimberly Pavlovich, Daniel Smith, Ph.D.</li>
+                            <li><strong>Client Partners:</strong> Nick Sterling (Elanco), Hamilton (Production Partner)</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p class="asset-disclosure">All photos, videos, and assets have individual credits due to a variety of contributors within the team listed above. Please request additional info for IP and usage rights by emailing contact(at)heathernew.com</p>
+			</div>
+		</section>
+			
+    </main>
+	<script>
+		// Configure GIF durations in milliseconds
+		const GIF_DURATIONS = {
+			correct: 4000,   // Duration of fire-incorrect.gif (Elanco ignites!) in ms
+			incorrect: 500   // Duration of smoked.gif (competitors fizzle) in ms
+		};
+
+		const ANIMATION_DURATIONS = {
+			sphere: 2000,      // How long sphere stays visible
+			buttonColor: 3000  // How long button stays blue
+		};
+
+		let hideTimeout = null;
+		let sphereTimeout = null;
+		let buttonTimeout = null;
+
+		function checkAnswer(isCorrect) {
+			const fireGif = document.getElementById('incorrectGif'); // Now the FIRE gif
+			const smokeGif = document.getElementById('correctGif');   // Now the SMOKE gif
+			const correctAudio = document.getElementById('correctAudio');    // Whoosh
+			const incorrectAudio = document.getElementById('incorrectAudio'); // Enflame
+			const quizCircle = document.getElementById('quizCircle');
+			const sphere = document.getElementById('avmaSphere'); // Changed from trophy
+			const elancoBtn = document.getElementById('elancoBtn');
+			const competitorBtn = document.getElementById('competitorBtn');
+
+			// Clear any existing timeouts
+			if (hideTimeout) {
+				clearTimeout(hideTimeout);
+				hideTimeout = null;
+			}
+			if (sphereTimeout) {
+				clearTimeout(sphereTimeout);
+				sphereTimeout = null;
+			}
+			if (buttonTimeout) {
+				clearTimeout(buttonTimeout);
+				buttonTimeout = null;
+			}
+
+			// Stop any currently playing audio
+			correctAudio.pause();
+			correctAudio.currentTime = 0;
+			incorrectAudio.pause();
+			incorrectAudio.currentTime = 0;
+
+			// Remove any existing animations
+			quizCircle.classList.remove('shake');
+			sphere.classList.remove('show', 'hide'); // Changed from trophy
+
+			// Hide both GIFs first
+			fireGif.classList.remove('active');
+			smokeGif.classList.remove('active');
+			fireGif.style.visibility = 'hidden';
+			smokeGif.style.visibility = 'hidden';
+
+			// Force GIF to reload so it plays from the beginning only once
+			if (isCorrect) {
+				// ELANCO = IGNITE THE FIRE! 🔥
+				const src = fireGif.src;
+				fireGif.src = '';
+				fireGif.src = src;
+				fireGif.style.visibility = 'visible';
+				fireGif.classList.add('active');
+
+				// Play enflame audio (fire igniting!)
+				incorrectAudio.play().catch(err => console.log('Audio play failed:', err));
+
+				// Change Elanco button to icy blue (cool confidence)
+				elancoBtn.classList.add('correct');
+
+				// Show AVMA sphere
+				sphere.classList.add('show');
+
+				console.log('Correct answer! Elanco ignites! 🔥');
+
+				// Hide sphere after duration
+				sphereTimeout = setTimeout(() => {
+					sphere.classList.remove('show');
+					sphere.classList.add('hide');
+				}, ANIMATION_DURATIONS.sphere);
+
+				// Reset button color after duration
+				buttonTimeout = setTimeout(() => {
+					elancoBtn.classList.remove('correct');
+				}, ANIMATION_DURATIONS.buttonColor);
+
+				// Hide GIF after duration
+				hideTimeout = setTimeout(() => {
+					fireGif.classList.remove('active');
+					setTimeout(() => {
+						fireGif.style.visibility = 'hidden';
+					}, 300); // Wait for fade transition
+				}, GIF_DURATIONS.correct);
+
+			} else {
+				// COMPETITORS = FIZZLE OUT (STEAM) 💨
+				const src = smokeGif.src;
+				smokeGif.src = '';
+				smokeGif.src = src;
+				smokeGif.style.visibility = 'visible';
+				smokeGif.classList.add('active');
+
+				// Play whoosh audio (extinguishing/fizzling)
+				correctAudio.play().catch(err => console.log('Audio play failed:', err));
+
+				// Shake the ball "no"
+				quizCircle.classList.add('shake');
+
+				// Remove shake class after animation completes
+				setTimeout(() => {
+					quizCircle.classList.remove('shake');
+				}, 600);
+
+				console.log('Incorrect answer! Competitors fizzle out 💨');
+
+				// Hide after GIF duration
+				hideTimeout = setTimeout(() => {
+					smokeGif.classList.remove('active');
+					setTimeout(() => {
+						smokeGif.style.visibility = 'hidden';
+					}, 300); // Wait for fade transition
+				}, GIF_DURATIONS.incorrect);
+			}
+		}
+
+		// Optional: Preload GIFs and audio for smoother performance
+		window.addEventListener('DOMContentLoaded', () => {
+			const fireGif = new Image();
+			fireGif.src = 'https://heathernew.com/assets/hotspot/fire-incorrect.gif';
+
+			const smokeGif = new Image();
+			smokeGif.src = 'https://heathernew.com/assets/hotspot/smoked.gif';
+
+			// Preload AVMA sphere
+			const sphereImg = new Image();
+			sphereImg.src = 'https://heathernew.com/assets/hotspot/avma-convention-sphere.png';
+
+			// Preload audio
+			const correctAudio = document.getElementById('correctAudio');
+			const incorrectAudio = document.getElementById('incorrectAudio');
+			correctAudio.load();
+			incorrectAudio.load();
+		});
+	</script>
+    
+	<div id="footer-trigger" data-include="footer.html"></div>
+	
+	<script src="/js/site-core.js" defer></script>
+    <script src="/js/include.js"></script>
+	
+</body>
+</html>
