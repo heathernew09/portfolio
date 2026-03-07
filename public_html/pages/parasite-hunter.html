@@ -21,16 +21,16 @@
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
         <!--Nav Menu-->
 	<header class="site-header">
-    	<div class="header-content" data-include="nav.html"></div>
+    	<div class="header-content"><load src="../../src/partials/nav.html" /></div>
 	</header>
     
     <main id="main-content">
 		<section><!-- 3D Interactive Container -->
             <div class="hero-3d">
-                <div id="section-parasite-hunter" data-include="parasite-3d.html"></div>
+                <div id="section-parasite-hunter"><load src="../../src/partials/parasite-3d.html" /></div>
             </div>
 		</section>
-		<!-- Project 1 Parasite hunter data-include="hero-parasite.html"-->
+		
 		<section id="container-parasite-hunter" class="content-section" >
 			<div class="para-content-wrapper phone-mock-block">
 				  <!-- Intro Block -->
@@ -463,13 +463,12 @@
         
     </main>
     
-    <div id="footer-trigger" data-include="footer.html"></div>
+    <div id="footer-trigger"><load src="../../src/partials/footer.html" /></div>
 
 	<!-- Scripts -->
 	<script src="/js/site-core.js"></script>
 	<!-- Parasite 3d JS included in partial 
 	<script src="/js/parasite3d.js" defer></script>-->
-	<script src="/js/include.js"></script>
 	<script>
 		let isPlaying = false;
 		let isPaused = false;
