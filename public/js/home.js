@@ -48,14 +48,23 @@ function renderProjectTile(project) {
         visualHtml = `
             <div class="${project.visual.containerClass}">
                 <div class="image-center">
-                    <img src="${project.visual.src}" alt="${project.visual.alt}" class="project-hero-placeholder img-responsive" id="${project.visual.id}">
+                    <img src="${project.visual.src}" 
+                         alt="${project.visual.alt}" 
+                         class="project-hero-placeholder img-responsive" 
+                         id="${project.visual.id}"
+                         loading="lazy"
+                         decodings="async">
                 </div>
             </div>
         `;
     } else {
         visualHtml = `
             <div class="project-visual">
-                <img src="${project.visual.src}" alt="${project.visual.alt}" id="${project.visual.id || ''}" loading="lazy">
+                <img src="${project.visual.src}" 
+                     alt="${project.visual.alt}" 
+                     id="${project.visual.id || ''}" 
+                     loading="lazy"
+                     decodings="async">
             </div>
         `;
     }
