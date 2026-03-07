@@ -1,5 +1,5 @@
 /* ============================================
-   DECISION TREE SECTION - MODERN APPLE AESTHETIC
+   DECISION TREE SECTION - REFINED NARRATIVE
    ============================================ */
 
 #decision-tree-page {
@@ -7,11 +7,15 @@
 }
 
 #tree-partial-container {
-    padding: 4rem 0;
+    padding: 6rem 0 0 0; /* Extra top padding for headline */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.section-title.hero-title {
+    margin-bottom: 6rem; /* Gap between title and frame */
 }
 
 /* Hero Screen Area */
@@ -23,7 +27,7 @@
     background: #000;
     border-radius: 0;
     overflow: visible;
-    margin: 4em 0;
+    margin: 2em 0;
 }
 
 #tree-iframe {
@@ -46,75 +50,119 @@
     object-fit: fill;
 }
 
-/* Content Layout - Editorial Narrative */
+.tree-cta-block {
+    text-align: center;
+    max-width: 600px;
+    position: relative;
+    z-index: 5;
+    padding: 1rem;
+    margin-top: 10rem;
+}
+
+/* Content Layout - Visual Journal */
 .project-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 4rem; /* Added side padding as requested */
+}
+
+@media (max-width: 768px) {
+    .project-content {
+        padding: 0 2rem;
+    }
 }
 
 .section-title {
     font-size: 3rem;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     color: #1d1d1f;
     letter-spacing: -0.02em;
 }
 
-/* Narrative Blocks */
-.narrative-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    margin-bottom: 10rem;
+/* Journal Sequence */
+.journal-item {
+    margin-bottom: 12rem;
+    position: relative;
 }
 
-.narrative-block.reverse {
-    direction: rtl;
+.journal-visual {
+    margin-bottom: 3rem;
+    width: 100%;
 }
 
-.narrative-block.reverse .narrative-text {
-    direction: ltr;
+.journal-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    display: block;
 }
 
-.narrative-text h2 {
-    font-size: 2.25rem;
+.journal-meta {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.journal-meta h3 {
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #1d1d1f;
-    margin-top: 0;
 }
 
-.narrative-text p {
+.journal-meta p {
     font-size: 1.25rem;
     line-height: 1.6;
     color: #424245;
 }
 
-.narrative-visual {
-    position: relative;
+/* Cluster for 3 images */
+.journal-cluster-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
-.narrative-visual img {
+.journal-cluster-3 img {
     width: 100%;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
 }
 
-/* Small gallery cluster within narrative */
-.visual-cluster {
+/* Narrative Split sections padding */
+.narrative-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 10rem;
+    padding: 0 2rem;
 }
 
-.visual-cluster img {
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+/* Bleed Effect (Off-screen) */
+.bleed-right {
+    width: 115% !important;
+    max-width: none !important;
+    margin-right: -15%;
+}
+
+/* Grid Clusters */
+.journal-cluster {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.journal-cluster img {
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
 }
 
 /* Video Container */
@@ -126,16 +174,17 @@
     margin: 6rem 0;
 }
 
+/* Credits Styling Cleanup */
+#decision-tree-page .credits {
+    background: transparent !important;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding: 8rem 0;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
-    .narrative-block {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        margin-bottom: 6rem;
-    }
-    .narrative-block.reverse {
-        direction: ltr;
-    }
-    .section-title { font-size: 2.5rem; }
+    .narrative-split { grid-template-columns: 1fr; gap: 2rem; padding: 0; }
+    .journal-cluster, .journal-cluster-3 { grid-template-columns: 1fr; }
+    .bleed-right { width: 100% !important; margin-right: 0; }
     #tree-screen-wrapper { width: 90%; }
 }
