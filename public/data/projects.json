@@ -1,0 +1,77 @@
+[
+  {
+    "id": "parasite-hunter",
+    "title": "Parasite Hunter",
+    "subtitle": "Interactive WebAR Experience for Elanco",
+    "category": "WebAR Game",
+    "description": "An engaging augmented reality game that educates veterinarians about parasite prevention. Featured at AVMA 2025 and VMX trade shows, providing an entertaining booth experience while delivering product education.",
+    "visual": {
+      "type": "image",
+      "src": "/assets/para/parasite-hunter-cover.png",
+      "alt": "Parasite Hunter AR game interface"
+    },
+    "tech": ["WebXR", "Three.js", "AR.js", "Game Design"],
+    "cta": {
+      "text": "View Project",
+      "link": "/pages/parasite-hunter.html"
+    },
+    "className": ""
+  },
+  {
+    "id": "merge",
+    "title": "MERGE",
+    "subtitle": "Modular and Scalable Agency Website",
+    "category": "Built Different",
+    "description": "Building interactive experiences that educate, engage, and inspire. From AR activations to immersive 3D environments, we help healthcare brands connect with their audiences.",
+    "visual": {
+      "type": "image",
+      "src": "/assets/merge-M.png",
+      "alt": "MERGE Logo",
+      "id": "merge-logo"
+    },
+    "tech": ["UI/UX Design", "404 Game", "Modular System"],
+    "cta": {
+      "text": "Explore Work",
+      "link": "/pages/parasite-hunter.html"
+    },
+    "className": "merge-preview"
+  },
+  {
+    "id": "decision-tree",
+    "title": "The Zen Garden Interactive Experience",
+    "subtitle": "Understanding the data, not just the pixels",
+    "category": "VMX 2026",
+    "description": "We translated a complex multi-layered decision tree into a self-service digital product. I built it, made it beautiful and added the layers of interactivity.",
+    "visual": {
+      "type": "image",
+      "src": "/assets/tree/decision-tree-screen.jpg",
+      "alt": "Zen Garden Decision Tree Intractive"
+    },
+    "tech": ["Vanilla JS", "CSS", "HTML"],
+    "cta": {
+      "text": "See Demo",
+      "link": "/pages/decision-tree.html"
+    },
+    "className": ""
+  },
+  {
+    "id": "hotspot",
+    "title": "We Set the Booth on Fire!",
+    "subtitle": "Balancing Visceral Drama with Clinical Accuracy",
+    "category": "AVMA 2025",
+    "description": "In a crowded tradeshow environment dominated by a massive competitor (Z*eti$), we needed a disruption strategy. While others used clinical blue and white, we pivoted to Danger Red. The goal was stopping traffic and drawing vets away from the competition.",
+    "visual": {
+      "type": "image",
+      "src": "/assets/hotspot/hotspot-screen-inplay.png",
+      "alt": "Elanco Galliprant Wall of Flame Interactive Booth Experience at AVMA 2025",
+      "id": "project-hero-galliprant",
+      "containerClass": "hotspot-preview"
+    },
+    "tech": [],
+    "cta": {
+      "text": "See Demo",
+      "link": "/pages/hotspot.html"
+    },
+    "className": ""
+  }
+]

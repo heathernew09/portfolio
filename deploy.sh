@@ -18,9 +18,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 2. Backup on server
-echo "📦 Creating backup on server..."
-ssh -i "$SG_KEY" "$SG_USER@$SG_HOST" -p "$SG_PORT" "tar -czf backup_portfolio_$(date +%Y%m%d_%H%M%S).tar.gz -C www/heathernew.com/ public_html/"
+# 2. Backup on server (Excluding large assets to save time/space)
+echo "📦 Creating lean backup on server..."
+ssh -i "$SG_KEY" "$SG_USER@$SG_HOST" -p "$SG_PORT" "tar -czf backup_portfolio_$(date +%Y%m%d_%H%M%S).tar.gz --exclude='*.mp4' --exclude='*.mov' --exclude='*.MOV' --exclude='*.zip' --exclude='*.psd' -C www/heathernew.com/ public_html/"
 
 # 3. Deploy (Sync local dist/ to server public_html/)
 echo "☁️ Deploying to SiteGround..."
