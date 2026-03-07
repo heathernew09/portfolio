@@ -29,12 +29,11 @@
                 <img 
                     src="/assets/hotspot/hotspot-screen-inplay.png" 
                     alt="Elanco Galliprant Wall of Flame Interactive Booth Experience" 
-                    class="img-responsive"
                     id="project-hero-galliprant"
                 >
 
                 <!-- Project Meta -->
-                <div class="meta-grid" style="margin-top: 3rem;">
+                <div class="meta-grid">
                     <div class="meta-item">
                         <span class="label">Client</span>
                         <span class="value">Elanco</span>
@@ -53,7 +52,7 @@
                     </div>
                 </div>
 				
-                <h1 style="margin-top: 4rem; text-align: center;">Conquesting the Floor</h1>
+                <h1 style="margin-top: 4rem;">Conquesting the Floor</h1>
                 <p class="text-center" style="max-width: 800px; margin: 0 auto;">In a crowded tradeshow environment dominated by a massive competitor, we needed a disruption strategy. While others used clinical blue and white, we pivoted to <strong>Danger Red</strong>. The goal was stopping traffic and drawing vets away from the competition.</p>
             </div>
 		</section>
@@ -70,13 +69,14 @@
                     </div>
                     <div class="flaming-ball">
 						  <div class="fireball-quiz-container">
-								<img src="/assets/hotspot/fire-incorrect.gif" alt="Fire" class="quiz-gif" id="incorrectGif">
-								<img src="/assets/hotspot/smoked.gif" alt="Smoke" class="quiz-gif" id="correctGif">
+                                <!-- GIF Mapping: Correct=Smoke, Incorrect=Fire -->
+								<img src="/assets/hotspot/fire-incorrect.gif" alt="Fire" class="quiz-gif" id="fireGif">
+								<img src="/assets/hotspot/smoked.gif" alt="Smoke" class="quiz-gif" id="smokeGif">
 
-								<audio id="correctAudio" preload="auto">
+								<audio id="smokeAudio" preload="auto">
 									<source src="/assets/hotspot/audio/whoosh.mp3" type="audio/mpeg">
 								</audio>
-								<audio id="incorrectAudio" preload="auto">
+								<audio id="fireAudio" preload="auto">
 									<source src="/assets/hotspot/audio/enflame.mp3" type="audio/mpeg">
 								</audio>
 
@@ -121,10 +121,11 @@
         <!-- VIDEO DEMO -->
         <section class="section">
             <div class="container">
-                <h2 class="text-center">Tactile Reinforcement</h2>
-				<div style="max-width: 1000px; margin: 2rem auto;">
-					<video class="img-responsive" style="border-radius: 24px;" controls>
+                <h2 class="text-center" style="margin-bottom: 3rem;">Tactile Reinforcement</h2>
+				<div style="max-width: 1000px; margin: 0 auto;">
+					<video class="img-responsive" style="border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);" controls playsinline muted>
 						<source src="/assets/hotspot/AVMA-galliprant-hot-spot-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
 					</video>
 				</div>
             </div>
@@ -139,7 +140,7 @@
         </section>
 
         <!-- TESTIMONIAL -->
-        <section class="section execution-context">
+        <section class="section execution-context bg-dark-testimonial">
             <div class="container">
                 <div class="testimonial-full-width">
                     <div class="testimonial-block">
@@ -182,59 +183,53 @@
 	
 	<script src="/js/site-core.js" defer></script>
 	<script>
-        // Quiz & Gallery Logic
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Gallery if present
+            // PhotoSwipe
             if (typeof initPhotoSwipe === 'function') {
                 initPhotoSwipe('.gallery');
             }
 
-            // Quiz Implementation
-            const GIF_DURATIONS = { correct: 4000, incorrect: 500 };
-            const ANIMATION_DURATIONS = { sphere: 2000, buttonColor: 3000 };
-            let hideTimeout, sphereTimeout, buttonTimeout;
-
-            const fireGif = document.getElementById('incorrectGif');
-            const smokeGif = document.getElementById('correctGif');
-            const correctAudio = document.getElementById('correctAudio');
-            const incorrectAudio = document.getElementById('incorrectAudio');
+            // Quiz Logic
+            const fireGif = document.getElementById('fireGif');
+            const smokeGif = document.getElementById('smokeGif');
+            const fireAudio = document.getElementById('fireAudio');
+            const smokeAudio = document.getElementById('smokeAudio');
             const quizCircle = document.getElementById('quizCircle');
             const sphere = document.getElementById('avmaSphere');
             const elancoBtn = document.getElementById('elancoBtn');
             const competitorBtn = document.getElementById('competitorBtn');
 
-            function checkAnswer(isCorrect) {
-                clearTimeout(hideTimeout); clearTimeout(sphereTimeout); clearTimeout(buttonTimeout);
-                correctAudio.pause(); correctAudio.currentTime = 0;
-                incorrectAudio.pause(); incorrectAudio.currentTime = 0;
+            let resetTimeout;
 
-                quizCircle.classList.remove('shake');
-                sphere.classList.remove('show', 'hide');
-                fireGif.style.visibility = 'hidden'; smokeGif.style.visibility = 'hidden';
-                fireGif.classList.remove('active'); smokeGif.classList.remove('active');
+            function checkAnswer(choice) {
+                // Stop everything
+                clearTimeout(resetTimeout);
+                [fireAudio, smokeAudio].forEach(a => { a.pause(); a.currentTime = 0; });
+                [fireGif, smokeGif].forEach(g => g.classList.remove('active'));
+                sphere.classList.remove('show');
 
-                if (isCorrect) {
-                    fireGif.src = fireGif.src; // Reload GIF
-                    fireGif.style.visibility = 'visible';
+                if (choice === 'elanco') {
+                    // Success: FIRE animation happens when Elanco is clicked
                     fireGif.classList.add('active');
-                    incorrectAudio.play().catch(e => {});
+                    fireAudio.play().catch(e => {});
                     sphere.classList.add('show');
-                    sphereTimeout = setTimeout(() => { sphere.classList.remove('show'); sphere.classList.add('hide'); }, ANIMATION_DURATIONS.sphere);
-                    hideTimeout = setTimeout(() => { fireGif.classList.remove('active'); fireGif.style.visibility = 'hidden'; }, GIF_DURATIONS.correct);
                 } else {
-                    smokeGif.src = smokeGif.src; // Reload GIF
-                    smokeGif.style.visibility = 'visible';
+                    // Fail: STEAM animation happens for competitors
                     smokeGif.classList.add('active');
-                    correctAudio.play().catch(e => {});
+                    smokeAudio.play().catch(e => {});
                     quizCircle.classList.add('shake');
                     setTimeout(() => quizCircle.classList.remove('shake'), 600);
-                    hideTimeout = setTimeout(() => { smokeGif.classList.remove('active'); smokeGif.style.visibility = 'hidden'; }, GIF_DURATIONS.incorrect);
                 }
+
+                // Reset after 4s
+                resetTimeout = setTimeout(() => {
+                    [fireGif, smokeGif].forEach(g => g.classList.remove('active'));
+                    sphere.classList.remove('show');
+                }, 4000);
             }
 
-            // Add listeners
-            if (elancoBtn) elancoBtn.addEventListener('click', () => checkAnswer(true));
-            if (competitorBtn) competitorBtn.addEventListener('click', () => checkAnswer(false));
+            if (elancoBtn) elancoBtn.addEventListener('click', () => checkAnswer('elanco'));
+            if (competitorBtn) competitorBtn.addEventListener('click', () => checkAnswer('competitor'));
         });
 	</script>
 </body>
