@@ -70,8 +70,8 @@
                     </div>
                     <div class="flaming-ball">
 						  <div class="fireball-quiz-container">
-								<img src="https://heathernew.com/assets/hotspot/fire-incorrect.gif" alt="Fire" class="quiz-gif" id="incorrectGif">
-								<img src="https://heathernew.com/assets/hotspot/smoked.gif" alt="Smoke" class="quiz-gif" id="correctGif">
+								<img src="/assets/hotspot/fire-incorrect.gif" alt="Fire" class="quiz-gif" id="incorrectGif">
+								<img src="/assets/hotspot/smoked.gif" alt="Smoke" class="quiz-gif" id="correctGif">
 
 								<audio id="correctAudio" preload="auto">
 									<source src="/assets/hotspot/audio/whoosh.mp3" type="audio/mpeg">
@@ -81,15 +81,15 @@
 								</audio>
 
 								<div class="avma-sphere" id="avmaSphere">
-									<img src="https://heathernew.com/assets/hotspot/avma-convention-sphere.png" alt="AVMA Convention Sphere">
+									<img src="/assets/hotspot/avma-convention-sphere.png" alt="AVMA Convention Sphere">
 								</div>
 
 								<div class="quiz-circle active" id="quizCircle">
 									<div class="quiz-content">
 										<div class="quiz-question">Who won 2025 AVMA's best interactive exhibit in show?</div>
 										<div class="quiz-answers">
-											<button class="quiz-answer-btn" onclick="checkAnswer(true)">Elanco</button>
-											<button class="quiz-answer-btn" onclick="checkAnswer(false)">Our Competitors</button>
+											<button class="quiz-answer-btn" id="elancoBtn">Elanco</button>
+											<button class="quiz-answer-btn" id="competitorBtn">Our Competitors</button>
 										</div>
 									</div>
 								</div>
@@ -182,51 +182,60 @@
 	
 	<script src="/js/site-core.js" defer></script>
 	<script>
-        // Gallery Fix & Quiz Logic
+        // Quiz & Gallery Logic
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Gallery if present
             if (typeof initPhotoSwipe === 'function') {
                 initPhotoSwipe('.gallery');
             }
+
+            // Quiz Implementation
+            const GIF_DURATIONS = { correct: 4000, incorrect: 500 };
+            const ANIMATION_DURATIONS = { sphere: 2000, buttonColor: 3000 };
+            let hideTimeout, sphereTimeout, buttonTimeout;
+
+            const fireGif = document.getElementById('incorrectGif');
+            const smokeGif = document.getElementById('correctGif');
+            const correctAudio = document.getElementById('correctAudio');
+            const incorrectAudio = document.getElementById('incorrectAudio');
+            const quizCircle = document.getElementById('quizCircle');
+            const sphere = document.getElementById('avmaSphere');
+            const elancoBtn = document.getElementById('elancoBtn');
+            const competitorBtn = document.getElementById('competitorBtn');
+
+            function checkAnswer(isCorrect) {
+                clearTimeout(hideTimeout); clearTimeout(sphereTimeout); clearTimeout(buttonTimeout);
+                correctAudio.pause(); correctAudio.currentTime = 0;
+                incorrectAudio.pause(); incorrectAudio.currentTime = 0;
+
+                quizCircle.classList.remove('shake');
+                sphere.classList.remove('show', 'hide');
+                fireGif.style.visibility = 'hidden'; smokeGif.style.visibility = 'hidden';
+                fireGif.classList.remove('active'); smokeGif.classList.remove('active');
+
+                if (isCorrect) {
+                    fireGif.src = fireGif.src; // Reload GIF
+                    fireGif.style.visibility = 'visible';
+                    fireGif.classList.add('active');
+                    incorrectAudio.play().catch(e => {});
+                    sphere.classList.add('show');
+                    sphereTimeout = setTimeout(() => { sphere.classList.remove('show'); sphere.classList.add('hide'); }, ANIMATION_DURATIONS.sphere);
+                    hideTimeout = setTimeout(() => { fireGif.classList.remove('active'); fireGif.style.visibility = 'hidden'; }, GIF_DURATIONS.correct);
+                } else {
+                    smokeGif.src = smokeGif.src; // Reload GIF
+                    smokeGif.style.visibility = 'visible';
+                    smokeGif.classList.add('active');
+                    correctAudio.play().catch(e => {});
+                    quizCircle.classList.add('shake');
+                    setTimeout(() => quizCircle.classList.remove('shake'), 600);
+                    hideTimeout = setTimeout(() => { smokeGif.classList.remove('active'); smokeGif.style.visibility = 'hidden'; }, GIF_DURATIONS.incorrect);
+                }
+            }
+
+            // Add listeners
+            if (elancoBtn) elancoBtn.addEventListener('click', () => checkAnswer(true));
+            if (competitorBtn) competitorBtn.addEventListener('click', () => checkAnswer(false));
         });
-
-		const GIF_DURATIONS = { correct: 4000, incorrect: 500 };
-		const ANIMATION_DURATIONS = { sphere: 2000, buttonColor: 3000 };
-		let hideTimeout, sphereTimeout, buttonTimeout;
-
-		function checkAnswer(isCorrect) {
-			const fireGif = document.getElementById('incorrectGif');
-			const smokeGif = document.getElementById('correctGif');
-			const correctAudio = document.getElementById('correctAudio');
-			const incorrectAudio = document.getElementById('incorrectAudio');
-			const quizCircle = document.getElementById('quizCircle');
-			const sphere = document.getElementById('avmaSphere');
-
-			clearTimeout(hideTimeout); clearTimeout(sphereTimeout); clearTimeout(buttonTimeout);
-			correctAudio.pause(); correctAudio.currentTime = 0;
-			incorrectAudio.pause(); incorrectAudio.currentTime = 0;
-
-			quizCircle.classList.remove('shake');
-			sphere.classList.remove('show', 'hide');
-			fireGif.style.visibility = 'hidden'; smokeGif.style.visibility = 'hidden';
-
-			if (isCorrect) {
-				fireGif.src = fireGif.src;
-				fireGif.style.visibility = 'visible';
-				fireGif.classList.add('active');
-				incorrectAudio.play().catch(e => {});
-				sphere.classList.add('show');
-				sphereTimeout = setTimeout(() => { sphere.classList.remove('show'); sphere.classList.add('hide'); }, ANIMATION_DURATIONS.sphere);
-				hideTimeout = setTimeout(() => { fireGif.classList.remove('active'); fireGif.style.visibility = 'hidden'; }, GIF_DURATIONS.correct);
-			} else {
-				smokeGif.src = smokeGif.src;
-				smokeGif.style.visibility = 'visible';
-				smokeGif.classList.add('active');
-				correctAudio.play().catch(e => {});
-				quizCircle.classList.add('shake');
-				setTimeout(() => quizCircle.classList.remove('shake'), 600);
-				hideTimeout = setTimeout(() => { smokeGif.classList.remove('active'); smokeGif.style.visibility = 'hidden'; }, GIF_DURATIONS.incorrect);
-			}
-		}
 	</script>
 </body>
 </html>
