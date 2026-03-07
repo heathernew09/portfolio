@@ -145,49 +145,35 @@
     <script src="/js/site-core.js" defer></script>
     <script src="/js/flappym.js" defer></script>
     <script src="/js/erg.js" defer></script>
-    <script src="/js/include.js" defer></script>
 
     <script>
-    document.addEventListener('partialLoaded', (e) => {
-        const targetId = e.target.id;
-
-        // 1. FLAPPY M: Registry and Wake/Sleep
-        if (targetId === 'container-flappym') {
-            window.sectionManager.register('section-flappym-container', 
-                () => { 
-                    if (typeof window.resumeFlappyGame === 'function') window.resumeFlappyGame();
-                    else if (typeof window.initFlappyGame === 'function') window.initFlappyGame();
-                }, 
-                () => { if (typeof window.pauseFlappyGame === 'function') window.pauseFlappyGame(); }
-            );
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. FLAPPY M Initialization
+        if (typeof window.initFlappyGame === 'function') {
+            window.initFlappyGame();
         }
 
-        // 2. MERGEWORLD: Registry and Animation Control
-        if (targetId === 'container-mergeworld') {
-            window.sectionManager.register('section-mergeworld-container', 
-                () => { 
-                    // Tell the 3D scene to start rendering
-                    if (window.mergeworldAnim && typeof window.mergeworldAnim.play === 'function') {
-                        window.mergeworldAnim.play();
-                    }
-                    document.getElementById('container-mergeworld').classList.add('active');
-                }, 
-                () => { 
-                    // Stop rendering to save GPU/CPU when off-screen
-                    if (window.mergeworldAnim && typeof window.mergeworldAnim.pause === 'function') {
-                        window.mergeworldAnim.pause();
-                    }
-                    document.getElementById('container-mergeworld').classList.remove('active');
+        // 2. MERGEWORLD: The script in section-mergeworld.html usually self-starts, 
+        // but we ensure the manager knows about it
+        window.sectionManager.register('section-mergeworld-container', 
+            () => { 
+                if (window.mergeworldAnim && typeof window.mergeworldAnim.play === 'function') {
+                    window.mergeworldAnim.play();
                 }
-            );
-        }
+                document.getElementById('container-mergeworld').classList.add('active');
+            }, 
+            () => { 
+                if (window.mergeworldAnim && typeof window.mergeworldAnim.pause === 'function') {
+                    window.mergeworldAnim.pause();
+                }
+                document.getElementById('container-mergeworld').classList.remove('active');
+            }
+        );
 
-        // 3. ERG PHYSICS: Registry and Matter.js toggle
-        if (targetId === 'container-erg') {
-            window.sectionManager.register('section-erg-container', 
-                () => { if (window.matterEngine) window.matterEngine.enabled = true; }, 
-                () => { if (window.matterEngine) window.matterEngine.enabled = false; }
-            );
+        // 3. ERG PHYSICS: The erg.js script usually self-registers, 
+        // but we can ensure it's triggered
+        if (typeof window.initErgPhysics === 'function') {
+            window.initErgPhysics();
         }
     });
 </script>

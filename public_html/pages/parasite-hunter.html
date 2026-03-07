@@ -544,8 +544,7 @@
 		gameVideo.addEventListener('click', handleVideoClick);
 	</script>
 	<script>
-		document.addEventListener('partialLoaded', (e) => {
-			if (e.detail.id === 'parasite-3d.html') {
+		document.addEventListener('DOMContentLoaded', () => {
 				// Register with the section manager
 				window.sectionManager.register('section-parasite-hunter', 
 					() => { if (window.parasiteAnim) window.parasiteAnim.play(); }, 
@@ -559,7 +558,6 @@
 						clearInterval(bootstrap);
 					}
 				}, 100);
-			}
 		});
 	</script>
 </body>
