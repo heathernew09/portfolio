@@ -57,8 +57,33 @@ const templates = [
 ];
 
 let currentNameParts = [];
+let nameHistory = JSON.parse(localStorage.getItem('derbyNameHistory') || '[]');
 
 const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+function saveToHistory(fullName) {
+    // Avoid duplicates if same name clicked multiple times
+    if (nameHistory[0] === fullName) return;
+    
+    nameHistory.unshift(fullName);
+    if (nameHistory.length > 3) nameHistory.pop(); // Keep last 3
+    localStorage.setItem('derbyNameHistory', JSON.stringify(nameHistory));
+    updateHistoryFeed();
+}
+
+function updateHistoryFeed() {
+    const feed = document.getElementById('chatFeed');
+    if (!feed) return;
+    
+    feed.innerHTML = '';
+    nameHistory.forEach((name, i) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble';
+        bubble.style.animationDelay = `${i * 0.1}s`;
+        bubble.innerHTML = `Track assigned: <strong>${name}</strong>`;
+        feed.appendChild(bubble);
+    });
+}
 
 function generateNewName() {
     const rawName = document.getElementById('userName').value.trim();
@@ -75,6 +100,7 @@ function generateNewName() {
 
     document.getElementById('resultArea').classList.add('active');
     renderName();
+    saveToHistory(currentNameParts.map(p => p.text).join(' '));
 }
 
 function generatePartData(slotType, userName, userInterest) {
@@ -172,6 +198,8 @@ function renderName(animatedIndex = -1) {
     
     const exportBtn = document.getElementById('exportBtn');
     if (exportBtn) exportBtn.innerHTML = "⬇ Export VIP Pass";
+
+    saveToHistory(currentNameParts.map(p => p.text).join(' '));
 }
 
 function copyName() {
@@ -272,3 +300,4 @@ document.addEventListener('keypress', function (e) {
         generateNewName();
     }
 });
+updateHistoryFeed();
