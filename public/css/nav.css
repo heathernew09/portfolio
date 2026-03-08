@@ -4,22 +4,31 @@
 .site-header {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
     font-family: 'Manrope', sans-serif;
-    position: relative;
+    position: absolute; /* Non-sticky, just overlays hero */
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-    background: var(--white); /* Ensure header has background */
+    background: transparent;
+    border-bottom: 1px solid transparent;
 }
 
 .header-content {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px; /* Enforce height */
+    height: 80px;
+}
+
+/* Add space to logo - push it further left */
+.site-header .logo {
+    margin-right: auto; 
+    padding-right: 15vw; /* Significant dynamic buffer from the speaker/hamburger */
 }
 
 /* Wordmark Styling */

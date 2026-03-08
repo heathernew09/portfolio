@@ -382,6 +382,32 @@ section[data-is-intersecting="true"] .organic-shape {
     opacity: 1;
 }
 
+/* Phone Tooltip */
+.phone-tooltip {
+    position: fixed;
+    background: #1d1d1f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: tooltipPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.phone-tooltip.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes tooltipPop {
+    from { opacity: 0; transform: translate(-50%, -80%); }
+    to { opacity: 1; transform: translate(-50%, -100%); }
+}
+
 /* Testimonials Overlay */
 #testimonials-overlay {
     position: fixed;

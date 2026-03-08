@@ -117,10 +117,38 @@ function initHeroInteractions() {
                     setTimeout(() => {
                         phoneIcon.style.opacity = '0.2';
                         phoneIcon.style.cursor = 'not-allowed';
+                        phoneIcon.setAttribute('data-disabled', 'true');
                     }, 500);
                 }
             }
         });
+
+        phoneIcon.addEventListener('click', function(e) {
+            if (phoneIcon.getAttribute('data-disabled') === 'true') {
+                e.preventDefault();
+                showPhoneTooltip(phoneIcon);
+            }
+        });
+    }
+
+    function showPhoneTooltip(target) {
+        // Remove existing if any
+        const old = document.querySelector('.phone-tooltip');
+        if (old) old.remove();
+
+        const tooltip = document.createElement('div');
+        tooltip.className = 'phone-tooltip';
+        tooltip.innerText = "good luck even my dog couldn't get me on the phone.";
+        document.body.appendChild(tooltip);
+
+        const rect = target.getBoundingClientRect();
+        tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+        tooltip.style.top = (rect.top - 10) + 'px';
+
+        setTimeout(() => {
+            tooltip.classList.add('fade-out');
+            setTimeout(() => tooltip.remove(), 500);
+        }, 3000);
     }
 
     // ============================================

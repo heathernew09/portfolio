@@ -1,77 +1,77 @@
 [
   {
     "id": "parasite-hunter",
-    "title": "Parasite Hunter",
-    "subtitle": "Interactive WebAR Experience for Elanco",
-    "category": "WebAR Game",
+    "title": "Parasite Hunter AR",
+    "subtitle": "Gamified WebAR Experience",
+    "category": "Interactive",
     "description": "An engaging augmented reality game that educates veterinarians about parasite prevention. Featured at AVMA 2025 and VMX trade shows, providing an entertaining booth experience while delivering product education.",
     "visual": {
       "type": "image",
-      "src": "/assets/para/parasite-hunter-cover.png",
+      "src": "/assets/para/scan-to-play.JPG",
       "alt": "Parasite Hunter AR game interface"
     },
-    "tech": ["WebXR", "Three.js", "AR.js", "Game Design"],
+    "tech": ["WebXR", "Three.js", "Game Design"],
     "cta": {
       "text": "View Project",
       "link": "/pages/parasite-hunter.html"
     },
-    "className": ""
+    "className": "bg-white"
   },
   {
     "id": "merge",
-    "title": "MERGE",
-    "subtitle": "Modular and Scalable Agency Website",
-    "category": "Built Different",
-    "description": "Building interactive experiences that educate, engage, and inspire. From AR activations to immersive 3D environments, we help healthcare brands connect with their audiences.",
+    "title": "Built Different",
+    "subtitle": "Enterprise Brand Architecture",
+    "category": "Design System",
+    "description": "Redesigning the MERGE modular brand identity for a modern, digital-first presence. Focus on scalability, modular components, and accessibility.",
     "visual": {
       "type": "image",
       "src": "/assets/merge-M.png",
       "alt": "MERGE Logo",
       "id": "merge-logo"
     },
-    "tech": ["UI/UX Design", "404 Game", "Modular System"],
+    "tech": ["Figma", "Design Systems", "Brand Ops"],
     "cta": {
-      "text": "Explore Work",
-      "link": "/pages/parasite-hunter.html"
+      "text": "View Project",
+      "link": "/pages/built-different.html"
     },
-    "className": "merge-preview"
+    "className": "merge-preview bg-light"
   },
   {
     "id": "decision-tree",
-    "title": "The Zen Garden Interactive Experience",
-    "subtitle": "Understanding the data, not just the pixels",
-    "category": "VMX 2026",
-    "description": "We translated a complex multi-layered decision tree into a self-service digital product. I built it, made it beautiful and added the layers of interactivity.",
+    "title": "Interactive Zen Garden",
+    "subtitle": "Generative SVG Architecture",
+    "category": "Generative Art",
+    "description": "We translated a complex multi-layered decision tree into a self-service digital product. Built with recursive SVG logic and meditative interactivity.",
     "visual": {
       "type": "image",
       "src": "/assets/tree/decision-tree-screen.jpg",
-      "alt": "Zen Garden Decision Tree Intractive"
+      "alt": "Zen Garden Decision Tree Interactive"
     },
-    "tech": ["Vanilla JS", "CSS", "HTML"],
+    "tech": ["SVG", "Vanilla JS", "GSAP"],
     "cta": {
-      "text": "See Demo",
+      "text": "View Project",
       "link": "/pages/decision-tree.html"
     },
-    "className": ""
+    "className": "bg-white"
   },
   {
     "id": "hotspot",
-    "title": "We Set the Booth on Fire!",
-    "subtitle": "Balancing Visceral Drama with Clinical Accuracy",
-    "category": "AVMA 2025",
-    "description": "In a crowded tradeshow environment dominated by a massive competitor (Z*eti$), we needed a disruption strategy. While others used clinical blue and white, we pivoted to Danger Red. The goal was stopping traffic and drawing vets away from the competition.",
+    "title": "Wall of Flame",
+    "subtitle": "Large Scale Kiosk Integration",
+    "category": "Interactive Installation",
+    "description": "A high-impact tradeshow activation featuring a massive quiz wall with hardware integration, physical motion sensors, and dynamic feedback.",
     "visual": {
       "type": "image",
       "src": "/assets/hotspot/hotspot-screen-inplay.png",
-      "alt": "Elanco Galliprant Wall of Flame Interactive Booth Experience at AVMA 2025",
+      "alt": "Elanco Galliprant Wall of Flame Interactive Booth Experience",
       "id": "project-hero-galliprant",
       "containerClass": "hotspot-preview"
     },
-    "tech": [],
+    "tech": ["HTML5 Canvas", "Hardware API", "Physics"],
     "cta": {
-      "text": "See Demo",
+      "text": "View Project",
       "link": "/pages/hotspot.html"
     },
-    "className": ""
+    "className": "bg-light"
   }
 ]

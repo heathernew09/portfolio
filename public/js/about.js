@@ -26,14 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     
     const rangeData = [
-        { start: 2000, end: 2004, title: "High School", type: 'education', color: '#2b8a92' },
-        { start: 2004, end: 2009, title: "B.F.A. Design", type: 'education', color: '#2b8a92' },
-        { start: 2006, end: 2011, title: "Designer & Manager, HaysTees", type: 'experience', color: '#f97316' },
-        { start: 2014, end: 2016, title: "Web Developer", type: 'experience', color: '#f97316' },
-        { start: 2016, end: 2021, title: "Sr Digital Developer", type: 'experience', color: '#f97316' },
-        { start: 2014, end: 2019, title: "Roller Derby", type: 'experience', color: '#e60000' },
-        { start: 2022, end: 2025, title: "Senior Studio Artist", type: 'experience', color: '#f97316' },
-        { start: 2024.5, end: 2026, title: "UX Design Cert.", type: 'education', color: '#2b8a92' },
+        { start: 2000, end: 2004, title: "High School", type: 'education', color: '#2b8a92', tier: 0 },
+        { start: 2004, end: 2009, title: "B.F.A. Design", type: 'education', color: '#2b8a92', tier: 1 },
+        { start: 2006, end: 2011, title: "Designer & Manager, HaysTees", type: 'experience', color: '#f97316', tier: 2 },
+        { start: 2014, end: 2016, title: "Web Developer", type: 'experience', color: '#f97316', tier: 0 },
+        { start: 2016, end: 2021, title: "Sr Digital Developer", type: 'experience', color: '#f97316', tier: 1 },
+        { start: 2014, end: 2019, title: "Roller Derby", type: 'experience', color: '#e60000', tier: 2 },
+        { start: 2020, end: 2024, title: "Heather New LLC", type: 'freelance', color: '#2b8a92', tier: 0 },
+        { start: 2022, end: 2025, title: "Senior Studio Artist", type: 'experience', color: '#f97316', tier: 1 },
+        { start: 2024.5, end: 2026, title: "UX Design Cert.", type: 'education', color: '#2b8a92', tier: 2 },
+        { start: 2025, end: 2027, title: "Studio Manager", type: 'experience', color: '#FFBD56', tier: 0 },
     ];
 
     const wrapper = document.getElementById('timeline-wrapper');
@@ -57,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(marker);
     }
 
-    // 2. Render Ranges
-    rangeData.forEach(range => {
+    // 2. Render Ranges with explicit tier positioning
+    rangeData.forEach((range) => {
         const el = document.createElement('div');
         el.className = `timeline-range range-${range.type}`;
         const left = yearToX(range.start);
@@ -66,6 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.left = `${left}%`;
         el.style.width = `${right - left}%`;
         el.style.backgroundColor = range.color;
+        
+        // Tiers: 0=High Top, 1=Lower Top, 2=High Bottom, 3=Lower Bottom
+        let topPos = "50%";
+        if (range.tier === 0) topPos = "20%";
+        else if (range.tier === 1) topPos = "36%"; // User requested 36%
+        else if (range.tier === 2) topPos = "60%";
+        else if (range.tier === 3) topPos = "76%";
+        
+        el.style.top = topPos;
         el.innerText = range.title;
         wrapper.appendChild(el);
     });

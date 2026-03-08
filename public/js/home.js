@@ -11,7 +11,7 @@ async function loadProjects() {
 
         // Clear hardcoded projects (except the ones we haven't data-fied yet if any)
         // For now, we will replace the content of main-content with dynamic tiles
-        projectContainer.innerHTML = projects.map(project => renderProjectTile(project)).join('');
+        projectContainer.innerHTML = projects.map((project, index) => renderProjectTile(project, index)).join('');
 
         // Re-initialize any 3D effects or specific listeners
         initMergeTilt();
@@ -21,9 +21,10 @@ async function loadProjects() {
     }
 }
 
-function renderProjectTile(project) {
+function renderProjectTile(project, index) {
     const isMerge = project.id === 'merge';
     const isHotspot = project.id === 'hotspot';
+    const isEven = index % 2 === 1;
     
     // Tech tags HTML
     const techTags = project.tech.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
@@ -31,9 +32,9 @@ function renderProjectTile(project) {
     // Content Column
     const contentHtml = `
         <div class="project-content">
-            <span class="project-category interactive">${project.category}</span>
-            <h2 class="project-title">${project.title}</h2>
+            <span class="project-category design">${project.category}</span>
             <p class="project-subtitle">${project.subtitle}</p>
+            <h2 class="project-title">${project.title}</h2>
             <p class="project-description">${project.description}</p>
             <div class="project-tech">${techTags}</div>
             <div class="project-cta">
@@ -43,40 +44,36 @@ function renderProjectTile(project) {
     `;
 
     // Visual Column
-    let visualHtml = '';
+    let visualHtml = `
+        <div class="project-visual">
+            <img src="${project.visual.src}" 
+                 alt="${project.visual.alt}" 
+                 id="${project.visual.id || ''}" 
+                 loading="lazy"
+                 decodings="async">
+        </div>
+    `;
+
+    // Special layout for Hotspot placeholder or others if needed
     if (isHotspot) {
         visualHtml = `
-            <div class="${project.visual.containerClass}">
-                <div class="image-center">
-                    <img src="${project.visual.src}" 
-                         alt="${project.visual.alt}" 
-                         class="project-hero-placeholder img-responsive" 
-                         id="${project.visual.id}"
-                         loading="lazy"
-                         decodings="async">
-                </div>
-            </div>
-        `;
-    } else {
-        visualHtml = `
-            <div class="project-visual">
-                <img src="${project.visual.src}" 
-                     alt="${project.visual.alt}" 
-                     id="${project.visual.id || ''}" 
-                     loading="lazy"
-                     decodings="async">
+            <div class="project-visual hotspot-preview">
+                <img src="${project.visual.src}" alt="${project.visual.alt}">
             </div>
         `;
     }
 
-    // Handle Layout Order (MERGE has content first, visual second)
-    const innerHtml = isMerge ? (contentHtml + visualHtml) : (visualHtml + contentHtml);
+    // Alternating Logic: Evens are reversed
+    const layoutClass = isEven ? 'project-tile reverse' : 'project-tile';
+    const innerHtml = isEven ? (contentHtml + visualHtml) : (visualHtml + contentHtml);
 
     return `
-        <section id="tile-${project.id}" class="content-section container ${project.className || ''}">
-            <article class="project-tile">
-                ${innerHtml}
-            </article>
+        <section id="tile-${project.id}" class="content-section">
+            <div class="container">
+                <article class="${layoutClass}">
+                    ${innerHtml}
+                </article>
+            </div>
         </section>
     `;
 }
