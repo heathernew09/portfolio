@@ -441,3 +441,65 @@
     .narrative-block, .grit-grid { grid-template-columns: 1fr; gap: 3rem; }
     .narrative-block.reverse { direction: ltr; }
 }
+
+@media (max-width: 768px) {
+    .about-hero { padding: 6rem 1.5rem 3rem; }
+    .about-hero h1 { font-size: 2.5rem; }
+    .about-hero p { font-size: 1.2rem; }
+
+    .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .narrative-block {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+        text-align: left;
+    }
+
+    .origin-story .narrative-visual img,
+    .narrative-block .narrative-visual img {
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .career-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .about-testimonial .test-txt {
+        padding: 1.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .about-testimonial .test-auth {
+        padding-left: 1.5rem;
+    }
+
+    .iframe-container {
+        height: 500px; /* Shorter on mobile */
+    }
+
+    .timeline-wrapper {
+        margin: 0 1rem;
+    }
+    
+    /* Global Mobile Safety */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3 {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+}
