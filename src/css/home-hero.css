@@ -182,62 +182,105 @@ section[data-is-intersecting="true"] .logo-hero {
     .hero-section {
         display: flex !important;
         flex-direction: column !important;
-        min-height: auto !important;
+        min-height: 100vh;
         padding: 0 !important;
         justify-content: flex-start !important;
+        overflow: visible;
+        background: var(--white);
     }
 
-    /* SVG stage becomes a relative billboard at the top */
+    /* 1. Blobs/Stage at the top */
     .background-container {
-        position: relative !important;
+        position: absolute !important; /* Stay inside the hero, don't float over other sections */
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: 320px !important;
-        overflow: hidden;
-        background: var(--white);
-        flex-shrink: 0;
+        height: 50vh !important; 
+        z-index: 1;
+        pointer-events: none;
+        opacity: 1 !important; /* Full color vibrancy */
     }
 
-    /* Scaling shapes for mobile without changing coordinates */
     .organic-bg {
-        transform: scale(1.4); /* Scales the whole system up */
+        transform: scale(1.5);
         transform-origin: center;
     }
 
     .logo-container {
-        top: 50% !important;
+        top: 25vh !important; /* Center in the blobs area */
         left: 50% !important;
-        transform: translate(-50%, -50%) scale(0.85) !important;
-		z-index: 35;
+        transform: translate(-50%, -50%) scale(0.6) !important;
+        z-index: 5;
     }
 
+    /* 2. Text overlaying blobs or below */
     .content-overlay {
         position: relative !important;
         width: 100% !important;
-        padding: 40px 24px !important;
-        background: var(--white);
-        z-index: 30;
+        min-height: 100vh;
+        padding: 45vh 1.5rem 10rem !important; /* Start text below logo */
+        background: transparent !important;
+        z-index: 10;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     #home-intro-container {
         width: 100% !important;
         margin: 0 !important;
+        text-align: left !important;
+        background: transparent !important; /* Remove frosted background to show full color */
+        backdrop-filter: none !important;
+        padding: 2rem 1.5rem;
     }
 
-    /* Keep Navigation Icons accessible but Fixed */
-    .nav-icons .icon {
+    #home-intro-container h1 {
+        font-size: 1.35rem !important;
+        color: var(--dark-gray) !important;
+        mix-blend-mode: multiply !important; /* Restore the blend mode for better interaction with shapes */
+        line-height: 1.5 !important;
+    }
+
+    /* 3. Icons FIXED to bottom of browser */
+    .nav-icons {
         position: fixed !important;
+        bottom: 0 !important;
+        top: auto !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        gap: 0 !important;
+        padding: 1rem 1rem 2rem !important; /* Extra bottom padding for safe area */
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(8px);
-        border-radius: 50%;
-        width: 48px !important;
-        height: 48px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-icons .icon {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 44px !important;
+        height: 44px !important;
+        background: transparent !important;
+        box-shadow: none !important;
     }
     
-    #search-icon { display: none !important; } /* Mask effects lag mobile */
+    .nav-icons .icon svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    #search-icon { display: none !important; }
 }
 
 /* If the section manager says it's NOT intersecting, kill the animation */

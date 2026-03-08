@@ -12,22 +12,22 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 	<meta name="apple-mobile-web-app-title" content="HeatherNew" />
 	<link rel="manifest" href="/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="/css/global.css" />
-    <link rel="stylesheet" href="/css/parasite-page.css" />
-	<link rel="stylesheet" href="/css/parasite-3d.css" />
-	<link rel="stylesheet" href="/css/hero-para.css" />
+    <link rel="stylesheet" href="../src/css/global.css" />
+    <link rel="stylesheet" href="../src/css/parasite-page.css" />
+	<link rel="stylesheet" href="../src/css/parasite-3d.css" />
+	<link rel="stylesheet" href="../src/css/hero-para.css" />
 </head>
 <body id="parasite-page" class="page-template">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
         <!--Nav Menu-->
 	<header class="site-header">
-    	<div class="header-content"><load src="../../src/partials/nav.html" /></div>
+    	<div class="header-content"><load src="../src/partials/nav.html" /></div>
 	</header>
     
     <main id="main-content">
 		<section><!-- 3D Interactive Container -->
             <div class="hero-3d">
-                <div id="section-parasite-hunter"><load src="../../src/partials/parasite-3d.html" /></div>
+                <div id="section-parasite-hunter"><load src="../src/partials/parasite-3d.html" /></div>
             </div>
 		</section>
 		
@@ -447,12 +447,12 @@
         
     </main>
     
-    <div id="footer-trigger"><load src="../../src/partials/footer.html" /></div>
+    <div id="footer-trigger"><load src="../src/partials/footer.html" /></div>
 
 	<!-- Scripts -->
-	<script src="/js/site-core.js"></script>
+	<script type="module" src="../src/js/site-core.js"></script>
 	<!-- Parasite 3d JS included in partial 
-	<script src="/js/parasite3d.js" defer></script>-->
+	<script type="module" src="../src/js/parasite3d.js" defer></script>-->
 	<script>
 		let isPlaying = false;
 		let isPaused = false;

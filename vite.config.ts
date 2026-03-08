@@ -3,22 +3,22 @@ import path from 'path';
 import injectHTML from 'vite-plugin-html-inject';
 import { globSync } from 'glob';
 
-// Get all HTML files in public_html and its subdirectories
-const pages = globSync('public_html/**/*.html').reduce((acc, file) => {
-  // Create a relative path from public_html to the file
-  const relativePath = path.relative('public_html', file);
-  // Skip index.html as it's handled separately as 'main'
-  if (relativePath === 'index.html') return acc;
+// Get all HTML files in pages and its subdirectories
+const pages = globSync('pages/**/*.html').reduce((acc, file) => {
+  // Create a relative path from root to the file
+  const relativePath = path.relative('.', file);
+  // Skip index.html and 404.html as they are handled or not needed in pages
+  if (relativePath === 'index.html' || relativePath === '404.html') return acc;
   
-  // Use the relative path as the key (e.g., 'pages/about' or '404')
+  // Use the relative path as the key (e.g., 'pages/about')
   const name = relativePath.replace(/\.html$/, '');
   acc[name] = path.resolve(__dirname, file);
   return acc;
 }, {});
 
 export default defineConfig({
-  root: 'public_html',
-  publicDir: '../public',
+  root: '.',
+  publicDir: 'public',
   plugins: [
     injectHTML({
       tagName: 'load',
@@ -26,19 +26,22 @@ export default defineConfig({
     }),
   ],
   build: {
-    outDir: '../dist',
+    outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'public_html/index.html'),
+        main: path.resolve(__dirname, 'index.html'),
+        notfound: path.resolve(__dirname, '404.html'),
         ...pages
       }
     }
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './public_html'),
+      '@': path.resolve(__dirname, '.'),
       '@partials': path.resolve(__dirname, './src/partials'),
+      '@css': path.resolve(__dirname, './src/css'),
+      '@js': path.resolve(__dirname, './src/js'),
     },
   },
   server: {

@@ -255,6 +255,8 @@
 }
 
 .bg-dark-testimonial .test-auth {
+    color: var(--accent-lime);
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
