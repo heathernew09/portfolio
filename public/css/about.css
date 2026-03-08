@@ -424,7 +424,7 @@
 /* Increased Timeline Height */
 .timeline-wrapper {
     position: relative;
-    height: 700px; /* Increased to allow 4-level staggering */
+    height: 400px; /* Reduced from 700px to tighten up space */
     min-width: 2500px; /* Slightly wider for year spread */
     margin: 0 4rem;
 }
