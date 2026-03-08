@@ -24,12 +24,17 @@ fi
 
 # 2. Preview locally
 echo "🌐 Starting local preview server..."
-echo "👉 Open http://localhost:4173 to check your work."
-echo "   (Press Ctrl+C in THIS terminal when you are done reviewing)"
+echo "👉 Opening http://localhost:4173 in Google Chrome..."
 
 # Run preview in background and get its PID
 npm run preview > /dev/null 2>&1 &
 PREVIEW_PID=$!
+
+# Wait a second for server to initialize
+sleep 2
+
+# Open Chrome automatically
+open -a "Google Chrome" http://localhost:4173
 
 # Wait for user input
 echo ""

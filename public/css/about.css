@@ -1,0 +1,275 @@
+/* ============================================
+   ABOUT PAGE - EDITORIAL NARRATIVE & TIMELINE
+   ============================================ */
+
+#about-page {
+    background-color: #fbfbfd;
+}
+
+.about-hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    letter-spacing: -0.03em;
+}
+
+.about-hero p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #424245;
+}
+
+/* Timeline Interactive Container */
+.timeline-section {
+    padding: 2rem 0; /* Tightened padding */
+    overflow: hidden;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.timeline-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 2rem 0; /* Tightened padding */
+    cursor: grab;
+}
+
+.timeline-scroll-container:active {
+    cursor: grabbing;
+}
+
+.timeline-wrapper {
+    position: relative;
+    height: 600px; /* Reduced slightly */
+    min-width: 2500px; 
+    margin: 0 4rem;
+}
+
+/* The horizontal axis */
+.timeline-axis {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e0e0e0;
+    transform: translateY(-50%);
+}
+
+.year-marker {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.year-marker span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #86868b;
+    margin-top: 1rem;
+}
+
+.year-marker::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 10px;
+    background: #ccc;
+    margin: 0 auto;
+}
+
+/* Event Dots & Connector Lines */
+.timeline-event {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-teal);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+/* Vertical Connector Line - Hidden until hover */
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    background: var(--accent-orange);
+    z-index: -1;
+    opacity: 0; /* Hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* Logic for line length based on stagger levels in JS */
+.timeline-event.level-0::before { height: 120px; bottom: 50%; }
+.timeline-event.level-1::before { height: 40px; bottom: 50%; }
+.timeline-event.level-2::before { height: 40px; top: 50%; }
+.timeline-event.level-3::before { height: 120px; top: 50%; }
+
+.timeline-event:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    background: var(--accent-orange);
+}
+
+.timeline-event:hover::before {
+    opacity: 1; /* Show on hover */
+}
+
+.event-label {
+    position: absolute;
+    width: 200px;
+    padding: 10px 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 20;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.timeline-event:hover .event-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.event-label.top { bottom: calc(100% + 15px); }
+.event-label.bottom { top: calc(100% + 15px); }
+
+/* Range Bars */
+.timeline-range {
+    position: absolute;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.range-education { top: calc(50% - 100px); }
+.range-experience { top: calc(50% + 60px); }
+
+/* Editorial Narrative Sections */
+.about-narrative {
+    max-width: 1100px;
+    margin: 8rem auto;
+    padding: 0 2rem;
+}
+
+.narrative-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.narrative-block.reverse {
+    direction: rtl;
+}
+
+.narrative-block.reverse .narrative-text {
+    direction: ltr;
+}
+
+.narrative-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1d1d1f;
+}
+
+.narrative-text p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #424245;
+}
+
+.narrative-visual img {
+    width: 100%;
+    border-radius: 0;
+}
+
+/* Grit / Derby Section */
+.grit-section {
+    background-color: #1d1d1f;
+    color: #e0e0e0; /* Lightened for contrast */
+    padding: 8rem 0;
+}
+
+.grit-section p {
+    color: #e0e0e0;
+}
+
+.grit-section h2 { color: #fff; margin-bottom: 1.5rem; }
+
+.grit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    align-items: center;
+}
+
+/* Testimonial specific to About */
+.about-testimonial {
+    background: #146068;
+    color: #fff;
+    padding: 10rem 0;
+}
+
+.about-testimonial .test-txt {
+    padding: 4rem 0 0 4rem; /* More space for quote icon */
+    color: #fff;
+}
+
+.about-testimonial .test-auth {
+    padding-left: 4rem;
+    color: #fff;
+}
+
+/* Increased Timeline Height */
+.timeline-wrapper {
+    position: relative;
+    height: 700px; /* Increased to allow 4-level staggering */
+    min-width: 2500px; /* Slightly wider for year spread */
+    margin: 0 4rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .about-hero h1 { font-size: 3rem; }
+    .narrative-block, .grit-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .narrative-block.reverse { direction: ltr; }
+}
