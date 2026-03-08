@@ -265,7 +265,21 @@
       
       // Initialize PhotoSwipe
       const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+      
+      // Cleanup ghosting issues on close
+      gallery.listen('destroy', () => {
+          pswpElement.style.display = 'none';
+          // Force removal of zoom-wrap artifacts
+          const zoomWrap = pswpElement.querySelector('.pswp__zoom-wrap');
+          if (zoomWrap) zoomWrap.innerHTML = '';
+      });
+
+      gallery.listen('initialZoomIn', () => {
+          pswpElement.style.display = 'block';
+      });
+
       gallery.init();
+      return gallery;
     }
     
     function parseGalleryItems(galleryElement) {

@@ -233,8 +233,8 @@
     z-index: 10000;
 }
 .pswp--hidden,
-.pswp__bg[style*="opacity: 0"],
-.pswp--animate_opacity.pswp--visible.pswp--animated-in.pswp--zoom-allowed .pswp__bg[style*="opacity: 0"] {
+.pswp--hidden .pswp__img,
+.pswp__bg[style*="opacity: 0"] {
     display: none !important;
     opacity: 0 !important;
     pointer-events: none !important;
