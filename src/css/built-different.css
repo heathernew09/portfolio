@@ -1,6 +1,10 @@
 /* ============================================
    MERGE PREVIEW SECTION
    ============================================ */
+.merge-hero {
+    padding-top: 100px;
+}
+
 .img-hero {
     width: 100%;
     height: auto;

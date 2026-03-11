@@ -75,22 +75,17 @@ a:hover { color: #1f6870; }
 /* ============================================
    2. GLOBAL HEADER & NAVIGATION
    ============================================ */
+/* ============================================
+   2. GLOBAL HEADER & NAVIGATION (STRUCTURAL CORNER BLOCK)
+   ============================================ */
 .site-header {
-    display: flex;
-    align-items: center;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
+    height: 100px;
     z-index: 9999;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#nav-hamburger-icon {
-    z-index: 10001; /* Ensure icon is above frosted header */
+    background: transparent;
+    pointer-events: none; /* Let clicks through to hero unless on specific buttons */
 }
 
 .header-content {
@@ -101,165 +96,175 @@ a:hover { color: #1f6870; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 100%;
 }
 
-.site-header .logo img {
-    display: block;
-    transition: opacity 0.3s ease;
-    max-height: 25px; /* Standardized logo height */
+.site-header .logo {
+    pointer-events: auto;
 }
 
-.site-header .logo:hover img { opacity: 0.7; }
-
-/* Icon Component */
-.icon { 
-    cursor: pointer; 
-    transition: transform 0.2s ease;
+.pages-nav-icon {
+    position: fixed;
+    top: 0; right: 0;
+    width: 80px; height: 80px;
+    background: var(--dark-gray);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    cursor: pointer;
+    z-index: 10001;
+    pointer-events: auto;
+    transition: background 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.icon:hover { transform: scale(1.1); }
-.icon svg path { fill: var(--dark-gray); }
 
-/* Navigation Drawer */
+.pages-nav-icon:hover {
+    background: var(--primary-teal);
+    transform: scale(1.05);
+}
+
+#nav-hamburger-icon {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation Drawer - Idea #1 Unfolding */
 #pages-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     z-index: 10000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s;
+    transition: opacity 0.5s ease, visibility 0.5s;
 }
 
-#pages-overlay.open { opacity: 1; visibility: visible; }
+#pages-overlay.open { 
+    opacity: 1; 
+    visibility: visible; 
+}
 
 .pages-menu-content {
     position: absolute;
     top: 0; right: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(180deg, #FF8C00 0%, #FF6B35 100%);
-    padding: 80px 40px 0 80px; 
-    max-width: 600px; 
+    max-width: 500px;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF4500 100%);
+    padding: 120px 60px;
     display: flex;
     flex-direction: column;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
-    transform: translateX(100%); 
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    overflow: hidden;
+    box-shadow: -20px 0 50px rgba(0,0,0,0.2);
+    pointer-events: auto; /* Allow interaction with menu items */
+    
+    /* Unfolding Animation Logic */
+    transform-origin: top right;
+    clip-path: inset(0 0 100% 100%); /* Start at top right corner */
+    transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* Desktop Only: Animated Wave Sidebar */
-@media (min-width: 769px) {
-    .pages-menu-content {
-        padding-left: 120px;
-    }
-    
-    .pages-menu-content::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100px;
-        width: 200px;
-        height: 100%;
-        background: inherit;
-        filter: blur(40px);
-        opacity: 0.5;
-        z-index: -1;
-    }
-
-    /* Modern subtle wave replacement for SVG clip-path */
-    .pages-menu-content {
-        border-left: 1px solid rgba(255,255,255,0.1);
-        clip-path: ellipse(150% 100% at 150% 50%);
-        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), clip-path 0.8s ease;
-    }
-    
-    #pages-overlay.open .pages-menu-content {
-        transform: translateX(0);
-        clip-path: ellipse(120% 120% at 100% 50%);
-        animation: menuSway 8s infinite ease-in-out;
-    }
-}
-
-@keyframes menuSway {
-    0%, 100% { clip-path: ellipse(120% 120% at 100% 50%); }
-    50% { clip-path: ellipse(125% 115% at 105% 45%); }
+#pages-overlay.open .pages-menu-content {
+    clip-path: inset(0 0 0 0); /* Unfold to full size */
 }
 
 .pages-main-nav {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-top: 2rem;
+    pointer-events: auto; /* Explicitly allow clicks */
 }
 
 .pages-main-nav a {
     color: var(--white);
     text-decoration: none;
-    font-size: 1.15rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    position: relative;
+    letter-spacing: 0.1em;
+    padding: 1rem 0;
     opacity: 0;
-    transform: translateX(20px);
-    padding: 0.75rem 0;
-    transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease, padding-left 0.3s ease;
-    display: inline-flex;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    display: flex;
     align-items: center;
+    pointer-events: auto; /* Ensure links are clickable */
 }
 
-.pages-main-nav a:hover { 
+#pages-overlay.open .pages-main-nav a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pages-main-nav a:hover {
     color: var(--accent-lime);
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
-/* Active Indicator: Bauhaus Square */
+/* Indicators */
 .pages-main-nav a.active::after {
     content: "";
-    display: block;
-    width: 8px;
-    height: 8px;
+    width: 10px; height: 10px;
     background: var(--accent-lime);
-    margin-left: 15px;
-    box-shadow: 0 0 10px var(--accent-lime);
+    margin-left: 20px;
 }
 
-.pages-main-nav a.active {
-    color: var(--accent-lime);
-    font-weight: 800;
+/* Mobile Adjustments for Structural Corner Block */
+@media (max-width: 768px) {
+    .pages-nav-icon {
+        width: 60px; height: 60px;
+    }
+    
+    #nav-hamburger-icon svg {
+        width: 30px; height: 30px;
+    }
+
+    .pages-menu-content {
+        max-width: 100%;
+        padding: 100px 40px;
+        align-items: center;
+        justify-content: center;
+        clip-path: inset(0 0 100% 0); /* Vertical slide-down for mobile */
+    }
+
+    #pages-overlay.open .pages-menu-content {
+        clip-path: inset(0 0 0 0);
+    }
+
+    .pages-main-nav {
+        align-items: center;
+        text-align: center;
+    }
+
+    .pages-main-nav a {
+        font-size: 1.5rem; /* Larger touch targets */
+        justify-content: center;
+    }
+
+    .pages-main-nav a.active::after {
+        margin-left: 10px;
+        width: 8px; height: 8px;
+    }
+    
+    .nav-bottom-group {
+        align-items: center;
+        text-align: center;
+    }
 }
 
-#pages-overlay.open .pages-main-nav a { 
-    opacity: 1; 
-    transform: translateX(0); 
-}
-
-/* Staggered entrance */
-.pages-main-nav a:nth-child(1) { transition-delay: 0.1s; }
-.pages-main-nav a:nth-child(2) { transition-delay: 0.15s; }
-.pages-main-nav a:nth-child(3) { transition-delay: 0.2s; }
-.pages-main-nav a:nth-child(4) { transition-delay: 0.25s; }
-.pages-main-nav a:nth-child(5) { transition-delay: 0.3s; }
-.pages-main-nav a:nth-child(6) { transition-delay: 0.35s; }
-.nav-bottom-group a { transition-delay: 0.45s !important; }
+/* Staggered text entrance */
+#pages-overlay.open .pages-main-nav a:nth-child(1) { transition-delay: 0.3s; }
+#pages-overlay.open .pages-main-nav a:nth-child(2) { transition-delay: 0.35s; }
+#pages-overlay.open .pages-main-nav a:nth-child(3) { transition-delay: 0.4s; }
+#pages-overlay.open .pages-main-nav a:nth-child(4) { transition-delay: 0.45s; }
+#pages-overlay.open .pages-main-nav a:nth-child(5) { transition-delay: 0.5s; }
+#pages-overlay.open .nav-bottom-group { transition-delay: 0.6s; }
 
 #pages-close-menu {
-    position: absolute;
-    top: 30px; right: 30px;
-    width: 40px; height: 40px;
-    cursor: pointer;
-    z-index: 2010;
-    transition: transform 0.3s ease;
+    display: none; /* We use the corner block to close too */
 }
-#pages-close-menu svg path { fill: var(--white); }
-#pages-close-menu:hover { transform: rotate(90deg) scale(1.2); }
 
 /* ============================================
    ACTIVE LINK - OVER THE TOP STYLE
