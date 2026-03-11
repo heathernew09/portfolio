@@ -138,7 +138,17 @@
     // Nav Logic
     document.addEventListener('click', e => {
         const overlay = document.getElementById('pages-overlay');
-        if (e.target.closest('#nav-hamburger-icon')) overlay?.classList.add('open');
-        if (e.target.closest('#pages-close-menu') || e.target === overlay) overlay?.classList.remove('open');
+        const hamburger = document.getElementById('nav-hamburger-icon');
+        
+        // Toggle menu when clicking hamburger
+        if (e.target.closest('#nav-hamburger-icon')) {
+            overlay?.classList.toggle('open');
+            return;
+        }
+        
+        // Close menu when clicking outside (on the overlay) or the close button (if present)
+        if (e.target === overlay || e.target.closest('#pages-close-menu')) {
+            overlay?.classList.remove('open');
+        }
     });
 })();
