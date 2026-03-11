@@ -144,23 +144,28 @@ a:hover { color: #1f6870; }
 #nav-hamburger-icon span:nth-child(2) { top: 8px; }
 #nav-hamburger-icon span:nth-child(3) { top: 16px; }
 
-#pages-overlay.open ~ .pages-nav-icon #nav-hamburger-icon span:nth-child(1) {
+#pages-overlay.open + .pages-nav-icon #nav-hamburger-icon span:nth-child(1) {
     top: 8px;
     transform: rotate(135deg);
 }
 
-#pages-overlay.open ~ .pages-nav-icon #nav-hamburger-icon span:nth-child(2) {
+#pages-overlay.open + .pages-nav-icon #nav-hamburger-icon span:nth-child(2) {
     opacity: 0;
     left: -60px;
 }
 
-#pages-overlay.open ~ .pages-nav-icon #nav-hamburger-icon span:nth-child(3) {
+#pages-overlay.open + .pages-nav-icon #nav-hamburger-icon span:nth-child(3) {
     top: 8px;
     transform: rotate(-135deg);
 }
 
-#pages-overlay.open ~ .pages-nav-icon {
+#pages-overlay.open + .pages-nav-icon {
     background: var(--accent-orange);
+}
+
+.pages-nav-icon:hover {
+    background: var(--primary-teal);
+    transform: scale(1.05);
 }
 
 /* Navigation Drawer - Idea #1 Unfolding */
