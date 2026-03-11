@@ -137,44 +137,102 @@ a:hover { color: #1f6870; }
     top: 0; right: 0;
     width: 100%; height: 100%;
     background: linear-gradient(180deg, #FF8C00 0%, #FF6B35 100%);
-    clip-path: url(#menu-wave); 
-    -webkit-clip-path: url(#menu-wave);
-    padding: 80px 40px 0 260px; 
-    max-width: 700px; 
+    padding: 80px 40px 0 80px; 
+    max-width: 600px; 
     display: flex;
     flex-direction: column;
     box-shadow: -10px 0 30px rgba(0,0,0,0.3);
     transform: translateX(100%); 
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
 }
 
-#pages-overlay.open .pages-menu-content { transform: translateX(0); }
+/* Desktop Only: Animated Wave Sidebar */
+@media (min-width: 769px) {
+    .pages-menu-content {
+        padding-left: 120px;
+    }
+    
+    .pages-menu-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100px;
+        width: 200px;
+        height: 100%;
+        background: inherit;
+        filter: blur(40px);
+        opacity: 0.5;
+        z-index: -1;
+    }
+
+    /* Modern subtle wave replacement for SVG clip-path */
+    .pages-menu-content {
+        border-left: 1px solid rgba(255,255,255,0.1);
+        clip-path: ellipse(150% 100% at 150% 50%);
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), clip-path 0.8s ease;
+    }
+    
+    #pages-overlay.open .pages-menu-content {
+        transform: translateX(0);
+        clip-path: ellipse(120% 120% at 100% 50%);
+        animation: menuSway 8s infinite ease-in-out;
+    }
+}
+
+@keyframes menuSway {
+    0%, 100% { clip-path: ellipse(120% 120% at 100% 50%); }
+    50% { clip-path: ellipse(125% 115% at 105% 45%); }
+}
 
 .pages-main-nav {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-top: 2rem;
 }
 
 .pages-main-nav a {
     color: var(--white);
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     position: relative;
     opacity: 0;
-    transform: translateY(20px);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: opacity 0.4s ease, transform 0.4s ease, padding-left 0.3s ease, color 0.3s ease;
+    transform: translateX(20px);
+    padding: 0.75rem 0;
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease, padding-left 0.3s ease;
+    display: inline-flex;
+    align-items: center;
 }
 
-.pages-main-nav a:hover { padding-left: 1rem; color: var(--accent-lime); }
-#pages-overlay.open .pages-main-nav a { opacity: 1; transform: translateY(0); }
-.pages-main-nav a.active { color: var(--accent-lime) !important; font-weight: 800; border-bottom: 1px solid var(--accent-lime); }
+.pages-main-nav a:hover { 
+    color: var(--accent-lime);
+    padding-left: 10px;
+}
+
+/* Active Indicator: Bauhaus Square */
+.pages-main-nav a.active::after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-lime);
+    margin-left: 15px;
+    box-shadow: 0 0 10px var(--accent-lime);
+}
+
+.pages-main-nav a.active {
+    color: var(--accent-lime);
+    font-weight: 800;
+}
+
+#pages-overlay.open .pages-main-nav a { 
+    opacity: 1; 
+    transform: translateX(0); 
+}
 
 /* Staggered entrance */
 .pages-main-nav a:nth-child(1) { transition-delay: 0.1s; }
@@ -183,6 +241,7 @@ a:hover { color: #1f6870; }
 .pages-main-nav a:nth-child(4) { transition-delay: 0.25s; }
 .pages-main-nav a:nth-child(5) { transition-delay: 0.3s; }
 .pages-main-nav a:nth-child(6) { transition-delay: 0.35s; }
+.nav-bottom-group a { transition-delay: 0.45s !important; }
 
 #pages-close-menu {
     position: absolute;
