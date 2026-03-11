@@ -33,8 +33,8 @@
         :root {
             --bg-color: #f4f4f4;
             --text-dark: #111111;
-            --grid-gap: 50px;
-            --shape-size: 140px;
+            --grid-gap: 30px;
+            --shape-size: 35px;
             
             /* Full Bauhaus Palette */
             --teal: #1BB1A5;
@@ -63,7 +63,7 @@
         .hero {
             position: relative;
             width: 100vw;
-            height: 70vh; /* Shorter hero for the about page */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -82,22 +82,10 @@
             gap: var(--grid-gap);
         }
 
-        .hero-inner {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            width: 100%;
-            max-width: 1400px;
-            pointer-events: none;
-        }
-
         .hero-overlay {
             position: absolute;
             top: 50%;
-            left: 40px;
+            left: 4vw;
             transform: translateY(-50%);
             text-align: left;
             background: rgba(244, 244, 244, 0.9);
@@ -113,12 +101,19 @@
         }
 
         .hero-overlay h1 {
-            font-size: 3.6rem;
+            font-size: 4.5rem;
             color: var(--text-dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             letter-spacing: -2px;
             font-weight: 800;
             line-height: 1;
+        }
+
+        .hero-overlay h2 {
+            font-size: 1.5rem;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
         }
 
         .hero-overlay p {
@@ -126,17 +121,6 @@
             color: #333;
             line-height: 1.6;
             font-weight: 600;
-        }
-
-        .hero-illustration {
-            position: absolute;
-            bottom: 0;
-            right: 40px;
-            height: 85%;
-            z-index: 105;
-            pointer-events: none;
-            object-fit: contain;
-            filter: drop-shadow(-15px 15px 25px rgba(0,0,0,0.15));
         }
 
         /* --- SHAPE COMPONENTS --- */
@@ -196,15 +180,6 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Nested Grids for Content Density */
-        .inner-grid-3, .inner-grid-4 {
-            display: grid;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-        .inner-grid-3 { grid-template-columns: repeat(3, 1fr); }
-        .inner-grid-4 { grid-template-columns: repeat(4, 1fr); }
-
         /* Grid Spans */
         .span-col-2 { grid-column: span 2; }
         .span-col-3 { grid-column: span 3; }
@@ -215,31 +190,18 @@
         @media (max-width: 900px) {
             .bauhaus-grid { grid-template-columns: repeat(2, 1fr); }
             .span-col-3, .span-col-4 { grid-column: span 2; }
-            .inner-grid-3, .inner-grid-4 { grid-template-columns: 1fr; }
             .hero-overlay {
                 left: 20px;
                 right: 20px;
                 max-width: calc(100vw - 40px);
                 padding: 2rem;
             }
-            .hero-overlay h1 { font-size: 2.8rem; }
-            .hero-illustration {
-                right: auto;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                height: 85%;
-                opacity: 1;
-                z-index: 50; /* Lowered from 105 so it sits behind the overlay (which is 100) */
-            }
+            .hero-overlay h1 { font-size: 3.5rem; }
         }
         @media (max-width: 600px) {
             .bauhaus-grid { grid-template-columns: 1fr; }
             .span-col-2, .span-col-3, .span-col-4 { grid-column: span 1; }
             .span-row-2 { grid-row: span 1; min-height: 300px; }
-            .hero-illustration {
-                height: 75%;
-            }
         }
 
         /* Tile Content Typography */
@@ -260,19 +222,17 @@
         }
 
         .b-tile p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             font-weight: 400;
         }
 
         .b-tile .meta {
             font-size: 0.85rem;
-            font-weight: 800;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-            display: block;
+            opacity: 0.7;
         }
 
         /* Background Colors */
@@ -285,18 +245,18 @@
         .bg-light-grey { background-color: var(--light-grey); color: var(--text-dark); }
         .bg-mid-grey { background-color: var(--mid-grey); color: var(--text-dark); }
 
-        /* Image & Video Tiles */
+        /* Image Tiles */
         .img-tile {
             padding: 0;
             display: block;
         }
-        .img-tile img, .img-tile video {
+        .img-tile img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .img-tile:hover img, .img-tile:hover video {
+        .img-tile:hover img {
             transform: scale(1.05);
         }
 
@@ -337,45 +297,22 @@
             background-color: #fff;
             margin-bottom: 2rem;
         }
-        
-        /* Utility Classes */
-        .list-clean {
-            list-style: none;
-            line-height: 2;
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 0.2rem;
-        }
-        .job-company {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-        }
     </style>
 </head>
-
+<body>
 	<header class="site-header">
         <div class="header-content">
             <load src="../src/partials/nav.html" />
         </div>
     </header>
-	<body>
-	<!-- Hero Wrapper -->
+    <!-- Hero Wrapper -->
     <header class="hero">
         <div id="grid-container"></div>
         
-        <div class="hero-inner">
-            <div class="hero-overlay">
-                <h1>A Unique Generation</h1>
-                <p>I remember life before the internet, yet I grew up building computers and diving into tech. From tinkering with pixels in MS Paint to building custom WordPress themes for over a decade, my journey has been a relentless blend of art and code.</p>
-            </div>
-
-            <img src="https://heathernew.com/assets/heather/Heather-Magic.png" alt="Heather New Illustration" class="hero-illustration">
+        <div class="hero-overlay">
+            <h1>hi seeker of creative,</h1>
+            <h2>you're welcome to play</h2>
+            <p>This is where design, code, and technology collide. I like to listen. That's how I find problems, or rather solutions. What do you want to make? Let's chat.</p>
         </div>
     </header>
 
@@ -383,247 +320,208 @@
     <main class="portfolio-section">
         <div class="bauhaus-grid">
             
-            <!-- Row 1: Heavy Opening -->
-            <div class="b-tile bg-dark-teal span-col-3">
-                <span class="meta" style="color: var(--lime);">Role</span>
-                <div style="font-size: 13cqi; font-weight: 800; line-height: 1; letter-spacing: -2px; margin-top: 1rem;">CODE + DESIGN<br>+ STRATEGY</div>
+            <!-- Row 1 -->
+            <div class="b-tile span-col-2 bg-light-grey hover-invert">
+                <div>
+                    <span class="meta">Web-Based AR Experience</span>
+                    <h2>Parasite Hunter AR</h2>
+                </div>
+                <p>A web app using marker tracking and 3D models so attendees could hunt for parasites. Built using A-Frame, 8th Wall, and Vue delivering a seamless experience.</p>
+                <a href="#" class="arrow-link">View Project <span>→</span></a>
             </div>
             
             <div class="b-tile bg-lime" style="align-items: center; justify-content: center;">
                 <div style="width: 100px; height: 100px; border-radius: 50%; background-color: var(--text-dark); color: var(--bg-color); display: flex; justify-content: center; align-items: center; font-size: 4.5rem; font-weight: 800; padding-top: 10px; margin: 0; letter-spacing: -2px;">h</div>
             </div>
 
-            <!-- Row 2: Editorial Quote -->
-            <div class="b-tile img-tile">
-                <img src="https://heathernew.com/assets/dodie-computer.png" alt="Dodie dog helping mom build stuff">
+            <div class="b-tile bg-dark-teal">
+                <span class="meta">Role</span>
+                <h3>Creative<br>Technologist</h3>
             </div>
 
-            <div class="b-tile bg-yellow span-col-3">
-                <div style="font-size: 2.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -1px; margin-bottom: 2rem; max-width: 900px;">"You are so fun to work with because you are a real renaissance designer, one that appreciates all the visual elements of design and creating digital art/engagement."</div>
-                <span class="meta" style="margin-top: auto;">— George B.</span>
+            <!-- Row 2 -->
+            <div class="b-tile bg-yellow span-row-2">
+                <h3 style="margin-bottom: 1.5rem;">Specialties</h3>
+                <ul style="list-style: none; line-height: 2; font-weight: 600; font-size: 1.1rem;">
+                    <li>Web AR / VR</li>
+                    <li>Generative Art</li>
+                    <li>Physical Computing</li>
+                    <li>UI / UX Design</li>
+                    <li>Creative Direction</li>
+                </ul>
             </div>
 
-            <!-- Row 3: Origin Story Cluster -->
-            <div class="b-tile img-tile">
-                <img src="https://heathernew.com/images/eggdrop.png" alt="Abstract geometric structure">
+            <div class="b-tile span-col-2 span-row-2 img-tile">
+                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2000&auto=format&fit=crop" alt="Lush greenery representing Built Different project">
             </div>
 
-            <div class="b-tile span-col-2 bg-light-grey hover-invert">
-                <div>
-                    <span class="meta">Origin Story</span>
-                    <h2>The Hexagon</h2>
+            <div class="b-tile bg-white">
+                <span class="meta">Generative Installation</span>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Built Different</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">A 3D projection mapping installation that was programmatically generated. Built in Unity using modular components and animated in C#.</p>
+                <a href="#" class="arrow-link" style="font-size: 1rem; color: var(--teal);">View Project <span>→</span></a>
+            </div>
+
+            <!-- Row 3 -->
+            <a href="https://heathernew.com/pages/derby.html" class="b-tile hover-invert" style="background-color: var(--text-dark); text-decoration: none; display: flex; flex-direction: column;">
+                <span class="meta" style="color: var(--lime);">Poster Archive</span>
+                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 1rem 0;">
+                    <!-- 3 color ICT RD Logo placeholder -->
+                    <img src="https://placehold.co/300x300/111/1BB1A5?text=ICT+RD%0ALOGO" alt="ICT RD Logo Placeholder" style="max-width: 100%; max-height: 120px; object-fit: contain; border-bottom: 4px solid var(--orange); border-top: 4px solid var(--yellow); padding: 10px 0;">
                 </div>
-                <p>In 2005, a Design 1 challenge changed everything: create a paper container to protect an egg dropped from a flight of stairs. Inspired by soccer ball geometry, I built an inverted dome with a hexagonal structure.<br><br>It wasn't just about the drop—it was about geometric precision and thinking differently. Nearly 20 years later, that same egg is still intact, serving as a reminder that built-to-last solutions require a foundation of bold experimentation.</p>
-            </div>
-
-            <div class="b-tile bg-teal hover-invert" style="justify-content: center;">
-                <h2 style="font-size: 2rem; margin: 0; line-height: 1.1;">Hyper Studio was my gateway drug.</h2>
-            </div>
-
-            <!-- Row 4: Resilience & Derby Cluster -->
-            <div class="b-tile bg-white span-col-2" style="justify-content: flex-end;">
-                <div>
-                    <span class="meta">Resilience</span>
-                    <h3 style="margin-bottom: 1rem;">Built with Grit</h3>
-                    <p style="font-size: 1.05rem;">Before the "Creative Technologist" title, I was a Roller Derby MVP. That same spirit of teamwork defines my approach to technical problem-solving today. I don't believe in dead ends—only different paths forward.</p>
-                </div>
-            </div>
-            
-            <a href="https://heathernew.com/pages/derby.html" class="b-tile img-tile" style="text-decoration: none; position: relative;">
-                <img src="https://heathernew.com/assets/heat-ictrollergirls.png" alt="ICT Rollergirls Poster">
-                <div style="position: absolute; bottom: 2.5rem; left: 2.5rem; z-index: 2;">
-                    <span class="arrow-link" style="color: var(--lime); font-size: 1.2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Derby Posters <span>→</span></span>
-                </div>
+                <span class="arrow-link" style="color: var(--lime);">Derby Posters <span>→</span></span>
             </a>
 
-            <div class="b-tile bg-lime" style="padding: 0;">
-                <div style="padding: 2.5rem; padding-bottom: 1.5rem;">
-                    <div class="bauhaus-circle" style="background-color: var(--teal); margin-bottom: 0;"></div>
-                </div>
-                <div class="img-tile" style="flex-grow: 1; height: 100%;">
-                    <img src="https://heathernew.com/assets/charcoal.gif" alt="Charcoal Animation">
-                </div>
+            <!-- Row 4 -->
+            <div class="b-tile bg-orange span-col-2">
+                <span class="meta">Object Tracking Interactive</span>
+                <h2>Interactive<br>Zen Garden</h2>
+                <p>We turn a static completely blank, physical garden into an interactive, digital experience. Built in Unity and using an array of 3D depth cameras.</p>
+                <a href="#" class="arrow-link" style="margin-top: 1.5rem;">View Project <span>→</span></a>
             </div>
 
-            <!-- Row 4: Travel / Inspiration -->
-            <div class="b-tile img-tile span-col-2">
-                <img src="https://eurotrip.heather.codes/images/marseille_heather.jpg" alt="Architecture in Spain and France">
-            </div>
-
-            <div class="b-tile bg-teal span-col-2 hover-invert">
-                <div>
-                    <span class="meta">Inspiration Everywhere</span>
-                    <h2>Barcelona to Grenoble - The Catalans</h2>
-                </div>
-                <p>Experiencing another country was life changing, I was inspired in so many ways. Jo and I came home and decided to build our own Trencadís inspired by Antoni Gaudi and his artwork all over Barcelona. We worked together to smash and tile a back splash to a spice cabinet in our kitchen. I can't wait for our next trip. Japan is my number one destination spot.</p>
-                <a href="https://eurotrip.heather.codes" class="arrow-link">View Project <span>→</span></a>
-            </div>
-
-            <!-- Row 5: The Triptych + Bridging -->
-            <div class="b-tile bg-dark-teal hover-invert">
-                <span class="meta" style="color: var(--lime);">01</span>
-                <h3 style="margin-bottom: 1rem;">The Engineer</h3>
-                <p style="font-size: 0.95rem;">Rooted in logic and structure. Whether building robust digital systems or experimenting with AI models, I focus on performance, accessibility, and clean architecture.</p>
+            <div class="b-tile bg-teal hover-invert">
+                <h2 style="font-size: 4rem;">03</h2>
+                <span class="meta">Installations</span>
             </div>
             
             <div class="b-tile bg-white">
-                <span class="meta" style="color: var(--teal);">02</span>
-                <h3 style="margin-bottom: 1rem;">The Artist</h3>
-                <p style="font-size: 0.95rem;">Driven by narrative and aesthetic. I bridge the gap between abstract creative vision and tangible user experiences that feel modern, "alive," and polished.</p>
+                <span class="meta">Tech Stack</span>
+                <p style="font-weight: 800; font-size: 1.25rem; margin-top: auto;">Unity<br>C#<br>8th Wall<br>A-Frame</p>
             </div>
 
-            <div class="b-tile bg-lime hover-invert">
-                <span class="meta" style="color: var(--text-dark);">03</span>
-                <h3 style="margin-bottom: 1rem;">The Leader</h3>
-                <p style="font-size: 0.95rem;">Defined by momentum. I’ve managed multidisciplinary teams for over 10 years, fostering environments where innovation, ethics, and people-first design thrive.</p>
-            </div>
-
-            <div class="b-tile bg-orange">
-                <span class="meta">Philosophy</span>
-                <h3 style="margin-bottom: 1rem;">Bridging the Divide</h3>
-                <p style="font-size: 0.95rem;">I thrive in the space between design and engineering. As a Senior Studio Artist leading AI and innovation efforts, I prioritize ethics, accessibility, and people.</p>
-            </div>
-
-            <!-- Row 5: Capabilities & Education -->
-            <div class="b-tile bg-white span-col-3">
-                <span class="meta" style="color: var(--teal); font-size: 1.5rem;">Capabilities</span>
-                <div class="inner-grid-3">
-                    <div>
-                        <h3 style="color: var(--orange);">Creative Tech</h3>
-                        <ul class="list-clean">
-                            <li>WebAR</li>
-                            <li>Interactive Displays / Kiosks</li>
-                            <li>HTML5 / CSS3 / JS / PHP</li>
-                            <li>Hardware Integration</li>
-                            <li>Generative Algorithms</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 style="color: var(--teal);">Art Direction</h3>
-                        <ul class="list-clean">
-                            <li>UI/UX Architecture</li>
-                            <li>Adobe Creative Suite</li>
-                            <li>3D &amp; Motion Concepting</li>
-                            <li>Print &amp; Physical Production</li>
-                            <li>Merchandise Design</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 style="color: var(--dark-teal);">Strategy &amp; Ops</h3>
-                        <ul class="list-clean">
-                            <li>Design Systems</li>
-                            <li>Vendor Management</li>
-                            <li>Cross-Functional Leadership</li>
-                            <li>Gamification Strategy</li>
-                            <li>Brand Architecture</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="b-tile bg-yellow">
-                <span class="meta">Education</span>
-                <div class="bauhaus-circle" style="background-color: var(--text-dark); width: 60px; height: 60px; margin-bottom: 1rem;"></div>
-                <h3>Management Cert</h3>
-                <p style="margin-bottom: 1rem;">MERGE University</p>
-                <h3>User Experience Design Cert</h3>
-                <p style="margin-bottom: 1rem;">Loyola University Chicago</p>
-                <h3>BFA Graphic Design</h3>
-                <p>Fort Hays State University</p>
-            </div>
-
-            <!-- Row 6: Timeline Full Width -->
-            <div class="b-tile bg-light-grey span-col-4">
-                <span class="meta" style="color: var(--dark-teal); font-size: 1.5rem; margin-bottom: 0;">Career Timeline</span>
-                <div class="inner-grid-4">
-                    <div style="border-top: 4px solid var(--teal); padding-top: 1rem;">
-                        <div class="meta" style="color: var(--teal);">Feb 2022 - Present</div>
-                        <div class="job-title">Studio Manager / Creative Technologist</div>
-                        <div class="job-company">MERGE</div>
-                        <p style="font-size: 0.9rem;">Leading technical execution and creative strategy for interactive trade show experiences, AR activations, and enterprise web systems.</p>
-                    </div>
-                    <div style="border-top: 4px solid var(--orange); padding-top: 1rem;">
-                        <div class="meta" style="color: var(--orange);">Feb 2021 - Feb 2022</div>
-                        <div class="job-title">Principal Designer &amp; Developer</div>
-                        <div class="job-company">Heather New LLC</div>
-                        <p style="font-size: 0.9rem;">Full-stack web development and brand identity for small businesses and startups.</p>
-                    </div>
-                    <div style="border-top: 4px solid var(--yellow); padding-top: 1rem;">
-                        <div class="meta" style="color: var(--text-dark);">March 2016 - Feb 2021</div>
-                        <div class="job-title">Lead Digital Developer</div>
-                        <div class="job-company">Greteman Group</div>
-                    </div>
-                    <div style="border-top: 4px solid var(--dark-teal); padding-top: 1rem;">
-                        <div class="meta" style="color: var(--dark-teal);">March 2014 - March 2016</div>
-                        <div class="job-title">Web Developer / Designer</div>
-                        <div class="job-company">Prime Concepts Group, Inc.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 8: Constant Iteration -->
-            <div class="b-tile bg-yellow span-col-2" style="justify-content: flex-end;">
-                <div>
-                    <span class="meta">Perspectives</span>
-                    <h2>Connecting<br>the dots</h2>
-                    <p>Whether it's a new feature in Figma or a cutting-edge AI tool, I'm always learning. I've branded startups, run my own business, and led multidisciplinary teams for over 15 years. Every project is an opportunity to partner on something that matters.</p>
-                </div>
-            </div>
-
+            <!-- Row 5 -->
             <div class="b-tile img-tile span-col-2">
-                <img src="https://heathernew.com/assets/heather-working-computer.png" alt="Heather working at computer">
+                <img src="https://images.unsplash.com/photo-1508558936510-0af1e3fffbab?q=80&w=2000&auto=format&fit=crop" alt="Abstract fluid dynamics for Wall of Flame">
             </div>
 
-            <!-- --- REMIXED FINAL SECTION --- -->
-            
-            <!-- Row 9: Massive Panoramic Break -->
-            <div class="b-tile img-tile span-col-4" style="aspect-ratio: 16 / 9;">
-                <img src="https://heathernew.com/assets/chartruse_thoughts.jpg" alt="Chartreuse Thoughts">
-            </div>
-            
-            <!-- Row 10 & 11: Giant Image next to 2x2 Staccato Grid -->
-            <div class="b-tile img-tile span-col-2 span-row-2">
-                <img src="https://heathernew.com/assets/heather-3d-printer.png" alt="Heather with 3D Printer">
+            <div class="b-tile bg-light-grey span-col-2 hover-invert">
+                <div>
+                    <span class="meta">Object Sensor Interactive</span>
+                    <h2>Wall of Flame</h2>
+                </div>
+                <p>A digital wall of flame waves over its audience in a real-time fluid simulation. Using a particle system, motion sensors, and dynamic feedback.</p>
+                <a href="#" class="arrow-link">View Project <span>→</span></a>
             </div>
 
+            <!-- --- NEW EXTENDED GRID ROWS --- -->
+
+            <!-- Row 6: Exploration -->
+            <div class="b-tile bg-teal span-col-2 hover-invert">
+                <div>
+                    <span class="meta">04 / Exploration</span>
+                    <h2>Generative Art</h2>
+                </div>
+                <p>Using algorithms to create infinite variations of color, shape, and structure based on classic design principles.</p>
+            </div>
+            
+            <div class="b-tile bg-light-grey">
+                <div class="bauhaus-circle" style="background-color: var(--orange);"></div>
+                <h3>Motion</h3>
+            </div>
+            
+            <div class="b-tile img-tile">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2000&auto=format&fit=crop" alt="Abstract geometric painting">
+            </div>
+
+            <!-- Row 7: Spatial Design Break -->
+            <div class="b-tile bg-lime">
+                <div class="bauhaus-circle" style="background-color: var(--dark-teal); width: 60px; height: 60px;"></div>
+                <div class="bauhaus-circle" style="background-color: var(--teal); width: 60px; height: 60px; margin-top: -30px; margin-left: 30px;"></div>
+                <h3 style="margin-top: 2rem;">Spatial<br>Design</h3>
+            </div>
+            
+            <div class="b-tile span-col-2 img-tile">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" alt="Modernist architecture">
+            </div>
+            
+            <div class="b-tile bg-mid-grey" style="text-align: right; justify-content: flex-end;">
+                <h2 style="font-size: 5rem; margin-bottom: 0; color: var(--text-dark);">05</h2>
+            </div>
+
+            <!-- Row 8 & 9: Complex Intersection -->
+            <div class="b-tile bg-dark-teal span-row-2 hover-invert">
+                <span class="meta" style="color: var(--lime);">Recognition</span>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Awards &<br>Publications</h3>
+                <ul style="list-style: none; opacity: 0.9; line-height: 2;">
+                    <li>Awwwards Site of the Day</li>
+                    <li>FWA Mobile</li>
+                    <li>CSS Design Awards</li>
+                    <li>Typewolf Featured</li>
+                    <li>Smashing Magazine</li>
+                </ul>
+            </div>
+            
+            <div class="b-tile bg-orange span-col-2">
+                <span class="meta">Editorial</span>
+                <h2>Kinetic<br>Typography</h2>
+                <p style="max-width: 400px;">Experimenting with variable fonts and scroll-linked animations to bring static editorial layouts into the modern web.</p>
+            </div>
+            
+            <div class="b-tile bg-yellow">
+                <div class="bauhaus-square" style="background-color: var(--text-dark);"></div>
+                <h3>Form</h3>
+            </div>
+            
+            <!-- Row 9 (Completing the intersection from the span-row-2 above) -->
+            <div class="b-tile img-tile span-col-2">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop" alt="Abstract interior geometry">
+            </div>
+            
+            <div class="b-tile bg-white">
+                <span class="meta">Code</span>
+                <p style="font-weight: 800; font-size: 1.5rem; margin-top: auto;">Function<br>Dictates<br>Form.</p>
+            </div>
+
+            <!-- Row 10: Staccato Finish -->
             <div class="b-tile bg-white">
                 <div class="bauhaus-square" style="background-color: var(--lime); border-radius: 0 50% 50% 50%;"></div>
             </div>
+            
+            <!-- Scalable ⌘+Z Tile using cqi units -->
+            <div class="b-tile bg-yellow hover-invert" style="display: flex; align-items: center; justify-content: center; padding: 0;">
+                <div style="font-size: 40cqi; font-weight: 800; line-height: 0.8; letter-spacing: -0.05em; color: var(--text-dark); transition: color 0.4s ease;">⌘+Z</div>
+            </div>
+
             <div class="b-tile bg-orange">
                 <div class="bauhaus-circle" style="background-color: var(--bg-color);"></div>
             </div>
-            
-            <!-- (Row 11 continuation) -->
             <div class="b-tile bg-mid-grey">
                 <div class="bauhaus-square" style="background-color: var(--teal); border-radius: 50% 0 0 0;"></div>
             </div>
-            <div class="b-tile bg-teal">
-                <div class="bauhaus-circle" style="background-color: var(--dark-teal); border-radius: 0 0 50% 50%;"></div>
-            </div>
 
-            <!-- Row 12: Footer Area -->
-            <div class="b-tile bg-lime">
-                 <div class="bauhaus-circle" style="background-color: var(--text-dark); border-radius: 50% 0 50% 50%;"></div>
-                 <a href="#" class="arrow-link" style="margin-top: auto;">Back to Top <span>↑</span></a>
-            </div>
-
+            <!-- Row 11 (Footer/Contact Area) -->
             <div class="b-tile bg-dark-teal span-col-3">
                 <span class="meta" style="color: var(--lime);">Let's Connect</span>
-                <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -2px; margin-top: 1rem; text-transform: none;">console.log("Hello World");</h2>
+                <h2 style="font-size: 4rem; letter-spacing: -2px; margin-top: 1rem;">Code is poetry.</h2>
                 <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
                     <a href="#" class="arrow-link" style="color: var(--lime); font-size: 1.2rem;">Email Me <span>→</span></a>
                     <a href="#" class="arrow-link" style="color: var(--yellow); font-size: 1.2rem;">LinkedIn <span>→</span></a>
                     <a href="#" class="arrow-link" style="color: #fff; font-size: 1.2rem;">GitHub <span>→</span></a>
                 </div>
             </div>
+            
+            <div class="b-tile bg-lime">
+                 <div class="bauhaus-circle" style="background-color: var(--text-dark); border-radius: 50% 0 50% 50%;"></div>
+                 <a href="#" class="arrow-link" style="margin-top: auto;">Back to Top <span>↑</span></a>
+            </div>
 
         </div>
+		<!-- Include Footer -->
+		<div id="footer-trigger">
+			<load src="../src/partials/footer.html" />
+		</div>
+		
+		
     </main>
-
+	<!-- Scripts -->
+    <script type="module" src="/src/js/site-core.js"></script>
+    <script type="module" src="/src/js/home-hero.js"></script>
+    <script type="module" src="/src/js/home.js"></script>
+	
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('grid-container');
-            const heroEl = document.querySelector('.hero');
             
             // Bauhaus color palette and assigned specific click behaviors
             const colorBehaviors = {
@@ -637,38 +535,39 @@
             };
             const colors = Object.keys(colorBehaviors);
 
-            const sizeScales = [0.3, 0.6, 0.9, 1.2, 1.5];
+            const sizeScales = [0.15, 0.35, 0.6, 0.9, 1.2];
             
             let gridItems = [];
-            const radius = 250; 
-            const shapeSize = 140;
-            const gridGap = 50;
+            let cols = 0;
+            let rows = 0;
+            const radius = 180; 
+            const shapeSize = 35;
+            const gridGap = 30;
 
             function generateGrid() {
                 container.innerHTML = '';
                 gridItems = [];
 
-                // Reduce to exactly 1 of each color/shape variant (14 total shapes)
-                let variants = [];
-                colors.forEach(c => {
-                    variants.push({ color: c, isSquare: false });
-                    variants.push({ color: c, isSquare: true });
-                });
-                variants.sort(() => Math.random() - 0.5); // Shuffle for random layout
+                const containerWidth = window.innerWidth - 80;
+                const containerHeight = window.innerHeight - 80;
+                
+                cols = Math.floor(containerWidth / (shapeSize + gridGap));
+                rows = Math.floor(containerHeight / (shapeSize + gridGap));
 
-                // Allow flexbox to naturally align the limited items within the container
-                container.style.width = '100%';
-                container.style.height = '100%';
+                container.style.width = `${cols * (shapeSize + gridGap)}px`;
+                container.style.height = `${rows * (shapeSize + gridGap)}px`;
 
-                variants.forEach(variant => {
+                for (let i = 0; i < cols * rows; i++) {
                     const wrapper = document.createElement('div');
                     wrapper.classList.add('shape-wrapper');
 
                     const shape = document.createElement('div');
+                    const isSquare = Math.random() > 0.85; 
                     const scaleClass = sizeScales[Math.floor(Math.random() * sizeScales.length)];
                     
-                    shape.classList.add('shape', variant.isSquare ? 'square' : 'circle');
-                    shape.style.backgroundColor = variant.color;
+                    shape.classList.add('shape', isSquare ? 'square' : 'circle');
+                    const itemColor = colors[Math.floor(Math.random() * colors.length)];
+                    shape.style.backgroundColor = itemColor;
                     
                     gsap.set(shape, { scale: scaleClass });
 
@@ -677,17 +576,16 @@
 
                     gridItems.push({
                         el: shape,
-                        isSquare: variant.isSquare,
+                        isSquare: isSquare,
                         baseScale: scaleClass,
-                        colorHex: variant.color,
+                        colorHex: itemColor,
                         active: false,
                         cx: 0,
                         cy: 0
                     });
-                });
+                }
                 
-                // Allow DOM to layout before calculating centers
-                setTimeout(calculateCenters, 50);
+                calculateCenters();
             }
 
             function calculateCenters() {
@@ -709,8 +607,7 @@
 
             // Core Interaction: Magnetic Mouse Hover
             const handleMove = (x, y) => {
-                const currentHeroHeight = heroEl.clientHeight;
-                if (y > currentHeroHeight) return; 
+                if (y > window.innerHeight) return; 
 
                 gridItems.forEach(item => {
                     const dx = item.cx - x;
@@ -752,8 +649,7 @@
 
             // Color-specific behaviors on click
             window.addEventListener('click', (e) => {
-                const currentHeroHeight = heroEl.clientHeight;
-                if (e.clientY > currentHeroHeight) return;
+                if (e.clientY > window.innerHeight) return;
 
                 const clickX = e.clientX;
                 const clickY = e.clientY;
@@ -856,45 +752,6 @@
             });
         });
     </script>
-		<!-- Include Footer -->
-<div id="footer-trigger-">
-	<div class="footer-scroll-wrapper" id="footer-trigger">
-    <footer class="footer-section">
-        <div class="footer-track">
-            <div id="mouse-skater" class="mouse-skater">
-                <!-- Separate container for flipping to avoid matrix conflicts -->
-                <div class="mouse-flip-container" id="mouse-flipper">
-                    <img src="/assets/mouse_skate.png" 
-                         alt="Magic Mouse on Roller Skates" 
-                         class="mouse-static">
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-content-bio">
-            <h3>Heather New</h3>
-            <p>Creative Technologist specializing in interactive experiences at the intersection of design, code, and technology.</p>
-        </div>
-
-        <div class="footer-nav">
-            <p class="copyright">&copy; <span id="current-year"></span> Heather New | <a href="/pages/privacy.html">Privacy Policy</a> | <a href="/pages/sitemap.xml">Sitemap</a></p>
-            <p class="build-info">Deployment Status: <span id="build-date">Checking...</span></p>
-        </div>
-    </footer>
-</div>
-<script>
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-  try {
-    const buildDate = new Date(__BUILD_DATE__);
-    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-    document.getElementById('build-date').textContent = buildDate.toLocaleDateString(undefined, options);
-  } catch (e) {
-    document.getElementById('build-date').textContent = 'Live';
-  }
-</script>
-		</div>
-		
-		<!-- Scripts -->
-
-	</body>
+	
+</body>
 </html>
