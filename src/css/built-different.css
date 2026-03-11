@@ -2,7 +2,7 @@
    MERGE PREVIEW SECTION
    ============================================ */
 .merge-hero {
-    padding-top: 100px;
+    padding-top: 120px; /* Increased for breathing room */
 }
 
 .img-hero {
