@@ -83,7 +83,14 @@ a:hover { color: #1f6870; }
     left: 0;
     width: 100%;
     z-index: 9999;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#nav-hamburger-icon {
+    z-index: 10001; /* Ensure icon is above frosted header */
 }
 
 .header-content {
