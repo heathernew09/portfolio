@@ -441,12 +441,24 @@ body.galaxy-mode-active .blur-orb {
     /* Testimonial */
     .demo-container .testimonial {
       background: hsl(165, 47%, 15%) !important; /* primary */
-      padding: 24px 16px;
+      padding: 24px 16px !important;
       opacity: 0;
       transition: opacity 0.7s ease;
       display: block !important;
+      max-width: none !important; /* Override global 900px */
+      margin: 0 !important;       /* Override global auto margin */
+      border-radius: 0 !important; /* Full width inside container */
     }
     .demo-container .testimonial.visible { opacity: 1; }
+    
+    /* Reset/Hide Global Pseudo-elements (the large orange quotes) for the mini-site */
+    .demo-container .testimonial::before,
+    .demo-container .testimonial::after,
+    .demo-container .testimonial-block::before,
+    .demo-container .testimonial-block::after {
+        display: none !important;
+    }
+
     .testimonial-inner {
       display: flex;
       align-items: flex-start;
