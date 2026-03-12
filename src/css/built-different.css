@@ -838,18 +838,23 @@ body.galaxy-mode-active .blur-orb {
 /* ============================================
    ERG
    ============================================ */
+#erg-canvas-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Default height for mobile */
+    background: radial-gradient(circle at center, #ffffff 0%, #f0f0f0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
 @media (min-width: 993px) {
-		#erg-canvas-container {
-            position: relative;
-			max-width: 1400px;
-			height: 60vh;
-			background: radial-gradient(circle at center, #ffffff 0%, #f0f0f0 100%);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-			margin: 0 auto;
-        }
+    #erg-canvas-container {
+        max-width: 1400px;
+        height: 60vh;
+    }
 }
 
         /* The Popup Card Styling */

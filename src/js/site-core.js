@@ -138,16 +138,33 @@
     // Nav Logic
     document.addEventListener('click', e => {
         const overlay = document.getElementById('pages-overlay');
+        const navBlock = document.getElementById('nav-block');
+        const hamburger = document.getElementById('nav-hamburger-icon');
+        const navLabel = navBlock?.querySelector('.nav-label');
         
         // Toggle menu when clicking hamburger block
         if (e.target.closest('#nav-block')) {
-            overlay?.classList.toggle('open');
+            const isOpen = overlay?.classList.toggle('open');
+            hamburger?.classList.toggle('active');
+            navBlock?.classList.toggle('active');
+            
+            if (navLabel) {
+                navLabel.textContent = isOpen ? 'CLOSE' : 'MENU';
+            }
+            
+            // Toggle body scroll
+            document.body.style.overflow = isOpen ? 'hidden' : '';
             return;
         }
         
-        // Close menu when clicking outside (on the overlay)
-        if (e.target === overlay) {
+        // Close menu when clicking outside (on the overlay backdrop)
+        // OR when clicking a navigation link
+        if (e.target === overlay || e.target.closest('.pages-main-nav a')) {
             overlay?.classList.remove('open');
+            hamburger?.classList.remove('active');
+            navBlock?.classList.remove('active');
+            if (navLabel) navLabel.textContent = 'MENU';
+            document.body.style.overflow = '';
         }
     });
 })();

@@ -30,26 +30,38 @@
         }
     }
 
-    function initERG() {
+    window.initErgPhysics = function() {
         if (typeof Matter === 'undefined') {
-            setTimeout(initERG, 50);
+            console.warn("ERG: Matter.js not found, retrying...");
+            setTimeout(window.initErgPhysics, 50);
             return;
         }
 
         const { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Events, Vector } = Matter;
         
         // --- 2. ENGINE CREATION & GLOBAL EXPORT ---
+        if (window.matterEngine) {
+            // Cleanup existing if any
+            Render.stop(render);
+            Runner.stop(runner);
+            Engine.clear(window.matterEngine);
+            container.innerHTML = '';
+        }
+
         engine = Engine.create();
-        window.matterEngine = engine; // Fixes Sanity Check #6
+        window.matterEngine = engine;
         
         const world = engine.world;
         engine.gravity.y = 0;
 
         container = document.getElementById('erg-canvas-container');
-        if (!container) return; 
+        if (!container) {
+            console.error("ERG: container #erg-canvas-container not found");
+            return; 
+        }
 
-        const width = container.offsetWidth; 
-        const height = container.offsetHeight; 
+        const width = container.offsetWidth || 1200; 
+        const height = container.offsetHeight || 600; 
 
         render = Render.create({
             element: container,
@@ -58,7 +70,8 @@
                 width: width,
                 height: height,
                 wireframes: false,
-                background: 'transparent'
+                background: 'transparent',
+                pixelRatio: window.devicePixelRatio || 1
             }
         });
 
@@ -76,13 +89,13 @@
 
         const basePath = "/assets/merge/erg/";
         const groups = Object.keys(ergData);
-        const coinRadius = 70;
+        const coinRadius = 60; // Slightly smaller for better fit
 
         const coins = groups.map(function(name, i) {
             const col = i % 3;
             const row = Math.floor(i / 3);
-            const startX = (width * 0.2) + (col * (width * 0.3)); 
-            const startY = (height * 0.2) + (row * (height * 0.2));
+            const startX = (width * 0.3) + (col * (width * 0.2)); 
+            const startY = (height * 0.3) + (row * (height * 0.2));
 
             return Bodies.circle(startX, startY, coinRadius, {
                 label: name,
@@ -91,8 +104,8 @@
                 render: {
                     sprite: { 
                         texture: basePath + name + '-solid.png',
-                        xScale: 0.14, 
-                        yScale: 0.14 
+                        xScale: 0.12, 
+                        yScale: 0.12 
                     }
                 }
             });
@@ -110,6 +123,8 @@
 
         // Input Management
         const mouse = Mouse.create(render.canvas);
+        
+        // Remove default touch handlers to prevent scrolling interference
         mouse.element.removeEventListener("touchstart", mouse.touchstart);
         mouse.element.removeEventListener("touchmove", mouse.touchmove);
         mouse.element.removeEventListener("touchend", mouse.touchend);
@@ -121,7 +136,7 @@
 
         Composite.add(world, mouseConstraint);
 
-        // Touch Listeners
+        // Custom Touch Listeners
         render.canvas.addEventListener('touchstart', (e) => {
             const touch = e.touches[0];
             const rect = render.canvas.getBoundingClientRect();
@@ -205,9 +220,15 @@
         // Start registration loop
         registerWithManager();
 
-        // Initial state: Sleep if manager exists
+        // Initial state: Sleep if manager exists, but ensure it starts if section is active
         if (window.sectionManager) {
-            setTimeout(() => Matter.Runner.stop(runner), 10);
+            const el = document.getElementById('section-erg-container');
+            if (el && el.getAttribute('data-is-intersecting') === 'true') {
+                Runner.run(runner, engine);
+            } else {
+                // Ensure it's stopped initially if not in view
+                setTimeout(() => Runner.stop(runner), 10);
+            }
         } else {
             Runner.run(runner, engine);
         }
@@ -225,12 +246,12 @@
                 Matter.Body.setPosition(walls[3], { x: newWidth + 50, y: newHeight / 2 });
             }
         });
-    }
+    };
 
     // Initialize
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initERG);
+        document.addEventListener('DOMContentLoaded', window.initErgPhysics);
     } else {
-        initERG();
+        window.initErgPhysics();
     }
 })();
