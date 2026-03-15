@@ -22,9 +22,6 @@
 		<meta name="twitter:description" content="Building interactive experiences with design, code, and technology.">
 		<meta name="twitter:image" content="/assets/heathernew-og.png">
 
-		<link rel="stylesheet" href="/src/css/global.css" />
-		<link rel="stylesheet" href="/src/css/home.css" />
-		<link rel="stylesheet" href="/src/css/home-hero.css" />
 
 		<!-- Import GSAP for high-performance elevated motion -->
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -357,11 +354,44 @@
             opacity: 0.8;
         }
     </style>
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="/assets/site-core-Cit16Jds.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/about-CvxCc7U7.css">
+  <link rel="stylesheet" crossorigin href="/assets/global-DzYtbLOr.css">
+  <link rel="stylesheet" crossorigin href="/assets/home-CF4ttIi8.css">
 </head>
 
 	<header class="site-header">
         <div class="header-content">
-            <load src="../src/partials/nav.html" />
+            <div class="header-content">
+    <a href="/" class="logo">
+        <img src="/assets/heather-new-wordmark.svg" alt="Heather New" style="height: 25px; width: auto;" width="150" height="25">
+    </a>
+</div>
+
+<div class="pages-menu-overlay" id="pages-overlay">
+    <div class="pages-menu-content">
+        <nav class="pages-main-nav">
+            <a href="/" class="home-link-nav">Home</a>
+            <a href="/pages/parasite-hunter.html">Parasite Hunter AR Game</a>
+            <a href="/pages/built-different.html">The Modular Brand: MERGE</a>
+            <a href="/pages/decision-tree.html">Interactive Zen Garden</a>
+            <a href="/pages/hotspot.html">Wall of Flame Interactive</a>
+            <div class="nav-bottom-group" style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                <a href="/pages/about.html">About</a>
+                <a href="/pages/contact.html">Contact</a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="pages-nav-icon" id="nav-block">
+    <div id="nav-hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
         </div>
     </header>
 	<body>
@@ -430,7 +460,7 @@
             </div>
             
             <a href="https://heathernew.com/pages/derby.html" class="b-tile img-tile" style="text-decoration: none; position: relative;">
-                <img src="/assets/ictrollergirls-heat.png" alt="ICT Rollergirls Poster">
+                <img src="/assets/ictrollergirls-heat-DpMz7GdH.png" alt="ICT Rollergirls Poster">
                 <div style="position: absolute; bottom: 2.5rem; left: 2.5rem; z-index: 2;">
                     <span class="arrow-link" style="color: var(--lime); font-size: 1.2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Derby Posters <span>→</span></span>
                 </div>
@@ -859,11 +889,43 @@
 
     <!-- Include Footer -->
     <div id="footer-trigger">
-        <load src="../src/partials/footer.html" />
+        <div class="footer-scroll-wrapper" id="footer-trigger">
+    <footer class="footer-section">
+        <div class="footer-track">
+            <div id="mouse-skater" class="mouse-skater">
+                <!-- Separate container for flipping to avoid matrix conflicts -->
+                <div class="mouse-flip-container" id="mouse-flipper">
+                    <img src="/assets/mouse_skate.png" 
+                         alt="Magic Mouse on Roller Skates" 
+                         class="mouse-static">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-content-bio">
+            <h3>Heather New</h3>
+            <p>Creative Technologist specializing in interactive experiences at the intersection of design, code, and technology.</p>
+        </div>
+
+        <div class="footer-nav">
+            <p class="copyright">&copy; <span id="current-year"></span> Heather New | <a href="/pages/privacy.html">Privacy Policy</a> | <a href="/pages/sitemap.xml">Sitemap</a></p>
+            <p class="build-info">Deployment Status: <span id="build-date">Checking...</span></p>
+        </div>
+    </footer>
+</div>
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  try {
+    const buildDate = new Date(__BUILD_DATE__);
+    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    document.getElementById('build-date').textContent = buildDate.toLocaleDateString(undefined, options);
+  } catch (e) {
+    document.getElementById('build-date').textContent = 'Live';
+  }
+</script>
     </div>
 
     <!-- Scripts -->
-    <script type="module" src="/src/js/site-core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </body>
 </html>
