@@ -296,8 +296,15 @@
         }
 
         .site-header {
-            position: static;
+            position: static !important;
         }
+		.b-tile-fullimage {
+			border-right: 1px solid var(--text-dark);
+			border-bottom: 1px solid var(--text-dark);
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+		}
     </style>
   <link rel="modulepreload" crossorigin href="data:text/javascript;base64,KGZ1bmN0aW9uKCl7Y29uc3QgdD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCJsaW5rIikucmVsTGlzdDtpZih0JiZ0LnN1cHBvcnRzJiZ0LnN1cHBvcnRzKCJtb2R1bGVwcmVsb2FkIikpcmV0dXJuO2Zvcihjb25zdCBlIG9mIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2xpbmtbcmVsPSJtb2R1bGVwcmVsb2FkIl0nKSlpKGUpO25ldyBNdXRhdGlvbk9ic2VydmVyKGU9Pntmb3IoY29uc3QgciBvZiBlKWlmKHIudHlwZT09PSJjaGlsZExpc3QiKWZvcihjb25zdCBvIG9mIHIuYWRkZWROb2RlcylvLnRhZ05hbWU9PT0iTElOSyImJm8ucmVsPT09Im1vZHVsZXByZWxvYWQiJiZpKG8pfSkub2JzZXJ2ZShkb2N1bWVudCx7Y2hpbGRMaXN0OiEwLHN1YnRyZWU6ITB9KTtmdW5jdGlvbiBzKGUpe2NvbnN0IHI9e307cmV0dXJuIGUuaW50ZWdyaXR5JiYoci5pbnRlZ3JpdHk9ZS5pbnRlZ3JpdHkpLGUucmVmZXJyZXJQb2xpY3kmJihyLnJlZmVycmVyUG9saWN5PWUucmVmZXJyZXJQb2xpY3kpLGUuY3Jvc3NPcmlnaW49PT0idXNlLWNyZWRlbnRpYWxzIj9yLmNyZWRlbnRpYWxzPSJpbmNsdWRlIjplLmNyb3NzT3JpZ2luPT09ImFub255bW91cyI/ci5jcmVkZW50aWFscz0ib21pdCI6ci5jcmVkZW50aWFscz0ic2FtZS1vcmlnaW4iLHJ9ZnVuY3Rpb24gaShlKXtpZihlLmVwKXJldHVybjtlLmVwPSEwO2NvbnN0IHI9cyhlKTtmZXRjaChlLmhyZWYscil9fSkoKTsK">
   <link rel="modulepreload" crossorigin href="data:text/javascript;base64,KGZ1bmN0aW9uKCl7d2luZG93LkFQUF9CQVNFPXdpbmRvdy5sb2NhdGlvbi5vcmlnaW4sd2luZG93LnJlc29sdmVQYXRoPShzLHQ9ITApPT57Y29uc3QgZT1zLnJlcGxhY2UoL14oXC98XC5cL3xcLlwuXC98cGFydGlhbHNcLykvLCIiKTtyZXR1cm4gdD9gJHt3aW5kb3cuQVBQX0JBU0V9L3BhcnRpYWxzLyR7ZX1gOmAvJHtlfWB9O2NsYXNzIHZ7Y29uc3RydWN0b3IoKXt0aGlzLmFjdGl2ZVNlY3Rpb249bnVsbCx0aGlzLnNlY3Rpb25zPW5ldyBNYXB9cmVnaXN0ZXIodCxlLGkpe3RoaXMuc2VjdGlvbnMuc2V0KHQse2FjdGl2YXRlOmUsZGVhY3RpdmF0ZTppLGlzQWN0aXZlOiExfSk7Y29uc3Qgbj1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCh0KTsobj09bnVsbD92b2lkIDA6bi5nZXRBdHRyaWJ1dGUoImRhdGEtaXMtaW50ZXJzZWN0aW5nIikpPT09InRydWUiJiZ0aGlzLmFjdGl2YXRlKHQpfWFjdGl2YXRlKHQpe2lmKHRoaXMuYWN0aXZlU2VjdGlvbiYmdGhpcy5hY3RpdmVTZWN0aW9uIT09dCl7Y29uc3QgaT10aGlzLnNlY3Rpb25zLmdldCh0aGlzLmFjdGl2ZVNlY3Rpb24pO2khPW51bGwmJmkuaXNBY3RpdmUmJihpLmRlYWN0aXZhdGUoKSxpLmlzQWN0aXZlPSExKX1jb25zdCBlPXRoaXMuc2VjdGlvbnMuZ2V0KHQpO2UmJiFlLmlzQWN0aXZlJiYoZS5hY3RpdmF0ZSgpLGUuaXNBY3RpdmU9ITAsdGhpcy5hY3RpdmVTZWN0aW9uPXQpfWRlYWN0aXZhdGUodCl7Y29uc3QgZT10aGlzLnNlY3Rpb25zLmdldCh0KTtlIT1udWxsJiZlLmlzQWN0aXZlJiYoZS5kZWFjdGl2YXRlKCksZS5pc0FjdGl2ZT0hMSksdGhpcy5hY3RpdmVTZWN0aW9uPT09dCYmKHRoaXMuYWN0aXZlU2VjdGlvbj1udWxsKX19d2luZG93LnNlY3Rpb25NYW5hZ2VyPW5ldyB2O2NvbnN0IG09bmV3IEludGVyc2VjdGlvbk9ic2VydmVyKHM9PntzLmZvckVhY2godD0+e2NvbnN0IGU9dC50YXJnZXQuaWQ7ZSYmKHQuaXNJbnRlcnNlY3Rpbmc/KHQudGFyZ2V0LnNldEF0dHJpYnV0ZSgiZGF0YS1pcy1pbnRlcnNlY3RpbmciLCJ0cnVlIiksd2luZG93LnNlY3Rpb25NYW5hZ2VyLmFjdGl2YXRlKGUpKToodC50YXJnZXQuc2V0QXR0cmlidXRlKCJkYXRhLWlzLWludGVyc2VjdGluZyIsImZhbHNlIiksd2luZG93LnNlY3Rpb25NYW5hZ2VyLmRlYWN0aXZhdGUoZSkpKX0pfSx7dGhyZXNob2xkOi4xfSksdz1uZXcgTXV0YXRpb25PYnNlcnZlcihzPT57cy5zb21lKHQ9PnQuYWRkZWROb2Rlcy5sZW5ndGg+MCkmJihkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJzZWN0aW9uW2lkXSIpLmZvckVhY2godD0+e3QuZ2V0QXR0cmlidXRlKCJkYXRhLW9ic2VydmVkIikhPT0idHJ1ZSImJihtLm9ic2VydmUodCksdC5zZXRBdHRyaWJ1dGUoImRhdGEtb2JzZXJ2ZWQiLCJ0cnVlIikpfSksZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImZvb3Rlci10cmlnZ2VyIikmJiF3aW5kb3cuZm9vdGVySW5pdGlhbGl6ZWQmJmEoKSl9KTtmdW5jdGlvbiBhKCl7Y29uc3Qgcz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgibW91c2Utc2thdGVyIiksdD1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgibW91c2UtZmxpcHBlciIpLGU9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImZvb3Rlci10cmlnZ2VyIik7aWYoIXN8fCF0fHwhZXx8d2luZG93LmZvb3RlckluaXRpYWxpemVkKXJldHVybjt3aW5kb3cuZm9vdGVySW5pdGlhbGl6ZWQ9ITA7bGV0IGk9LTExMCxuPS0xMTAsbD13aW5kb3cuc2Nyb2xsWSxyPSJkb3duIixkPW51bGwsdT0hMTtjb25zdCBoPS4xMjtuZXcgSW50ZXJzZWN0aW9uT2JzZXJ2ZXIobz0+e3U9b1swXS5pc0ludGVyc2VjdGluZ30se3RocmVzaG9sZDowfSkub2JzZXJ2ZShlKTtmdW5jdGlvbiBjKCl7aWYoIXUpe3JlcXVlc3RBbmltYXRpb25GcmFtZShjKTtyZXR1cm59Y29uc3Qgbz13aW5kb3cuc2Nyb2xsWSxwPXdpbmRvdy5pbm5lckhlaWdodCxiPWUuZ2V0Qm91bmRpbmdDbGllbnRSZWN0KCksZz1vLWw7aWYoTWF0aC5hYnMoZyk+LjUpe2NvbnN0IGY9Zz4wPyJkb3duIjoidXAiO2YhPT1yJiYocj1mLHI9PT0idXAiPyh0LmNsYXNzTGlzdC5hZGQoImZhY2luZy1sZWZ0Iikscy5zdHlsZS5zZXRQcm9wZXJ0eSgiLS1kaXJlY3Rpb24tc2NhbGUiLCItMSIpKToodC5jbGFzc0xpc3QucmVtb3ZlKCJmYWNpbmctbGVmdCIpLHMuc3R5bGUuc2V0UHJvcGVydHkoIi0tZGlyZWN0aW9uLXNjYWxlIiwiMSIpKSkscy5jbGFzc0xpc3QucmVtb3ZlKCJwYXVzZWQiKSxjbGVhclRpbWVvdXQoZCksZD1zZXRUaW1lb3V0KCgpPT5zLmNsYXNzTGlzdC5hZGQoInBhdXNlZCIpLDEwMCl9bj0tMTEwK01hdGgubWF4KDAsTWF0aC5taW4oMSwocC1iLnRvcCkvNTAwKSkqKHdpbmRvdy5pbm5lcldpZHRoKzExMCksaSs9KG4taSkqaCxzLnN0eWxlLnRyYW5zZm9ybT1gdHJhbnNsYXRlWCgke2l9cHgpYCxsPW8scmVxdWVzdEFuaW1hdGlvbkZyYW1lKGMpfWMoKX13Lm9ic2VydmUoZG9jdW1lbnQuYm9keSx7Y2hpbGRMaXN0OiEwLHN1YnRyZWU6ITAsYXR0cmlidXRlczohMX0pLGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJmb290ZXItdHJpZ2dlciIpJiZhKCksZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLHM9Pntjb25zdCB0PWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJwYWdlcy1vdmVybGF5IiksZT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgibmF2LWJsb2NrIiksaT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgibmF2LWhhbWJ1cmdlci1pY29uIik7aWYocy50YXJnZXQuY2xvc2VzdCgiI25hdi1ibG9jayIpKXtjb25zdCBuPXQ9PW51bGw/dm9pZCAwOnQuY2xhc3NMaXN0LnRvZ2dsZSgib3BlbiIpO2k9PW51bGx8fGkuY2xhc3NMaXN0LnRvZ2dsZSgiYWN0aXZlIiksZT09bnVsbHx8ZS5jbGFzc0xpc3QudG9nZ2xlKCJhY3RpdmUiKSxkb2N1bWVudC5ib2R5LnN0eWxlLm92ZXJmbG93PW4/ImhpZGRlbiI6IiI7cmV0dXJufShzLnRhcmdldD09PXR8fHMudGFyZ2V0LmNsb3Nlc3QoIi5wYWdlcy1tYWluLW5hdiBhIikpJiYodD09bnVsbHx8dC5jbGFzc0xpc3QucmVtb3ZlKCJvcGVuIiksaT09bnVsbHx8aS5jbGFzc0xpc3QucmVtb3ZlKCJhY3RpdmUiKSxlPT1udWxsfHxlLmNsYXNzTGlzdC5yZW1vdmUoImFjdGl2ZSIpLGRvY3VtZW50LmJvZHkuc3R5bGUub3ZlcmZsb3c9IiIpfSl9KSgpOwo=">
@@ -366,7 +373,8 @@
             </div>
             
             <div class="b-tile bg-lime" style="align-items: center; justify-content: center;">
-                <img src="/assets/boom-background-FmVagfXb.png" alt="Boom">Boom and worm gif
+                <img src="/assets/boom-background-FmVagfXb.png" alt="Boom">
+				<img src="/assets/para/hookworm.gif" alt="M that flaps like its steps are arms and flap.">
             </div>
 
             <div class="b-tile bg-dark-teal">
@@ -383,8 +391,8 @@
 				<h3>Awarded Best Booth at WVC 2026</h3>
             </div>
 
-            <div class="b-tile span-col-2 span-row-2 img-tile">
-                <a href="/pages/parasite-hunter.html"><img src="/assets/parasite-hunter-game-introscreen-CiuYj-AX.png" alt="Parasite Hunter Game Introscreen"></a>
+            <div class="b-tile-fullimage span-col-2 span-row-2 img-tile">
+                <a href="/pages/parasite-hunter.html"><img src="/assets/parasite-hunter-game-introscreen-CiuYj-AX.png" alt="Parasite Hunter Game Introscreen" class="img-responsive"></a>
             </div>
 
             <div class="b-tile bg-white">
@@ -396,9 +404,11 @@
             </div>
 
             <!-- Row 3 -->
-            <a href="/pages/parasite-hunter.html">
-                 <img src="/assets/parasite-hunter-leaderboard-BBffJhyN.png" alt="Parasite Hunter Leaderboard">
-            </a>
+            <div class="b-tile-fullimage span-col-2 span-row-2 img-tile">
+				<a href="/pages/parasite-hunter.html">
+                	<img src="/assets/parasite-hunter-leaderboard-BBffJhyN.png" alt="Parasite Hunter Leaderboard" class="img-responsive">
+            	</a>
+			</div>
 
             <!-- Row 4 -->
             <div class="b-tile bg-orange span-col-2">
@@ -408,16 +418,16 @@
                 <a href="#" class="arrow-link" style="margin-top: 1.5rem;">View Project <span>→</span></a>
             </div>
 
-            <div class="bg-teal">
+            <div style="padding: 2.5em;">
 				 <img src="/assets/red-lens-reveal-hXB-LZfb.png" alt="Red Lens Reveal">
                 <h2 style="font-size: 1.25rem;">Can you decode the message? →</h2>
                 <span class="meta">Secret Message</span>
             </div>
             
             <div class="b-tile bg-white">
-				<img src="/assets/question-mark-bqgJ_2n9.png" alt="Question Education">
+				<img src="/assets/question-mark-bqgJ_2n9.png" alt="Question Education" style="width:100px;height:100px;">
                 
-                <p style="font-weight: 800; font-size: 1.1rem; margin-top: auto;">Education<br>Brand Reinforcement<br>Viceral sounds<br>Impactful visuals<br>Disruptive to the competitors<br>#winning</p>
+                <p>Education &amp; Engagement<br>Brand Reinforcement<br>Viceral sounds<br>Impactful visuals<br>Disruptive to the competitors<br>#winning</p>
             </div>
 
             <!-- Row 5 -->
@@ -444,20 +454,39 @@
             </div>
             
             <div class="b-tile bg-light-grey">
-					 <!--<audio autoplay muted src="/assets/hotspot/audio/enflame.mp3"></audio>
-				     <audio controls loop src="/assets/hotspot/audio/enflame.mp3"></audio>
-					 <audio id="enflameAudio" src="/assets/hotspot/audio/enflame.mp3"></audio>-->
-					 <button class="bauhaus-circle" style="background-color: var(--orange);" onclick="document.getElementById('enflameAudio').play()">Play</button> 
-                <h3>Hot Spot Audio Bit</h3>
+					<div class="b-tile bg-light-grey">
+					<h3>Hot Spot Audio Bit</h3>
+
+					<audio id="enflameAudio" src="/assets/hotspot/audio/enflame.mp3" preload="metadata"></audio>
+
+					<button id="audioControlBtn" class="bauhaus-circle" style="background-color: var(--orange);" onclick="toggleAudio()">
+						Play
+					</button> 
+				</div>
+
+				<script>
+					function toggleAudio() {
+						const audio = document.getElementById('enflameAudio');
+						const btn = document.getElementById('audioControlBtn');
+
+						if (audio.paused) {
+							audio.play();
+							btn.innerText = 'Pause';
+						} else {
+							audio.pause();
+							btn.innerText = 'Play';
+						}
+					}
+				</script>
             </div>
             
-            <div class="b-tile-nopad img-tile">
-                <img src="/assets/hot-spot-interactive-Bmds_bCs.png" alt="Hot Spot Interactive">
+            <div class="b-tile img-tile">
+                <img src="/assets/hot-spot-interactive-Bmds_bCs.png" alt="Hot Spot Interactive" class="img-responsive">
             </div>
 
             <!-- Row 7: Spatial Design Break -->
             <div class="b-tile bg-lime">
-                <div style="background-color: var(--dark-teal);"><br>
+                <div>
 					<img src="/assets/merge/404/404-M.gif" alt="M that flaps like its steps are arms and flap.">
 				</div>
 				
@@ -465,22 +494,22 @@
             </div>
             
             <div class="b-tile span-col-2 img-tile">
-                <img src="/assets/merge-m-artificial-intelligence-generation-SGtLacsC.png" alt="Interactive Zen Garden Map Render">
+                <img src="/assets/merge-m-artificial-intelligence-generation-SGtLacsC.png" alt="MERGE M AI Shutterstock">
             </div>
             
-            <div class="b-tile-nopad bg-mid-grey" style="text-align: right; justify-content: flex-end;">
+            <div class="b-tile img-tile bg-mid-grey" style="text-align: right; justify-content: flex-end;">
                 <img src="/assets/merge-erg-logo-design-C-VZaCKA.png" alt="MERGE ERG Logo Design">
             </div>
 
             <!-- Row 8 & 9: Complex Intersection -->
-            <div class="b-tile-nopad bg-dark-teal span-row-2 hover-invert">
+            <div class="b-tile img-tile bg-dark-teal span-row-2 hover-invert">
                 <div style="padding:1em; position:absolute; bottom: 2rem; left: 2rem; z-index: 2;">
 					<span class="meta" style="color: var(--lime);">Recognition</span>
 					<h4 style="margin-top: 2rem; margin-bottom: 1rem;">Studio Manager Promotion and<br>M@M CERT</h4>
 					<h5 style="opacity: 0.9;">Magic Maker</h5>
 					<h5 style="opacity: 0.9;">Shining Star</h5>
 				</div>
-				<img src="/assets/certificates-magic-mak-CuNqs4RP.png" alt="M@M Certificate Magic Makers">
+				<img src="/assets/certificates-magic-mak-CuNqs4RP.png" alt="M@M Certificate Magic Makers" class="img-responsive">
             </div>
             
             <div class="b-tile bg-orange span-col-2">
@@ -495,7 +524,7 @@
             </div>
             
             <!-- Row 9 -->
-            <div class="b-tile-nopad span-col-2">
+            <div class="b-tile img-tile span-col-2">
                 <img src="/assets/subway-static-menu-BItI84Kx.png" alt="Subway Static Menu">
                 
             </div>
@@ -508,9 +537,8 @@
             </div>
 
             <!-- Row 10: Staccato Finish -->
-            <div class="b-tile-nopad bg-white">
-                <!--<div class="bauhaus-circle" style="background-color: var(--text-dark); border-radius: 50% 0 50% 50%;"></div>-->
-				<img src="/assets/roller-derby-throwback-5XF6oyq5.png" alt="Roller Derby Throwback" style="width:100%;height:auto;">
+            <div class="b-tile img-tile bg-white">
+				<img src="/assets/roller-derby-throwback-5XF6oyq5.png" alt="Roller Derby Throwback" class="img-responsive">
             </div>
             
             <!-- Scalable ⌘+Z Tile -->
@@ -531,15 +559,15 @@
             <!-- Row 11 (Footer/Contact Area) -->
             <div class="b-tile bg-dark-teal span-col-3">
                 <span class="meta" style="color: var(--lime);">Let's Connect</span>
-                <h2 style="font-size: 4rem; letter-spacing: -2px; margin-top: 1rem;">Function determines form</h2>
+                <h2 style="font-size: 4rem; letter-spacing: -2px; margin-top: 1rem;">design for function</h2>
                 <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
                     <a href="mailto:hello@heathernew.com" class="arrow-link" style="color: var(--lime); font-size: 1.2rem;">Email Me <span>→</span></a>
-                    <a href="https://linkedin.com/in/heathernew" class="arrow-link" style="color: var(--yellow); font-size: 1.2rem;">LinkedIn <span>→</span></a>
-                    <a href="https://github.com/heathernew" class="arrow-link" style="color: #fff; font-size: 1.2rem;">GitHub <span>→</span></a>
+                    <a href="https://linkedin.com/in/heathernew09" class="arrow-link" style="color: var(--yellow); font-size: 1.2rem;">LinkedIn <span>→</span></a>
+                    <a href="https://github.com/heathernew09" class="arrow-link" style="color: #fff; font-size: 1.2rem;">GitHub <span>→</span></a>
                 </div>
             </div>
             
-            <div class="b-tile-nopad bg-lime" style="display: flex; align-items: center; justify-content: center; padding: 0;">
+            <div class="b-tile img-tile bg-lime" style="display: flex; align-items: center; justify-content: center; padding: 0;">
                  <a href="https://studio.heather.codes" class="arrow-link" ><h3>Studio Roadshow <span>→</span></h3></a>
                  <span class="meta">Which Swatch?</span>
             </div>

@@ -79,7 +79,6 @@ a:hover { color: #1f6870; }
    2. GLOBAL HEADER & NAVIGATION (STRUCTURAL CORNER BLOCK)
    ============================================ */
 .site-header {
-    position: absolute;
     top: 0; left: 0;
     width: 100%;
     height: 100px;
