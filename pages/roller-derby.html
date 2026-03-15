@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Heather New - Creative Technologist in Chicago. Specialized in building interactive experiences at the intersection of design, code, and physical technology.">
+		<title>Creative Technologist in Chicago - Heather New</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		
+		<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="HeatherNew" />
+		<link rel="manifest" href="/favicon/site.webmanifest" />
+		<meta property="og:image" content="/assets/heathernew-og.png" />
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Heather New - Creative Technologist">
+		<meta name="twitter:description" content="Building interactive experiences with design, code, and technology.">
+		<meta name="twitter:image" content="/assets/heathernew-og.png">
+
+
+		<!-- Import GSAP for high-performance elevated motion -->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+     <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --text-dark: #111111;
+            --grid-gap: 30px;
+            --shape-size: 35px;
+            --teal: #1BB1A5;
+            --dark-teal: #247B82;
+            --yellow: #F6B352;
+            --orange: #F66C0F;
+            --lime: #B2F81D;
+            --light-grey: #E0E0E0;
+            --mid-grey: #CCCCCC;
+            --derby-red: #A72218;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            width: 100vw;
+            height: 100vh;
+            border-bottom: 1px solid var(--text-dark);
+        }
+
+        .hero-title-block {
+            grid-column: 1 / 3;
+            padding: 4vw 2vw;
+            border-bottom: 1px solid var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-title-block h1 {
+            font-size: 13vw;
+            line-height: 0.85;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+        }
+
+        .hero-sub-block {
+            padding: 4rem 3rem;
+            border-right: 1px solid var(--text-dark);
+            background-color: var(--yellow);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .hero-sub-block h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-sub-block p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+
+        .hero-visual-block {
+            background-color: var(--dark-teal);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+            height: 100%;
+            gap: var(--grid-gap);
+        }
+
+        .shape-wrapper {
+            position: relative;
+            width: var(--shape-size);
+            height: var(--shape-size);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .shape {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-origin: center center;
+            will-change: transform, border-radius;
+            transform: translateZ(0);
+            cursor: pointer;
+        }
+
+        .shape.circle { border-radius: 50%; }
+        .shape.square { border-radius: 0%; }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio-section {
+            padding: 4rem 2vw 8rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bauhaus-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(240px, auto);
+            width: 100%;
+            max-width: 1400px;
+            border-top: 1px solid var(--text-dark);
+            border-left: 1px solid var(--text-dark);
+        }
+
+        .b-tile {
+            container-type: inline-size;
+            border-right: 1px solid var(--text-dark);
+            border-bottom: 1px solid var(--text-dark);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .span-col-2 { grid-column: span 2; }
+        .span-col-3 { grid-column: span 3; }
+        .span-col-4 { grid-column: span 4; }
+        .span-row-2 { grid-row: span 2; }
+
+        .b-tile h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .b-tile h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .b-tile p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .b-tile .meta {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .bg-white { background-color: #FFFFFF; }
+        .bg-teal { background-color: var(--teal); color: #fff; }
+        .bg-dark-teal { background-color: var(--dark-teal); color: #fff; }
+        .bg-yellow { background-color: var(--yellow); color: var(--text-dark); }
+        .bg-orange { background-color: var(--orange); color: #fff; }
+        .bg-lime { background-color: var(--lime); color: var(--text-dark); }
+        .bg-light-grey { background-color: var(--light-grey); color: var(--text-dark); }
+        .bg-mid-grey { background-color: var(--mid-grey); color: var(--text-dark); }
+        .bg-black { background-color: var(--text-dark); color: #fff; }
+
+        .img-tile { padding: 0; display: block; }
+        .img-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .img-tile:hover img { transform: scale(1.05); }
+
+        .video-tile {
+            padding: 0;
+            display: block;
+            overflow: hidden;
+            background-color: var(--text-dark);
+        }
+        .video-tile video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .hover-invert:hover {
+            background-color: var(--text-dark) !important;
+            color: var(--lime) !important;
+        }
+
+        .arrow-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: auto;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+        }
+        .arrow-link span {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .b-tile:hover .arrow-link span { transform: translateX(10px); }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; height: auto; min-height: 100vh; }
+            .hero-title-block { grid-column: 1; padding: 8vw 4vw; }
+            .hero-title-block h1 { font-size: 16vw; }
+            .hero-sub-block { border-right: none; border-bottom: 1px solid var(--text-dark); padding: 3rem 2rem; }
+            .hero-visual-block { min-height: 50vh; }
+            .bauhaus-grid { grid-template-columns: repeat(2, 1fr); }
+            .span-col-3, .span-col-4 { grid-column: span 2; }
+        }
+        @media (max-width: 600px) {
+            .bauhaus-grid { grid-template-columns: 1fr; }
+            .span-col-2, .span-col-3, .span-col-4 { grid-column: span 1; }
+            .span-row-2 { grid-row: span 1; min-height: 300px; }
+        }
+    </style>
+
+</head>
+<body>
+	<a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <header class="hero">
+        <div class="hero-title-block">
+            <h1>DESIGN</h1>
+            <h1>× DERBY</h1>
+        </div>
+        <div class="hero-sub-block">
+            <h2>MVP Jammer • All Star Blocker<br>Designer &amp; Marketing Committee</h2>
+            <p>The league was celebrating 10 Years of ICT Roller Derby during my skating time. I updated a 10 year old logo for legibility, accessibility and to market, amp merge and really stir excitement for our premier Roller Derby League in Wichita Kansas.</p>
+        </div>
+        <div class="hero-visual-block">
+            <div id="grid-container"></div>
+        </div>
+    </header>
+
+    <main class="portfolio-section">
+        <div class="bauhaus-grid">
+
+            <!-- Row 1: Opening Statement -->
+            <div class="b-tile bg-dark-teal span-col-3">
+                <span class="meta" style="color: var(--lime);">Role</span>
+                <h2 style="font-size: 5rem; letter-spacing: -2px; margin-top: 1rem;">All Star<br>Jammer</h2>
+            </div>
+
+            <!-- Sweaty Heather smiling -->
+            <div class="b-tile img-tile">
+                <img src="https://heathernew.com/public/image/ictrg/heat-her-up-roller-derby.png" alt="Heather Heat Up Roller Derby">
+            </div>
+
+            <!-- Row 2: Output list (span row 2) + Logo Evolution + Poster tile -->
+            <div class="b-tile bg-yellow span-row-2">
+                <h3 style="margin-bottom: 1.5rem;">The Output</h3>
+                <ul style="list-style: none; line-height: 2; font-weight: 600; font-size: 1.1rem;">
+                    <li>Brand Identity</li>
+                    <li>Poster Campaigns</li>
+                    <li>Jersey Design</li>
+                    <li>Website Architecture</li>
+                    <li>Promo Videos</li>
+                </ul>
+            </div>
+
+            <div class="b-tile span-col-2 bg-light-grey hover-invert">
+                <div>
+                    <span class="meta">10-Year Anniversary Refresh</span>
+                    <h2>Logo Evolution</h2>
+                </div>
+                <p>Tracking the visual history of the team from the original 2014 mark, through the 2019 interim update, to the bold 10-year 2024 refresh.</p>
+                <a href="#" class="arrow-link">View Evolution <span>→</span></a>
+            </div>
+
+            <!-- Facebook cover / Bring the Heat poster -->
+            <a href="#" class="b-tile hover-invert" style="background-color: var(--text-dark); text-decoration: none; display: flex; flex-direction: column;">
+                <span class="meta" style="color: var(--lime);">Poster Archive</span>
+                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 1rem 0;">
+                    <img src="https://heathernew.com/public/images/ictrg/bring-the-heat-ictrg.png" alt="ICT RD Bring The Heat Poster" style="max-width: 100%; max-height: 130px; object-fit: contain; border-bottom: 4px solid var(--lime); border-top: 4px solid var(--yellow); padding: 10px 0;">
+                </div>
+                <span class="arrow-link" style="color: var(--lime);">View Posters <span>→</span></span>
+            </a>
+
+            <!-- Row 3 (completing the span-row-2 output block): Design Stack, 10 yrs, new logo -->
+            <div class="b-tile bg-white">
+                <span class="meta">Design Stack</span>
+                <p style="font-weight: 800; font-size: 1.25rem; margin-top: auto;">Illustrator<br>Photoshop<br>Premiere<br>Figma</p>
+            </div>
+
+            <div class="b-tile bg-teal hover-invert">
+                <h2 style="font-size: 4rem;">27 lap time</h2>
+                <span class="meta">4 minutes 11 seconds</span>
+            </div>
+
+            <!-- Revised Logo -->
+            <div class="b-tile img-tile bg-mid-grey" style="display: flex; justify-content: center; align-items: center;">
+                <img src="https://heathernew.com/public/images/ictrg/ict-roller-derby-logo-revised.png" alt="ICT Roller Derby Revised Logo" style="object-fit: contain; max-height: 160px; padding: 1rem;">
+            </div>
+
+            <!-- Row 4 & 5: Full team photo (span 2 col, span 2 row) + Poster campaigns + Jersey -->
+            <!-- All-star team full bleed -->
+            <div class="b-tile img-tile span-col-2 span-row-2">
+                <img src="https://heathernew.com/public/images/ictrg/all-star-team-ict-roller-derby.png" alt="ICT Roller Derby All Star Team">
+            </div>
+
+            <div class="b-tile bg-white span-col-2">
+                <span class="meta">Visual Direction &amp; Execution</span>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 800; text-transform: uppercase;">Poster Campaigns</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 1rem;">3 Seasons, 3 Distinct Visual Styles. A collection blending action photography with heavy typography to drive bout attendance and community hype.</p>
+                <a href="#" class="arrow-link" style="font-size: 1rem; color: var(--teal);">Behind The Scenes <span>→</span></a>
+            </div>
+
+            <!-- Jersey tile — black jersey with sleeves -->
+            <div class="b-tile bg-orange span-col-2">
+                <span class="meta">Apparel</span>
+                <h2>Jersey<br>Design</h2>
+                <p>Performance Meets Personality. Bold red and black team jerseys featuring clean typography, custom numbers, and the iconic Shiner Dalmatian cutout.</p>
+                <a href="#" class="arrow-link" style="margin-top: 1.5rem;">View Details <span>→</span></a>
+            </div>
+
+            <!-- Row 6: Heather getting smashed (span 3) + MVP -->
+            <div class="b-tile img-tile span-col-3">
+                <img src="https://heathernew.com/public/images/ictrg/heather-busted-ictrg.png" alt="Heather getting hit in roller derby action">
+            </div>
+
+            <div class="b-tile bg-mid-grey" style="text-align: right; justify-content: flex-end;">
+                <h2 style="font-size: 4rem; margin-bottom: 0; color: var(--text-dark);">MVP</h2>
+            </div>
+
+            <!-- Row 7: Website design + web dev at work -->
+            <div class="b-tile bg-light-grey span-col-2 hover-invert">
+                <div>
+                    <span class="meta">Digital Presence</span>
+                    <h2>Website<br>Design</h2>
+                </div>
+                <p>The digital home for the team. A fully responsive layout featuring team rosters, game schedules, bout galleries, and a dynamic parallax scroll effect.</p>
+                <a href="#" class="arrow-link">View Mockups <span>→</span></a>
+            </div>
+
+            <!-- Website build screenshot -->
+            <div class="b-tile img-tile">
+                <img src="https://heathernew.com/public/images/ictrg/ict-roller-derby-website-build.png" alt="ICT Roller Derby Website Build" style="object-fit: cover; object-position: top;">
+            </div>
+
+            <!-- Web developer at work -->
+            <div class="b-tile img-tile">
+                <img src="https://heathernew.com/public/images/ictrg/web-developer-at-work-min.png" alt="Web Developer At Work">
+            </div>
+
+            <!-- Row 8 & 9: Accolades (span row 2) + Video (span 2 col, span 2 row) + Promo + Video series labels -->
+            <div class="b-tile bg-dark-teal span-row-2 hover-invert">
+                <span class="meta" style="color: var(--lime);">Accolades</span>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 2.2rem;">Team<br>Highlights</h3>
+                <ul style="list-style: none; opacity: 0.9; line-height: 2; font-size: 1.1rem;">
+                    <li>Multiple MVP Awards</li>
+                    <li>Epic Medal Creator</li>
+                    <li>Marketing Lead</li>
+                    <li>All Star Blocker</li>
+                </ul>
+            </div>
+
+            <!-- 16:9 Responsive Video -->
+            <div class="b-tile video-tile span-col-2 span-row-2">
+				<h3 style="margin-top: auto; line-height: 1.3;">Roller Derby Educational Film</h3>
+                <video autoplay loop muted playsinline>
+                    <source src="https://heathernew.com/public/images/ictrg/roller-derby-educational-film.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="b-tile bg-orange">
+                <span class="meta">Media</span>
+                <h2>Promo<br>Videos</h2>
+            </div>
+
+            <div class="b-tile bg-light-grey">
+                <h3 style="margin-top: auto; line-height: 1.3;">Pie A Skater</h3>
+				<video autoplay loop muted playsinline>
+                    <source src="https://heathernew.com/public/images/ictrg/roller-derby-educational-film.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Row 10: MVP Awards + Epic Medal images -->
+            <div class="b-tile bg-teal span-col-2 hover-invert">
+                <div>
+                    <span class="meta">Recognition</span>
+                    <h2>MVP Awards</h2>
+                </div>
+                <p>I wanted to recognized exceptional dedication to the league by Dogpile. She started with the league in 2006, she became a welcoming face to newbie skaters. I designed and crafted an oversized "Epic Medal" for teammate to resemble her loyalty.</p>
+            </div>
+
+            <!-- Epic medal side by side -->
+            <div class="b-tile img-tile">
+                <img src="https://heathernew.com/public/image/ictrg/epic-medal-side-by-side.png" alt="Epic Medal Side by Side Creation">
+            </div>
+
+            <!-- Heather holding the epic medal -->
+            <div class="b-tile img-tile bg-yellow">
+                <img src="https://heathernew.com/public/image/ictrg/epic-medal-heather-holding.png" alt="Heather holding the Epic Medal">
+            </div>
+
+            <!-- Row 11: Epic medal build process (span 2 col) + Dogpile epic medal image + medal 0 -->
+            <div class="b-tile bg-black span-col-2" style="justify-content: center;">
+                <span class="meta" style="color: var(--lime);">Build Process</span>
+                <h2 style="color: var(--lime); font-size: 3.5rem; letter-spacing: -2px; margin-top: 1rem;">Epic<br>Medal</h2>
+                <p style="color: #ccc; margin-top: 1rem;">Fabricated entirely by hand for teammate Dogpile — an oversized custom award celebrating an unforgettable season.</p>
+            </div>
+
+            <!-- Epic medal build step 0 -->
+            <div class="b-tile img-tile">
+                <img src="https://heathernew.com/public/image/ictrg/epic-medal-0.png" alt="Epic Medal Build Step 1">
+            </div>
+
+            <!-- Epic medal build step 1 -->
+            <div class="b-tile img-tile bg-mid-grey">
+                <img src="https://heathernew.com/public/image/ictrg/epic-medal-1.png" alt="Epic Medal Build Step 2">
+            </div>
+
+            <!-- Row 12: Dogpile wearing the medal (full-bleed wide) -->
+            <div class="b-tile img-tile span-col-4" style="min-height: 400px;">
+                <img src="https://heathernew.com/public/images/ictrg/epic-medal-dogpile.png" alt="Dogpile wearing the Epic Medal" style="object-position: center top;">
+            </div>
+
+            <!-- Row 13: Full panoramic love you image -->
+            <div class="b-tile img-tile span-col-4" style="min-height: 450px;">
+                <img src="https://heathernew.com/public/images/ictrg/heat-love-you.jpg" alt="Heather love you — Team affection">
+            </div>
+
+            <!-- Row 14 & 15: Giant MVP + 2×2 staccato grid -->
+            <div class="b-tile bg-yellow hover-invert span-col-2 span-row-2" style="display: flex; align-items: center; justify-content: center; padding: 0;">
+                <div style="font-size: 30cqi; font-weight: 800; line-height: 0.8; letter-spacing: -0.05em; color: var(--text-dark); transition: color 0.4s ease;">MVP</div>
+            </div>
+
+            <!-- 10-year anniversary tee -->
+            <div class="b-tile img-tile bg-white" style="display: flex; justify-content: center; align-items: center;">
+                <img src="https://heathernew.com/public/images/ictrg/10-year-anniversary-tee-ICTRollerGirls-min-549x600.png" style="object-fit: contain; max-height: 80%; padding: 10px;" alt="10 Year Anniversary Tee">
+            </div>
+
+            <!-- Roller Mouse mascot -->
+            <div class="b-tile img-tile bg-orange">
+                <img src="https://heathernew.com/public/images/ictrg/rollermouse.jpg" alt="Roller Mouse Mascot">
+            </div>
+
+            <!-- Row 15: Jersey render + black jersey sleeves -->
+            <div class="b-tile img-tile bg-mid-grey" style="display: flex; justify-content: center; align-items: center;">
+                <img src="https://heathernew.com/public/images/ictrg/ict-roller-derby-jersey-render.png" style="object-fit: contain; max-height: 80%; padding: 10px;" alt="ICT Jersey Render">
+            </div>
+
+            <!-- Black jersey with sleeves -->
+            <div class="b-tile img-tile bg-teal" style="display: flex; justify-content: center; align-items: center;">
+                <img src="https://heathernew.com/public/images/ictrg/black-jersey-sleeves.png" style="object-fit: contain; max-height: 80%; padding: 10px;" alt="Black Jersey with Sleeves">
+            </div>
+
+            <!-- Row 16: Footer area -->
+            <div class="b-tile bg-lime">
+                <div style="width: 80px; height: 80px; border-radius: 50% 0 50% 50%; background-color: var(--text-dark); margin-bottom: 2rem;"></div>
+                <a href="#" class="arrow-link" style="margin-top: auto;">Back to Top <span>↑</span></a>
+            </div>
+
+            <div class="b-tile bg-dark-teal span-col-3">
+                <span class="meta" style="color: var(--lime);">Let's Connect</span>
+                <h2 style="font-size: 4rem; letter-spacing: -2px; margin-top: 1rem;">See You On The Track.</h2>
+                <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <a href="#" class="arrow-link" style="color: var(--lime); font-size: 1.2rem;">Email Me <span>→</span></a>
+                    <a href="#" class="arrow-link" style="color: var(--yellow); font-size: 1.2rem;">Derby Instagram <span>→</span></a>
+                    <a href="#" class="arrow-link" style="color: #fff; font-size: 1.2rem;">Design Portfolio <span>→</span></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('grid-container');
+
+            const colorBehaviors = {
+                '#1BB1A5': 'vortex',
+                '#247B82': 'implode',
+                '#F6B352': 'converge',
+                '#F66C0F': 'scatter',
+                '#B2F81D': 'float',
+                '#E0E0E0': 'blink',
+                '#CCCCCC': 'flip'
+            };
+            const colors = Object.keys(colorBehaviors);
+            const sizeScales = [0.15, 0.35, 0.6, 0.9, 1.2];
+
+            let gridItems = [];
+            let cols = 0;
+            let rows = 0;
+            const radius = 180;
+            const shapeSize = 35;
+            const gridGap = 30;
+
+            function generateGrid() {
+                container.innerHTML = '';
+                gridItems = [];
+
+                const parent = container.parentElement;
+                const containerWidth = parent.clientWidth - 40;
+                const containerHeight = parent.clientHeight - 40;
+
+                cols = Math.floor(containerWidth / (shapeSize + gridGap));
+                rows = Math.floor(containerHeight / (shapeSize + gridGap));
+
+                container.style.width = `${cols * (shapeSize + gridGap)}px`;
+                container.style.height = `${rows * (shapeSize + gridGap)}px`;
+
+                for (let i = 0; i < cols * rows; i++) {
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('shape-wrapper');
+
+                    const shape = document.createElement('div');
+                    const isSquare = Math.random() > 0.85;
+                    const scaleClass = sizeScales[Math.floor(Math.random() * sizeScales.length)];
+
+                    shape.classList.add('shape', isSquare ? 'square' : 'circle');
+                    const itemColor = colors[Math.floor(Math.random() * colors.length)];
+                    shape.style.backgroundColor = itemColor;
+
+                    gsap.set(shape, { scale: scaleClass });
+
+                    wrapper.appendChild(shape);
+                    container.appendChild(wrapper);
+
+                    gridItems.push({
+                        el: shape,
+                        isSquare,
+                        baseScale: scaleClass,
+                        colorHex: itemColor,
+                        active: false,
+                        cx: 0,
+                        cy: 0
+                    });
+                }
+
+                calculateCenters();
+            }
+
+            function calculateCenters() {
+                gridItems.forEach(item => {
+                    const rect = item.el.getBoundingClientRect();
+                    item.cx = rect.left + rect.width / 2;
+                    item.cy = rect.top + rect.height / 2;
+                });
+            }
+
+            window.addEventListener('resize', () => {
+                clearTimeout(window.resizeTimer);
+                window.resizeTimer = setTimeout(generateGrid, 150);
+            });
+
+            generateGrid();
+
+            const handleMove = (x, y) => {
+                gridItems.forEach(item => {
+                    const dx = item.cx - x;
+                    const dy = item.cy - y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < radius) {
+                        const force = (radius - dist) / radius;
+                        gsap.to(item.el, {
+                            scale: item.baseScale + (force * 1.5),
+                            x: -dx * force * 0.4,
+                            y: -dy * force * 0.4,
+                            rotation: item.isSquare ? force * 90 : force * -45,
+                            borderRadius: item.isSquare ? `${force * 50}%` : `${50 - force * 20}%`,
+                            duration: 0.4,
+                            ease: "power2.out",
+                            overwrite: "auto"
+                        });
+                        item.active = true;
+                    } else if (item.active) {
+                        gsap.to(item.el, {
+                            scale: item.baseScale,
+                            x: 0, y: 0, rotation: 0,
+                            borderRadius: item.isSquare ? '0%' : '50%',
+                            duration: 0.8,
+                            ease: "elastic.out(1, 0.4)",
+                            overwrite: "auto"
+                        });
+                        item.active = false;
+                    }
+                });
+            };
+
+            window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+            window.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            });
+
+            window.addEventListener('click', (e) => {
+                const clickX = e.clientX;
+                const clickY = e.clientY;
+
+                let behavior = 'ripple';
+                const clickedShape = e.target.closest('.shape');
+                if (clickedShape) {
+                    const itemData = gridItems.find(item => item.el === clickedShape);
+                    if (itemData && colorBehaviors[itemData.colorHex]) {
+                        behavior = colorBehaviors[itemData.colorHex];
+                    }
+                }
+
+                gridItems.forEach(item => {
+                    const dx = item.cx - clickX;
+                    const dy = item.cy - clickY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    let animProps = {};
+
+                    switch (behavior) {
+                        case 'vortex':
+                            animProps = {
+                                rotation: `+=${360 * (1 + Math.random())}`,
+                                scale: item.baseScale * 0.1,
+                                duration: 0.8,
+                                ease: "power3.in",
+                                onComplete: () => gsap.to(item.el, { scale: item.baseScale, rotation: 0, duration: 1, ease: "elastic.out(1, 0.3)" })
+                            };
+                            break;
+                        case 'implode':
+                            animProps = {
+                                scale: 0,
+                                duration: 0.5,
+                                ease: "back.in(2)",
+                                delay: dist * 0.001,
+                                onComplete: () => gsap.to(item.el, { scale: item.baseScale, duration: 0.8, ease: "elastic.out(1, 0.4)" })
+                            };
+                            break;
+                        case 'converge':
+                            animProps = {
+                                x: (clickX - item.cx) * 0.5,
+                                y: (clickY - item.cy) * 0.5,
+                                scale: item.baseScale * 2,
+                                duration: 0.5,
+                                ease: "power2.in",
+                                onComplete: () => gsap.to(item.el, { x: 0, y: 0, scale: item.baseScale, duration: 1, ease: "elastic.out(1, 0.4)" })
+                            };
+                            break;
+                        case 'scatter':
+                            animProps = {
+                                x: (Math.random() - 0.5) * 200,
+                                y: (Math.random() - 0.5) * 200,
+                                rotation: (Math.random() - 0.5) * 720,
+                                duration: 0.7,
+                                ease: "power3.out",
+                                onComplete: () => gsap.to(item.el, { x: 0, y: 0, rotation: 0, scale: item.baseScale, duration: 1.2, ease: "elastic.out(1, 0.3)" })
+                            };
+                            break;
+                        case 'float':
+                            animProps = {
+                                y: -150 * (1 - dist / 500),
+                                opacity: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                                delay: dist * 0.001,
+                                onComplete: () => gsap.to(item.el, { y: 0, opacity: 1, scale: item.baseScale, duration: 0.5 })
+                            };
+                            break;
+                        case 'blink':
+                            const times = Math.floor(Math.random() * 5) + 3;
+                            gsap.to(item.el, {
+                                keyframes: Array.from({ length: times * 2 }, (_, i) => ({ opacity: i % 2 === 0 ? 0 : 1, duration: 0.1 })),
+                                delay: dist * 0.001
+                            });
+                            return;
+                        case 'flip':
+                            animProps = {
+                                rotationY: 360,
+                                duration: 0.8,
+                                ease: "power2.inOut",
+                                delay: dist * 0.002,
+                                onComplete: () => gsap.set(item.el, { rotationY: 0 })
+                            };
+                            break;
+                        default:
+                            const rippleForce = Math.max(0, 1 - dist / 300);
+                            animProps = {
+                                scale: item.baseScale + rippleForce * 1.2,
+                                duration: 0.4,
+                                ease: "power2.out",
+                                onComplete: () => gsap.to(item.el, { scale: item.baseScale, duration: 0.8, ease: "elastic.out(1, 0.4)" })
+                            };
+                    }
+
+                    if (Object.keys(animProps).length) gsap.to(item.el, animProps);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+	
+</body>
+</html>
