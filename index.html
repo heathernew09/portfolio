@@ -145,7 +145,7 @@
 
         /* --- STRICT BAUHAUS GRID SECTION --- */
         .portfolio-section {
-            padding: 4rem 2vw 8rem;
+            padding: 4rem 2vw 2rem;
             background-color: var(--bg-color);
             display: flex;
             justify-content: center;
@@ -384,10 +384,8 @@
             <!-- Row 2 -->
             <div class="b-tile bg-yellow span-row-2">
                 <h3 style="margin-bottom: 1.5rem;">Results</h3>
-                <ul style="list-style: none; line-height: 2; font-weight: 600; font-size: 1.1rem;">
-					<li><span class="huge">80,000</span> parasites caught during WVC and VMX, serving up 80,000 impressions on Credelio Quattros effectiveness</li>
-                    <li><span class="huge">5,994</span> parasites were caught by one person, maxing out our leaderboard!</li>
-                </ul>
+                <p><span style="font-size:3em;">80,000</span><br>parasites caught during WVC and VMX, serving up 80,000 impressions on Credelio Quattros effectiveness</p>
+                <p><span style="font-size:3em;">5,994</span><br>parasites were caught by one person, maxing out our leaderboard!</p>
 				<h3>Awarded Best Booth at WVC 2026</h3>
             </div>
 
@@ -404,7 +402,7 @@
             </div>
 
             <!-- Row 3 -->
-            <div class="b-tile-fullimage span-col-2 span-row-2 img-tile">
+            <div class="b-tile img-tile">
 				<a href="/pages/parasite-hunter.html">
                 	<img src="/assets/parasite-hunter-leaderboard-BBffJhyN.png" alt="Parasite Hunter Leaderboard" class="img-responsive">
             	</a>
@@ -418,10 +416,11 @@
                 <a href="#" class="arrow-link" style="margin-top: 1.5rem;">View Project <span>→</span></a>
             </div>
 
-            <div style="padding: 2.5em;">
+            <div class="b-tile img-tile" >
 				 <img src="/assets/red-lens-reveal-hXB-LZfb.png" alt="Red Lens Reveal" class="img-responsive">
-                <h2 style="font-size: 1.25rem;">Can you decode the message? →</h2>
-                <span class="meta">Secret Message</span>
+                <div style="padding: 2.5em;"><h2 style="font-size: 1.25rem;">Can you decode the message? →</h2>
+					<span class="meta">Secret Message</span>
+				</div>
             </div>
             
             <div class="b-tile bg-white">
@@ -454,15 +453,14 @@
             </div>
             
             <div class="b-tile bg-light-grey">
-					<div class="b-tile bg-light-grey">
+					
 					<h3>Hot Spot Audio Bit</h3>
 
-					<audio id="enflameAudio" src="/assets/hotspot/audio/enflame.mp3" preload="metadata"></audio>
+					<audio id="enflameAudio" src="/assets/hotspot/audio/enflame.mp3" preload="auto"></audio>
 
 					<button id="audioControlBtn" class="bauhaus-circle" style="background-color: var(--orange);" onclick="toggleAudio()">
 						Play
 					</button> 
-				</div>
 
 				<script>
 					function toggleAudio() {
@@ -470,9 +468,24 @@
 						const btn = document.getElementById('audioControlBtn');
 
 						if (audio.paused) {
-							audio.play();
-							btn.innerText = 'Pause';
+							// 1. Immediately tell the user we are working on it
+							btn.innerText = 'Loading...'; 
+
+							// 2. Play the audio and handle the delay properly
+							let playPromise = audio.play();
+
+							if (playPromise !== undefined) {
+								playPromise.then(() => {
+									// 3. Audio has successfully started playing
+									btn.innerText = 'Pause';
+								}).catch((error) => {
+									// Fallback in case the browser blocks it or the file is missing
+									console.error("Audio playback failed:", error);
+									btn.innerText = 'Play'; 
+								});
+							}
 						} else {
+							// Pause the audio
 							audio.pause();
 							btn.innerText = 'Play';
 						}
@@ -502,14 +515,12 @@
             </div>
 
             <!-- Row 8 & 9: Complex Intersection -->
-            <div class="b-tile img-tile bg-dark-teal span-row-2 hover-invert">
-                <div style="padding:1em; position:absolute; bottom: 2rem; left: 2rem; z-index: 2;">
+            <div class="b-tile bg-dark-teal">
 					<span class="meta" style="color: var(--lime);">Recognition</span>
-					<h4 style="margin-top: 2rem; margin-bottom: 1rem;">Studio Manager Promotion and<br>M@M CERT</h4>
-					<h5 style="opacity: 0.9;">Magic Maker</h5>
-					<h5 style="opacity: 0.9;">Shining Star</h5>
-				</div>
-				<img src="/assets/certificates-magic-mak-CuNqs4RP.png" alt="M@M Certificate Magic Makers" class="img-responsive">
+					<img src="/public/images/certificates-manager.png" alt="M@M Certificate Magic Makers" class="img-responsive">	
+					<h4 style="font-style:.7em;">Studio Manager Promotion and<br>M@M CERT</h4>
+					<h5 style="opacity: 0.9;font-size:.8em;">Magic Maker<br>Shining Star</h5>
+					<img src="/public/images/certificates-magic-maker.png" alt="M@M Certificate Magic Makers" class="img-responsive">
             </div>
             
             <div class="b-tile bg-orange span-col-2">
@@ -519,7 +530,7 @@
             </div>
             
             <div class="b-tile bg-yellow">
-                <img src="/assets/gamified-learning-with-biomarin-CBh2MFrt.png" alt="Gamified Learning Biomarin" class="img-responsive">
+                <img src="/public/images/skele-bones.png" alt="Gamified Learning Biomarin" class="img-responsive">
                 <h3>Gamified<br>Learning →</h3>
             </div>
             
@@ -567,8 +578,8 @@
                 </div>
             </div>
             
-            <div class="b-tile bg-lime" style="display: flex; align-items: center; justify-content: center; padding: 0;">
-                 <a href="https://studio.heather.codes" class="arrow-link" ><h3>Studio Roadshow <span>→</span></h3></a>
+            <div class="b-tile bg-lime">
+                 <a href="https://studio.heather.codes" class="arrow-link" ><h3 style="font-size:1.5em;">Studio<br>Roadshow <span>→</span></h3></a>
                  <span class="meta">Which Swatch?</span>
             </div>
 
