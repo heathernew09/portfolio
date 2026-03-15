@@ -22,9 +22,6 @@
 		<meta name="twitter:description" content="Building interactive experiences with design, code, and technology.">
 		<meta name="twitter:image" content="/assets/heathernew-og.png">
 
-		<link rel="stylesheet" href="/src/css/global.css" />
-		<link rel="stylesheet" href="/src/css/home.css" />
-		<link rel="stylesheet" href="/src/css/home-hero.css" />
 
 		<!-- Import GSAP for high-performance elevated motion -->
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -250,6 +247,10 @@
             padding: 0;
             display: block;
         }
+		.img-responsive{
+			width:100%;
+			height:auto;
+		}
         .img-tile img {
             width: 100%;
             height: 100%;
@@ -298,11 +299,45 @@
             margin-bottom: 2rem;
         }
     </style>
+  <script type="module" crossorigin src="/assets/pages/heather-xtqXyvCe.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/assets/site-core-Cit16Jds.js">
+  <link rel="stylesheet" crossorigin href="/assets/global-DzYtbLOr.css">
+  <link rel="stylesheet" crossorigin href="/assets/home-CF4ttIi8.css">
+  <link rel="stylesheet" crossorigin href="/assets/home-hero-CvxCc7U7.css">
 </head>
 <body>
 	<header class="site-header">
         <div class="header-content">
-            <load src="../src/partials/nav.html" />
+            <div class="header-content">
+    <a href="/" class="logo">
+        <img src="/assets/heather-new-wordmark.svg" alt="Heather New" style="height: 25px; width: auto;" width="150" height="25">
+    </a>
+</div>
+
+<div class="pages-menu-overlay" id="pages-overlay">
+    <div class="pages-menu-content">
+        <nav class="pages-main-nav">
+            <a href="/" class="home-link-nav">Home</a>
+            <a href="/pages/parasite-hunter.html">Parasite Hunter AR Game</a>
+            <a href="/pages/built-different.html">The Modular Brand: MERGE</a>
+            <a href="/pages/decision-tree.html">Interactive Zen Garden</a>
+            <a href="/pages/hotspot.html">Wall of Flame Interactive</a>
+            <div class="nav-bottom-group" style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                <a href="/pages/about.html">About</a>
+                <a href="/pages/contact.html">Contact</a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="pages-nav-icon" id="nav-block">
+    <div id="nav-hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
         </div>
     </header>
     <!-- Hero Wrapper -->
@@ -326,73 +361,68 @@
                     <span class="meta">Web-Based AR Experience</span>
                     <h2>Parasite Hunter AR</h2>
                 </div>
-                <p>A web app using marker tracking and 3D models so attendees could hunt for parasites. Built using A-Frame, 8th Wall, and Vue delivering a seamless experience.</p>
+                <p>A web app using QR Code targets spun up in augmented reality, on their own phones gave them a new way to interact and learn with parasites swarming all over the tradeshow floor, including our competitors booths.</p>
                 <a href="#" class="arrow-link">View Project <span>→</span></a>
             </div>
             
             <div class="b-tile bg-lime" style="align-items: center; justify-content: center;">
-                <div style="width: 100px; height: 100px; border-radius: 50%; background-color: var(--text-dark); color: var(--bg-color); display: flex; justify-content: center; align-items: center; font-size: 4.5rem; font-weight: 800; padding-top: 10px; margin: 0; letter-spacing: -2px;">h</div>
+                <img src="/public/images/boom-background.png" alt="Boom">Boom and worm gif
             </div>
 
             <div class="b-tile bg-dark-teal">
-                <span class="meta">WORD</span>
-                <h3>LOREM IPSUM SOLOR DOT</h3>
+                <img src="/public/images/dalmation-illustration.png" alt="Dalmatian Illustration">
             </div>
 
             <!-- Row 2 -->
             <div class="b-tile bg-yellow span-row-2">
                 <h3 style="margin-bottom: 1.5rem;">Results</h3>
                 <ul style="list-style: none; line-height: 2; font-weight: 600; font-size: 1.1rem;">
-                    <li>80,000 parasites caught or 80,000 impressions on Credelio Quattros effectiveness</li>
-                    <li>Awarded Best Booth at WVC 2026</li>
+					<li><span class="huge">80,000</span> parasites caught during WVC and VMX, serving up 80,000 impressions on Credelio Quattros effectiveness</li>
+                    <li><span class="huge">5,994</span> parasites were caught by one person, maxing out our leaderboard!</li>
                 </ul>
+				<h3>Awarded Best Booth at WVC 2026</h3>
             </div>
 
             <div class="b-tile span-col-2 span-row-2 img-tile">
-                <img src="/images/eggdrop.png" alt="Parasite Hunter Game Illustration">
-                <div style="position: absolute; top: 2rem; left: 2rem; z-index: 2;">
-                    <span class="meta" style="color: var(--teal);">Let the hunt begin.</span>
-                    <h3 style="color: var(--text-dark); font-size: 2rem;">Parasite Hunter Game</h3>
-                </div>
+                <a href="/pages/parasite-hunter.html"><img src="/public/images/parasite-hunter-game-introscreen.png" alt="Parasite Hunter Game Introscreen"></a>
             </div>
 
             <div class="b-tile bg-white">
                 <span class="meta">2024 Interactive</span>
                 <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Comic Book</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 1rem;">We helped the product launch of Credelio Quattro. The Power of Four active ingredients = 6 types of parasites are annihilated, even the tricky ones, tapeworms! The comic book introduces their powers. The original experience was on a kiosk with a large touch screen tv, with page turns, I have created an interactive experience with the content to display the illustrations with a bit more impact. .</p>
-                <a href="#" class="arrow-link" style="font-size: 1rem; color: var(--teal);">View Project <span>→</span></a>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">We helped the product launch of Credelio Quattro. The Power of Four active ingredients = 6 types of parasites are annihilated, even the tricky ones, tapeworms!</p>
+				<p style="font-size: 0.95rem; margin-bottom: 1rem;">The comic book introduces their powers. The original experience was on a kiosk with a large touch screen tv, with page turns.<!--I have created an interactive experience with the content to display the illustrations with a bit more impact.--></p>
+                <a href="https://comic.heather.codes/" target="_blank" class="arrow-link" style="font-size: 1rem; color: var(--teal);">View Project <span>→</span></a>
             </div>
 
             <!-- Row 3 -->
-            <a href="https://heathernew.com/pages/derby.html" class="b-tile hover-invert" style="background-color: var(--text-dark); text-decoration: none; display: flex; flex-direction: column;">
-                <span class="meta" style="color: var(--lime);">Poster Archive</span>
-                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 1rem 0;">
-                    <img src="/assets/ictrollergirls-heat.png" alt="ICT Rollergirls Poster" style="max-width: 100%; max-height: 120px; object-fit: contain; border-bottom: 4px solid var(--orange); border-top: 4px solid var(--yellow); padding: 10px 0;">
-                </div>
-                <span class="arrow-link" style="color: var(--lime);">Derby Posters <span>→</span></span>
+            <a href="/pages/parasite-hunter.html">
+                 <img src="/public/images/parasite-hunter-leaderboard.png" alt="Parasite Hunter Leaderboard">
             </a>
 
             <!-- Row 4 -->
             <div class="b-tile bg-orange span-col-2">
-                <span class="meta">Object Tracking Interactive</span>
+                <span class="meta">Touch Enabled Interactive</span>
                 <h2>Interactive<br>Zen Garden</h2>
-                <p>We turn a static completely blank, physical garden into an interactive, digital experience. Built in Unity and using an array of 3D depth cameras.</p>
+                <p>We added a beautiful looping digital experience to encourage conversation, to help digest the message. At any time an attendee can tap and start interacting with the decision tree revealing UI elements that present dermatology options for their patients.</p>
                 <a href="#" class="arrow-link" style="margin-top: 1.5rem;">View Project <span>→</span></a>
             </div>
 
-            <div class="b-tile bg-teal hover-invert">
+            <div class="bg-teal">
+				 <img src="/public/images/red-lens-reveal.png" alt="Red Lens Reveal">
                 <h2 style="font-size: 1.25rem;">Can you decode the message? →</h2>
                 <span class="meta">Secret Message</span>
             </div>
             
             <div class="b-tile bg-white">
-                <span class="meta">Hot Spot</span>
-                <p style="font-weight: 800; font-size: 1.1rem; margin-top: auto;">Viceral sounds<br>Impactful visuals<br>Disruptive to the competitors<br>#winning</p>
+				<img src="/public/images/question-mark.png" alt="Question Education">
+                
+                <p style="font-weight: 800; font-size: 1.1rem; margin-top: auto;">Education<br>Brand Reinforcement<br>Viceral sounds<br>Impactful visuals<br>Disruptive to the competitors<br>#winning</p>
             </div>
 
             <!-- Row 5 -->
             <div class="b-tile img-tile span-col-2">
-                <img src="/assets/tree/tree-min.png" alt="Zen Garden Tree Illustration">
+                <img src="/public/images/decision-tree-bonzai.png" alt="Zen Garden Tree Illustration">
             </div>
 
             <div class="b-tile bg-light-grey span-col-2 hover-invert">
@@ -401,10 +431,8 @@
                     <h2>Wall of Flame</h2>
                 </div>
                 <p>An interactive digital wall of flame that operates as gamified learning engages people and gives representatives a chance to start conversations.</p>
-                <a href="#" class="arrow-link">View Project <span>→</span></a>
+                <a href="/pages/hotspot.html" class="arrow-link">View Project <span>→</span></a>
             </div>
-
-            <!-- --- NEW EXTENDED GRID ROWS --- -->
 
             <!-- Row 6: Exploration -->
             <div class="b-tile bg-teal span-col-2 hover-invert">
@@ -416,66 +444,73 @@
             </div>
             
             <div class="b-tile bg-light-grey">
-                <div class="bauhaus-circle" style="background-color: var(--orange);"></div>
-                <h3>Audio Demo</h3>
+					 <!--<audio autoplay muted src="/assets/hotspot/audio/enflame.mp3"></audio>
+				     <audio controls loop src="/assets/hotspot/audio/enflame.mp3"></audio>
+					 <audio id="enflameAudio" src="/assets/hotspot/audio/enflame.mp3"></audio>-->
+					 <button class="bauhaus-circle" style="background-color: var(--orange);" onclick="document.getElementById('enflameAudio').play()">Play</button> 
+                <h3>Hot Spot Audio Bit</h3>
             </div>
             
-            <div class="b-tile img-tile">
-                <img src="/assets/hotspot/tennis-ball-fallback.png" alt="Tennis Ball Interaction Fallback">
+            <div class="b-tile-nopad img-tile">
+                <img src="/public/images/hot-spot-interactive.png" alt="Hot Spot Interactive">
             </div>
 
             <!-- Row 7: Spatial Design Break -->
             <div class="b-tile bg-lime">
-                <div class="bauhaus-circle" style="background-color: var(--dark-teal); width: 60px; height: 60px;"></div>
-                <h3 style="margin-top: 2rem;">MMMMMore here →</h3>
+                <div style="width:50%;height:auto;"><br>
+					<img src="/assets/merge/404/404-M.gif" alt="M that flaps like its steps are arms and flap." style="width:100%;height:auto;">
+				</div>
+				
+                <a href="/pages/built-different.html"><h3 style="margin-top: 2rem;">MMMMMore here →</h3></a>
             </div>
             
             <div class="b-tile span-col-2 img-tile">
-                <img src="/assets/tree/map-zen-render.png" alt="Interactive Zen Garden Map Render">
-                <div style="position: absolute; bottom: 2rem; left: 2rem; z-index: 2;">
-                    <h3 style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">The Agency Website</h3>
-                </div>
+                <img src="/public/images/merge-m-artificial-intelligence-generation.png" alt="Interactive Zen Garden Map Render">
             </div>
             
-            <div class="b-tile bg-mid-grey" style="text-align: right; justify-content: flex-end;">
-                <h2 style="font-size: 5rem; margin-bottom: 0; color: var(--text-dark);">05</h2>
+            <div class="b-tile-nopad bg-mid-grey" style="text-align: right; justify-content: flex-end;">
+                <img src="/public/images/merge-erg-logo-design.png" alt="MERGE ERG Logo Design" class="img-responsive">
             </div>
 
             <!-- Row 8 & 9: Complex Intersection -->
-            <div class="b-tile bg-dark-teal span-row-2 hover-invert">
-                <span class="meta" style="color: var(--lime);">Recognition</span>
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Studio Manager Promotion and<br>M@M CERT</h3>
-                <h3 style="opacity: 0.9;">3 time Magic Maker</h3>
+            <div class="b-tile-nopad bg-dark-teal span-row-2 hover-invert">
+                <div style="padding:1em; position:absolute; bottom: 2rem; left: 2rem; z-index: 2;">
+					<span class="meta" style="color: var(--lime);">Recognition</span>
+					<h4 style="margin-top: 2rem; margin-bottom: 1rem;">Studio Manager Promotion and<br>M@M CERT</h4>
+					<h5 style="opacity: 0.9;">Magic Maker</h5>
+					<h5 style="opacity: 0.9;">Shining Star</h5>
+				</div>
+				<img src="/public/images/certificates-magic-mak.png" alt="M@M Certificate Magic Makers">
             </div>
             
             <div class="b-tile bg-orange span-col-2">
                 <span class="meta">Race Against the Plates</span>
                 <h2>Kiosk Quiz</h2>
-                <p style="max-width: 400px;">With Achrondroplasia you only have a certain amount of time to act while bones are still growing, Doctors were able to test their knowledge while racing against the clock.</p>
+                <p style="max-width: 400px;">With Achondroplasia you only have a certain amount of time to act while bones are still growing, Doctors were able to test their knowledge while racing against the clock.</p>
             </div>
             
             <div class="b-tile bg-yellow">
-                <div class="bauhaus-square" style="background-color: var(--text-dark); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; font-weight: 800;">:30</div>
-                <h3>Gamified Learning →</h3>
+                <img src="/public/images/gamified-learning-with-biomarin.png" alt="Gamified Learning Biomarin">
+                <h3>Gamified<br>Learning →</h3>
             </div>
             
             <!-- Row 9 -->
-            <div class="b-tile img-tile span-col-2">
-                <img src="/assets/studio/website-header-merge-studio.png" alt="Subway Solitaire Digital Assets">
-                <div style="position: absolute; bottom: 2rem; left: 2rem; z-index: 2;">
-                    <span class="meta" style="color: #fff;">Another thing I do →</span>
-                    <h3 style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Subway Digital Assets,<br>Digital Menus</h3>
-                </div>
+            <div class="b-tile-nopad span-col-2">
+                <img src="/public/images/subway-static-menu.png" alt="Subway Static Menu">
+                
             </div>
             
             <div class="b-tile bg-white">
-                <span class="meta">Code</span>
-                <p style="font-weight: 800; font-size: 1.5rem; margin-top: auto;">Function<br>Dictates<br>Form.</p>
+               <div style="position: absolute; bottom: 2rem; left: 2rem; z-index: 2;">
+                    <span class="meta">Another thing I do →</span>
+                    <h3>Subway Digital Assets,<br>Digital Menus</h3>
+                </div>
             </div>
 
             <!-- Row 10: Staccato Finish -->
-            <div class="b-tile bg-white" style="justify-content: center; align-items: center;">
-                <h3 style="font-size: 3rem; transform: rotate(-90deg); margin: 0;">throw back</h3>
+            <div class="b-tile-nopad bg-white">
+                <!--<div class="bauhaus-circle" style="background-color: var(--text-dark); border-radius: 50% 0 50% 50%;"></div>-->
+				<img src="/public/images/roller-derby-throwback.png" alt="Roller Derby Throwback" style="width:100%;height:auto;">
             </div>
             
             <!-- Scalable ⌘+Z Tile -->
@@ -489,14 +524,14 @@
             <div class="b-tile bg-orange">
                 <div class="bauhaus-circle" style="background-color: var(--bg-color);"></div>
             </div>
-            <div class="b-tile bg-mid-grey">
-                <img src="/assets/studio/bonus/StyleGuideScreenshots/Abbott.png" alt="Abbott Style Guide Screenshot" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+            <div class="b-tile-nopad bg-mid-grey">
+                 <a href="https://studio.heather.codes"><img src="/public/images/studio-roadshow.png" alt="Studio Roadshow" style="width: 100%; height: 100%; object-fit: cover;"></a>
             </div>
 
             <!-- Row 11 (Footer/Contact Area) -->
             <div class="b-tile bg-dark-teal span-col-3">
                 <span class="meta" style="color: var(--lime);">Let's Connect</span>
-                <h2 style="font-size: 4rem; letter-spacing: -2px; margin-top: 1rem;">Code is poetry.</h2>
+                <h2 style="font-size: 4rem; letter-spacing: -2px; margin-top: 1rem;">Function determines form</h2>
                 <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
                     <a href="mailto:hello@heathernew.com" class="arrow-link" style="color: var(--lime); font-size: 1.2rem;">Email Me <span>→</span></a>
                     <a href="https://linkedin.com/in/heathernew" class="arrow-link" style="color: var(--yellow); font-size: 1.2rem;">LinkedIn <span>→</span></a>
@@ -504,9 +539,8 @@
                 </div>
             </div>
             
-            <div class="b-tile bg-lime">
-                 <div class="bauhaus-circle" style="background-color: var(--text-dark); border-radius: 50% 0 50% 50%;"></div>
-                 <a href="#" class="arrow-link" style="margin-top: auto; font-size: 1.2rem;">Studio Roadshow <span>→</span></a>
+            <div class="b-tile-nopad bg-lime" style="display: flex; align-items: center; justify-content: center; padding: 0;">
+                 <a href="https://studio.heather.codes" class="arrow-link" ><h3>Studio Roadshow <span>→</span></h3></a>
                  <span class="meta">Which Swatch?</span>
             </div>
 
@@ -516,13 +550,43 @@
 
     <!-- Include Footer -->
     <div id="footer-trigger">
-        <load src="../src/partials/footer.html" />
+        <div class="footer-scroll-wrapper" id="footer-trigger">
+    <footer class="footer-section">
+        <div class="footer-track">
+            <div id="mouse-skater" class="mouse-skater">
+                <!-- Separate container for flipping to avoid matrix conflicts -->
+                <div class="mouse-flip-container" id="mouse-flipper">
+                    <img src="/assets/mouse_skate.png" 
+                         alt="Magic Mouse on Roller Skates" 
+                         class="mouse-static">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-content-bio">
+            <h3>Heather New</h3>
+            <p>Creative Technologist specializing in interactive experiences at the intersection of design, code, and technology.</p>
+        </div>
+
+        <div class="footer-nav">
+            <p class="copyright">&copy; <span id="current-year"></span> Heather New | <a href="/pages/privacy.html">Privacy Policy</a> | <a href="/pages/sitemap.xml">Sitemap</a></p>
+            <p class="build-info">Deployment Status: <span id="build-date">Checking...</span></p>
+        </div>
+    </footer>
+</div>
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  try {
+    const buildDate = new Date(__BUILD_DATE__);
+    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    document.getElementById('build-date').textContent = buildDate.toLocaleDateString(undefined, options);
+  } catch (e) {
+    document.getElementById('build-date').textContent = 'Live';
+  }
+</script>
     </div>
 
 	<!-- Scripts -->
-    <script type="module" src="/src/js/site-core.js"></script>
-    <script type="module" src="/src/js/home-hero.js"></script>
-    <script type="module" src="/src/js/home.js"></script>
 	
     <script>
         document.addEventListener('DOMContentLoaded', () => {
