@@ -57,13 +57,12 @@
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto 1fr;
             width: 100vw;
-            height: 100vh;
             border-bottom: 1px solid var(--text-dark);
         }
 
         .hero-title-block {
             grid-column: 1 / 3;
-            padding: 4vw 2vw;
+            padding: 7vw 2vw 5vw;
             border-bottom: 1px solid var(--text-dark);
             display: flex;
             flex-direction: column;
@@ -278,9 +277,71 @@
             .span-col-2, .span-col-3, .span-col-4 { grid-column: span 1; }
             .span-row-2 { grid-row: span 1; min-height: 300px; }
         }
-    </style>
+		.skip-to-content{ display: none;}
+		 
+		 
+		/* CSS to make the video responsive, fill space, and maintain 16:9 ratio */
+        .video-responsive-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+            height: 0;
+            width: 100%; /* Fill the entire width of its parent (.b-tile) */
+            overflow: hidden;
+        }
 
+        .video-responsive-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Make the video content cover the entire container area, cropping if needed, without stretching */
+            /* Alternative for no cropping: use 'object-fit: contain;' instead. It might leave bars if the video dimensions don't exactly match 16:9. */
+        }
+		 .ict-logo-new{
+			 max-width:80%;
+			 height: auto;
+		 }
+    </style>
+	  <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="/assets/site-core-Cit16Jds.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/about-CvxCc7U7.css">
+  <link rel="stylesheet" crossorigin href="/assets/global-DzYtbLOr.css">
+  <link rel="stylesheet" crossorigin href="/assets/home-CF4ttIi8.css">
 </head>
+	<header class="site-header">
+        <div class="header-content">
+            <div class="header-content">
+				<a href="/" class="logo">
+					<img src="/assets/heather-new-wordmark.svg" alt="Heather New" style="height: 25px; width: auto;" width="150" height="25">
+				</a>
+			</div>
+
+			<div class="pages-menu-overlay" id="pages-overlay">
+				<div class="pages-menu-content">
+					<nav class="pages-main-nav">
+						<a href="/" class="home-link-nav">Home</a>
+						<a href="/pages/parasite-hunter.html">Parasite Hunter AR Game</a>
+						<a href="/pages/built-different.html">The Modular Brand: MERGE</a>
+						<a href="/pages/decision-tree.html">Interactive Zen Garden</a>
+						<a href="/pages/hotspot.html">Wall of Flame Interactive</a>
+						<div class="nav-bottom-group" style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+							<a href="/pages/about.html">About</a>
+							<a href="/pages/contact.html">Contact</a>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+			<div class="pages-nav-icon" id="nav-block">
+				<div id="nav-hamburger-icon">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+        </div>
+    </header>
 <body>
 	<a href="#main-content" class="skip-to-content">Skip to main content</a>
     <header class="hero">
@@ -299,23 +360,23 @@
 
     <main class="portfolio-section">
         <div class="bauhaus-grid">
+			
+			<!-- Sweaty Heather smiling -->
+            <div class="b-tile img-tile">
+                <img src="/public/images/ictrg/heat-her-up-roller-derby.png" alt="Heather Heat Up Roller Derby" class="img-responsive">
+            </div>
 
             <!-- Row 1: Opening Statement -->
             <div class="b-tile bg-dark-teal span-col-3">
-                <span class="meta" style="color: var(--lime);">Role</span>
-                <h2 style="font-size: 5rem; letter-spacing: -2px; margin-top: 1rem;">All Star<br>Jammer</h2>
-            </div>
-
-            <!-- Sweaty Heather smiling -->
-            <div class="b-tile img-tile">
-                <img src="https://heathernew.com/public/image/ictrg/heat-her-up-roller-derby.png" alt="Heather Heat Up Roller Derby">
+                <span class="meta" style="color: var(--lime);">ICT Roller Derby</span>
+                <h2 style="font-size: 5rem; letter-spacing: -2px; margin-top: 1rem;">All Star</h2>
             </div>
 
             <!-- Row 2: Output list (span row 2) + Logo Evolution + Poster tile -->
             <div class="b-tile bg-yellow span-row-2">
-                <h3 style="margin-bottom: 1.5rem;">The Output</h3>
+                <h3 style="margin-bottom: 1.5rem;">Achievements</h3>
                 <ul style="list-style: none; line-height: 2; font-weight: 600; font-size: 1.1rem;">
-                    <li>Brand Identity</li>
+                    <li>Brand Refresh</li>
                     <li>Poster Campaigns</li>
                     <li>Jersey Design</li>
                     <li>Website Architecture</li>
@@ -329,22 +390,17 @@
                     <h2>Logo Evolution</h2>
                 </div>
                 <p>Tracking the visual history of the team from the original 2014 mark, through the 2019 interim update, to the bold 10-year 2024 refresh.</p>
-                <a href="#" class="arrow-link">View Evolution <span>→</span></a>
+                <div class="arrow-link">The Evolution <span>→</span></div>
             </div>
 
             <!-- Facebook cover / Bring the Heat poster -->
-            <a href="#" class="b-tile hover-invert" style="background-color: var(--text-dark); text-decoration: none; display: flex; flex-direction: column;">
-                <span class="meta" style="color: var(--lime);">Poster Archive</span>
-                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 1rem 0;">
-                    <img src="https://heathernew.com/public/images/ictrg/bring-the-heat-ictrg.png" alt="ICT RD Bring The Heat Poster" style="max-width: 100%; max-height: 130px; object-fit: contain; border-bottom: 4px solid var(--lime); border-top: 4px solid var(--yellow); padding: 10px 0;">
-                </div>
-                <span class="arrow-link" style="color: var(--lime);">View Posters <span>→</span></span>
-            </a>
+            <div class="b-tile img-tile hover-invert">
+                <img src="/public/images/ictrg/ictrg-old-logo.png" alt="Old ICTRG" class="img-responsive">
+            </div>
 
             <!-- Row 3 (completing the span-row-2 output block): Design Stack, 10 yrs, new logo -->
-            <div class="b-tile bg-white">
-                <span class="meta">Design Stack</span>
-                <p style="font-weight: 800; font-size: 1.25rem; margin-top: auto;">Illustrator<br>Photoshop<br>Premiere<br>Figma</p>
+            <div class="b-tile img-tile">
+                <img src="/public/images/ictrg/epic-medal-heather-holding.png" alt="EPIC" class="img-responsive">
             </div>
 
             <div class="b-tile bg-teal hover-invert">
@@ -353,38 +409,8 @@
             </div>
 
             <!-- Revised Logo -->
-            <div class="b-tile img-tile bg-mid-grey" style="display: flex; justify-content: center; align-items: center;">
-                <img src="https://heathernew.com/public/images/ictrg/ict-roller-derby-logo-revised.png" alt="ICT Roller Derby Revised Logo" style="object-fit: contain; max-height: 160px; padding: 1rem;">
-            </div>
-
-            <!-- Row 4 & 5: Full team photo (span 2 col, span 2 row) + Poster campaigns + Jersey -->
-            <!-- All-star team full bleed -->
-            <div class="b-tile img-tile span-col-2 span-row-2">
-                <img src="https://heathernew.com/public/images/ictrg/all-star-team-ict-roller-derby.png" alt="ICT Roller Derby All Star Team">
-            </div>
-
-            <div class="b-tile bg-white span-col-2">
-                <span class="meta">Visual Direction &amp; Execution</span>
-                <h3 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 800; text-transform: uppercase;">Poster Campaigns</h3>
-                <p style="font-size: 1.05rem; margin-bottom: 1rem;">3 Seasons, 3 Distinct Visual Styles. A collection blending action photography with heavy typography to drive bout attendance and community hype.</p>
-                <a href="#" class="arrow-link" style="font-size: 1rem; color: var(--teal);">Behind The Scenes <span>→</span></a>
-            </div>
-
-            <!-- Jersey tile — black jersey with sleeves -->
-            <div class="b-tile bg-orange span-col-2">
-                <span class="meta">Apparel</span>
-                <h2>Jersey<br>Design</h2>
-                <p>Performance Meets Personality. Bold red and black team jerseys featuring clean typography, custom numbers, and the iconic Shiner Dalmatian cutout.</p>
-                <a href="#" class="arrow-link" style="margin-top: 1.5rem;">View Details <span>→</span></a>
-            </div>
-
-            <!-- Row 6: Heather getting smashed (span 3) + MVP -->
-            <div class="b-tile img-tile span-col-3">
-                <img src="https://heathernew.com/public/images/ictrg/heather-busted-ictrg.png" alt="Heather getting hit in roller derby action">
-            </div>
-
-            <div class="b-tile bg-mid-grey" style="text-align: right; justify-content: flex-end;">
-                <h2 style="font-size: 4rem; margin-bottom: 0; color: var(--text-dark);">MVP</h2>
+            <div class="b-tile" style="background-color:#d51f30;">
+                <img src="/public/images/ictrg/ict-roller-derby-logo-revised.png" alt="ICT Roller Derby Revised Logo" class="ict-logo-new">
             </div>
 
             <!-- Row 7: Website design + web dev at work -->
@@ -394,22 +420,20 @@
                     <h2>Website<br>Design</h2>
                 </div>
                 <p>The digital home for the team. A fully responsive layout featuring team rosters, game schedules, bout galleries, and a dynamic parallax scroll effect.</p>
-                <a href="#" class="arrow-link">View Mockups <span>→</span></a>
             </div>
 
             <!-- Website build screenshot -->
             <div class="b-tile img-tile">
-                <img src="https://heathernew.com/public/images/ictrg/ict-roller-derby-website-build.png" alt="ICT Roller Derby Website Build" style="object-fit: cover; object-position: top;">
+                <img src="/public/images/ictrg/ict-roller-derby-website-build.png" alt="ICT Roller Derby Website Build" class="img-responsive">
             </div>
 
             <!-- Web developer at work -->
             <div class="b-tile img-tile">
-                <img src="https://heathernew.com/public/images/ictrg/web-developer-at-work-min.png" alt="Web Developer At Work">
+                <img src="/public/images/web-developer-at-work-min.png" alt="Web Developer At Work" class="img-responsive">
             </div>
 
             <!-- Row 8 & 9: Accolades (span row 2) + Video (span 2 col, span 2 row) + Promo + Video series labels -->
             <div class="b-tile bg-dark-teal span-row-2 hover-invert">
-                <span class="meta" style="color: var(--lime);">Accolades</span>
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 2.2rem;">Team<br>Highlights</h3>
                 <ul style="list-style: none; opacity: 0.9; line-height: 2; font-size: 1.1rem;">
                     <li>Multiple MVP Awards</li>
@@ -422,109 +446,127 @@
             <!-- 16:9 Responsive Video -->
             <div class="b-tile video-tile span-col-2 span-row-2">
 				<h3 style="margin-top: auto; line-height: 1.3;">Roller Derby Educational Film</h3>
-                <video autoplay loop muted playsinline>
-                    <source src="https://heathernew.com/public/images/ictrg/roller-derby-educational-film.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+				<div class="video-responsive-container"><br>
+					<video controls> <source src="/public/images/ictrg/roller-derby-educational-film.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
             <div class="b-tile bg-orange">
                 <span class="meta">Media</span>
                 <h2>Promo<br>Videos</h2>
             </div>
-
-            <div class="b-tile bg-light-grey">
+			
+			<div class="b-tile bg-light-grey">
                 <h3 style="margin-top: auto; line-height: 1.3;">Pie A Skater</h3>
-				<video autoplay loop muted playsinline>
-                    <source src="https://heathernew.com/public/images/ictrg/roller-derby-educational-film.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <div class="video-responsive-container"> <video controls> <source src="/public/images/ictrg/ICT-roller-derby-pie-a-skater.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+			
+			<!-- Jersey tile — black jersey with sleeves -->
+            <div class="b-tile bg-orange span-col-2">
+                <span class="meta">Custom Apparel</span>
+                <h2>Jersey<br>Design</h2>
+                <p>Performance meets personality. Bold red and black team jerseys featuring clean typography, custom numbers, and the iconic Wichita Zia from the city flag, which is a symbol for home.</p>
+            </div>
+            <!-- Row 15: Jersey render  -->
+            <div class="b-tile img-tile">
+				<img src="/public/images/ictrg/2016-season-pass.jpg" alt="Season Pass" class="img-responsive">
             </div>
 
-            <!-- Row 10: MVP Awards + Epic Medal images -->
+            <!-- Black jersey with sleeves -->
+            <div class="b-tile img-tile">
+                <img src="/public/images/ictrg/10-years-of-Wichita-Roller-Derby-ICTRG-min.png" class="img-responsive">
+            </div>
+
+            <!-- Row 14 & 15: Giant MVP + 2×2 staccato grid -->
+            <div class="b-tile img-tile bg-yellow hover-invert span-col-2 span-row-2">
+				<img src="/public/images/ictrg/ict-roller-derby-jersey-render.png" class="img-responsive" alt="ICT Jersey Render">
+            </div>
+
+            <!-- 10-year anniversary tee -->
+            <div class="b-tile img-tile bg-white">
+                <img src="/public/images/ictrg/10-year-anniversary-tee-ICTRollerGirls-min-549x600.png" class="img-responsive" alt="10 Year Anniversary Tee">
+            </div>
+
+            <!-- Roller Mouse mascot -->
+            <div class="b-tile img-tile bg-orange">
+                <img src="/public/images/ictrg/rollermouse.jpg" alt="Roller Mouse Mascot" class="img-responsive">
+            </div>
+
+			<!-- All-star team full bleed -->
+            <div class="b-tile img-tile span-col-2">
+                <img src="/public/images/ictrg/all-stars-ict-roller-derby.jpeg" alt="ICT Roller Derby All Star Team" class="img-responsive">
+            </div>
+
+            <div class="b-tile bg-white span-col-2">
+                <span class="meta">Visual Direction &amp; Execution</span>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 800; text-transform: uppercase;">Poster Campaigns</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 1rem;">3 Seasons, 3 Distinct Visual Styles. A collection blending action photography with heavy typography to drive bout attendance and community hype.</p>
+                <a href="/pages/derby.html" class="arrow-link" style="font-size: 1rem; color: var(--teal);">Poster Gallery <span>→</span></a>
+            </div>
+			
+			<!-- Heat Her up -->
+            <div class="b-tile img-tile span-col-2">
+                <img src="/public/images/ictrg/heat-her-up-facebook-cover.jpg" alt="Heather getting hit in roller derby action" class="img-responsive">
+            </div>
+			
+			<!-- Epic medal side by side -->
+            <div class="b-tile img-tile span-col-2">
+                <img src="/public/images/ictrg/epic-medal-side-by-side.png" alt="Epic Medal Side by Side Creation" class="img-responsive">
+            </div>
+			
+			<!-- Row 10: MVP Awards + Epic Medal images -->
             <div class="b-tile bg-teal span-col-2 hover-invert">
                 <div>
-                    <span class="meta">Recognition</span>
-                    <h2>MVP Awards</h2>
+                    <h2>Award Ceremony</h2>
                 </div>
-                <p>I wanted to recognized exceptional dedication to the league by Dogpile. She started with the league in 2006, she became a welcoming face to newbie skaters. I designed and crafted an oversized "Epic Medal" for teammate to resemble her loyalty.</p>
+                <p>I wanted to recognized exceptional dedication to the league by Dogpile. She started with the league in 2006, she became a welcoming face to newbie skaters. I designed and crafted an oversized "Epic Medal" for teammate to resemble her loyalty. It was made out of carved, cut and layered plywood, copper for the ring, and Jo "Chewblocka" sewed the giant ribbon using a satin vinyl. I applied layers of paints, metallic glitters and shadows.</p>
             </div>
 
-            <!-- Epic medal side by side -->
-            <div class="b-tile img-tile">
-                <img src="https://heathernew.com/public/image/ictrg/epic-medal-side-by-side.png" alt="Epic Medal Side by Side Creation">
-            </div>
-
-            <!-- Heather holding the epic medal -->
+            <!-- DP holding the epic medal -->
             <div class="b-tile img-tile bg-yellow">
-                <img src="https://heathernew.com/public/image/ictrg/epic-medal-heather-holding.png" alt="Heather holding the Epic Medal">
+                 <img src="/public/images/ictrg/epic-medal-dogpile.png" alt="Dogpile wearing the Epic Medal" class="img-responsive">
             </div>
 
-            <!-- Row 11: Epic medal build process (span 2 col) + Dogpile epic medal image + medal 0 -->
-            <div class="b-tile bg-black span-col-2" style="justify-content: center;">
+            <!-- Epic medal build step 0 -->
+            <div class="b-tile img-tile">
+                <img src="/public/images/ictrg/epic-medal-0.png" alt="Epic Medal Build Step 1" class="img-responsive">
+            </div>
+
+            <!-- Epic medal build step 1 -->
+            <div class="b-tile img-tile bg-mid-grey">
+                <img src="/public/images/ictrg/epic-medal-1.png" alt="Epic Medal Build Step 2" class="img-responsive">
+            </div>
+			
+			<!-- Row 11: Epic medal build process (span 2 col) + Dogpile epic medal image + medal 0 -->
+            <div class="b-tile bg-black span-col-1" style="justify-content: center;">
                 <span class="meta" style="color: var(--lime);">Build Process</span>
                 <h2 style="color: var(--lime); font-size: 3.5rem; letter-spacing: -2px; margin-top: 1rem;">Epic<br>Medal</h2>
                 <p style="color: #ccc; margin-top: 1rem;">Fabricated entirely by hand for teammate Dogpile — an oversized custom award celebrating an unforgettable season.</p>
             </div>
 
-            <!-- Epic medal build step 0 -->
-            <div class="b-tile img-tile">
-                <img src="https://heathernew.com/public/image/ictrg/epic-medal-0.png" alt="Epic Medal Build Step 1">
-            </div>
-
-            <!-- Epic medal build step 1 -->
-            <div class="b-tile img-tile bg-mid-grey">
-                <img src="https://heathernew.com/public/image/ictrg/epic-medal-1.png" alt="Epic Medal Build Step 2">
-            </div>
-
-            <!-- Row 12: Dogpile wearing the medal (full-bleed wide) -->
-            <div class="b-tile img-tile span-col-4" style="min-height: 400px;">
-                <img src="https://heathernew.com/public/images/ictrg/epic-medal-dogpile.png" alt="Dogpile wearing the Epic Medal" style="object-position: center top;">
-            </div>
-
             <!-- Row 13: Full panoramic love you image -->
             <div class="b-tile img-tile span-col-4" style="min-height: 450px;">
-                <img src="https://heathernew.com/public/images/ictrg/heat-love-you.jpg" alt="Heather love you — Team affection">
-            </div>
-
-            <!-- Row 14 & 15: Giant MVP + 2×2 staccato grid -->
-            <div class="b-tile bg-yellow hover-invert span-col-2 span-row-2" style="display: flex; align-items: center; justify-content: center; padding: 0;">
-                <div style="font-size: 30cqi; font-weight: 800; line-height: 0.8; letter-spacing: -0.05em; color: var(--text-dark); transition: color 0.4s ease;">MVP</div>
-            </div>
-
-            <!-- 10-year anniversary tee -->
-            <div class="b-tile img-tile bg-white" style="display: flex; justify-content: center; align-items: center;">
-                <img src="https://heathernew.com/public/images/ictrg/10-year-anniversary-tee-ICTRollerGirls-min-549x600.png" style="object-fit: contain; max-height: 80%; padding: 10px;" alt="10 Year Anniversary Tee">
-            </div>
-
-            <!-- Roller Mouse mascot -->
-            <div class="b-tile img-tile bg-orange">
-                <img src="https://heathernew.com/public/images/ictrg/rollermouse.jpg" alt="Roller Mouse Mascot">
-            </div>
-
-            <!-- Row 15: Jersey render + black jersey sleeves -->
-            <div class="b-tile img-tile bg-mid-grey" style="display: flex; justify-content: center; align-items: center;">
-                <img src="https://heathernew.com/public/images/ictrg/ict-roller-derby-jersey-render.png" style="object-fit: contain; max-height: 80%; padding: 10px;" alt="ICT Jersey Render">
-            </div>
-
-            <!-- Black jersey with sleeves -->
-            <div class="b-tile img-tile bg-teal" style="display: flex; justify-content: center; align-items: center;">
-                <img src="https://heathernew.com/public/images/ictrg/black-jersey-sleeves.png" style="object-fit: contain; max-height: 80%; padding: 10px;" alt="Black Jersey with Sleeves">
+                <img src="/public/images/ictrg/heat-love-you.jpg" alt="Heather love you — Team affection" class="img-responsive">
             </div>
 
             <!-- Row 16: Footer area -->
             <div class="b-tile bg-lime">
                 <div style="width: 80px; height: 80px; border-radius: 50% 0 50% 50%; background-color: var(--text-dark); margin-bottom: 2rem;"></div>
-                <a href="#" class="arrow-link" style="margin-top: auto;">Back to Top <span>↑</span></a>
+                <a href="#main-content" class="arrow-link" style="margin-top: auto;">Back to Top <span>↑</span></a>
             </div>
 
             <div class="b-tile bg-dark-teal span-col-3">
                 <span class="meta" style="color: var(--lime);">Let's Connect</span>
                 <h2 style="font-size: 4rem; letter-spacing: -2px; margin-top: 1rem;">See You On The Track.</h2>
                 <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-                    <a href="#" class="arrow-link" style="color: var(--lime); font-size: 1.2rem;">Email Me <span>→</span></a>
-                    <a href="#" class="arrow-link" style="color: var(--yellow); font-size: 1.2rem;">Derby Instagram <span>→</span></a>
-                    <a href="#" class="arrow-link" style="color: #fff; font-size: 1.2rem;">Design Portfolio <span>→</span></a>
+                    <a href="mailto:hello@heathernew.com" class="arrow-link" style="color: var(--lime); font-size: 1.2rem;">Email Me <span>→</span></a>
+                    <a href="https://linkedin.com/in/heathernew" class="arrow-link" style="color: var(--yellow); font-size: 1.2rem;">LinkedIn <span>→</span></a>
+                    <a href="https://github.com/heathernew" class="arrow-link" style="color: #fff; font-size: 1.2rem;">GitHub <span>→</span></a>
                 </div>
             </div>
 
@@ -752,8 +794,45 @@
             });
         });
     </script>
-</body>
-</html>
-	
+	<!-- Include Footer -->
+    <div id="footer-trigger">
+        <div class="footer-scroll-wrapper" id="footer-trigger">
+    <footer class="footer-section">
+        <div class="footer-track">
+            <div id="mouse-skater" class="mouse-skater">
+                <!-- Separate container for flipping to avoid matrix conflicts -->
+                <div class="mouse-flip-container" id="mouse-flipper">
+                    <img src="/assets/mouse_skate.png" 
+                         alt="Magic Mouse on Roller Skates" 
+                         class="mouse-static">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-content-bio">
+            <h3>Heather New</h3>
+            <p>Creative Technologist specializing in interactive experiences at the intersection of design, code, and technology.</p>
+        </div>
+
+        <div class="footer-nav">
+            <p class="copyright">&copy; <span id="current-year"></span> Heather New | <a href="/pages/privacy.html">Privacy Policy</a> | <a href="/pages/sitemap.xml">Sitemap</a></p>
+            <p class="build-info">Deployment Status: <span id="build-date">Checking...</span></p>
+        </div>
+    </footer>
+</div>
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  try {
+    const buildDate = new Date(__BUILD_DATE__);
+    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    document.getElementById('build-date').textContent = buildDate.toLocaleDateString(undefined, options);
+  } catch (e) {
+    document.getElementById('build-date').textContent = 'Live';
+  }
+</script>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </body>
 </html>
