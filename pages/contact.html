@@ -17,16 +17,22 @@
 		<meta name="apple-mobile-web-app-title" content="HeatherNew" />
 		<link rel="manifest" href="/favicon/site.webmanifest" />
 
-		<link rel="stylesheet" href="/src/css/global.css" />
-		<link rel="stylesheet" href="/src/css/home.css" />
+	<script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+	<script type="module" crossorigin src="/assets/site-core-Cit16Jds.js"></script>
+	<link rel="stylesheet" crossorigin href="/assets/global-DzYtbLOr.css">
+	<link rel="stylesheet" crossorigin href="/assets/home-CF4ttIi8.css">
 
     <style>
         :root {
             --bg-color: #f4f4f4;
             --text-dark: #111111;
             --teal: #1BB1A5;
+            --dark-teal: #0d6e66;
             --orange: #F66C0F;
             --lime: #B2F81D;
+            --white: #ffffff;
+            --light-grey: #f0f0ee;
+            --mid-grey: #d8d8d4;
         }
 
         body {
@@ -36,11 +42,105 @@
             overflow-x: hidden;
         }
 
-        /* --- CONTACT HERO (Asymmetric Void) --- */
+        /* ============================================
+           BAUHAUS GRID SYSTEM (matches about page)
+           ============================================ */
+        .bauhaus-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            width: 100%;
+        }
+
+        .b-tile {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .b-tile.compact { min-height: 180px; }
+        .b-tile.tall    { min-height: 420px; }
+        .b-tile.auto    { min-height: 0; }
+
+        /* Column spans */
+        .span-col-2 { grid-column: span 2; }
+        .span-col-3 { grid-column: span 3; }
+        .span-col-4 { grid-column: span 4; }
+
+        /* Row spans */
+        .span-row-2 { grid-row: span 2; }
+
+        /* Background colors */
+        .bg-dark-teal  { background-color: var(--dark-teal); color: #fff; }
+        .bg-teal       { background-color: var(--teal); color: #fff; }
+        .bg-lime       { background-color: var(--lime); color: var(--text-dark); }
+        .bg-orange     { background-color: var(--orange); color: #fff; }
+        .bg-white      { background-color: var(--white); color: var(--text-dark); }
+        .bg-light-grey { background-color: var(--light-grey); color: var(--text-dark); }
+        .bg-mid-grey   { background-color: var(--mid-grey); color: var(--text-dark); }
+        .bg-dark       { background-color: var(--text-dark); color: #fff; }
+
+        /* Geometric shapes */
+        .bauhaus-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .bauhaus-square {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Meta label */
+        .meta {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .meta.bright { opacity: 1; color: var(--lime); }
+
+        /* Hover invert */
+        .hover-invert {
+            transition: filter 0.3s ease;
+            cursor: default;
+        }
+        .hover-invert:hover { filter: invert(1); }
+
+        /* Arrow link */
+        .arrow-link {
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.25s ease;
+            margin-top: auto;
+        }
+        .arrow-link:hover { gap: 0.8rem; }
+
+        /* ============================================
+           HERO — original asymmetric split
+           ============================================ */
         .contact-hero {
+            grid-column: span 4;
             display: flex;
             min-height: 90vh;
-            width: 100vw;
+            width: 100%;
             position: relative;
             background-color: #fff;
         }
@@ -84,175 +184,522 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background-color: #fff;
         }
 
-        .contact-form {
-            max-width: 600px;
-            width: 100%;
-        }
+        /* Form fields */
+        .contact-form { width: 100%; max-width: 560px; }
 
         .form-group {
-            margin-bottom: 60px;
+            margin-bottom: 48px;
             position: relative;
         }
 
         .form-group label {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            opacity: 0.6;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            opacity: 0.5;
         }
 
-        .form-group input, 
+        .form-group input,
         .form-group textarea {
             width: 100%;
             background: transparent;
             border: none;
             border-bottom: 2px solid rgba(0,0,0,0.1);
             padding: 10px 0;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-family: inherit;
             font-weight: 600;
             color: var(--text-dark);
             outline: none;
             transition: border-color 0.3s ease;
+            box-sizing: border-box;
         }
 
-        .form-group input:focus, 
+        .form-group textarea { resize: none; }
+
+        .form-group input:focus,
         .form-group textarea:focus {
             border-color: var(--teal);
         }
 
-        .submit-btn {
+        /* Animated underline bar */
+        .form-group::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
             background-color: var(--teal);
+            transition: width 0.4s ease;
+        }
+
+        .form-group:focus-within::after { width: 100%; }
+
+        /* Submit button */
+        .submit-btn {
+            background-color: var(--dark-teal);
             color: #fff;
             border: none;
-            padding: 20px 40px;
-            font-size: 1rem;
+            padding: 22px 48px;
+            font-size: 0.85rem;
             font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
         }
 
         .submit-btn:hover {
-            background-color: var(--text-dark);
-            transform: translateY(-5px);
+            background-color: var(--teal);
+            transform: translateY(-4px);
         }
 
-        /* --- CONNECT TILES --- */
-        .connect-section {
-            padding: 120px 80px;
-            background-color: #f9f9f9;
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
 
-        .connect-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .submit-btn .btn-arrow { transition: transform 0.3s ease; }
+        .submit-btn:hover .btn-arrow { transform: translateX(5px); }
+
+        /* ============================================
+           FORM STATUS MESSAGES
+           ============================================ */
+        .form-status {
+            display: none;
+            padding: 20px 24px;
+            margin-top: 24px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
-        .connect-tile {
-            background: #fff;
-            padding: 40px;
-            border-left: 4px solid var(--teal);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .connect-tile:hover {
-            transform: translateY(-10px);
-        }
-
-        .connect-tile.orange { border-color: var(--orange); }
-        .connect-tile.lime { border-color: var(--lime); }
-
-        .connect-tile .meta {
-            font-size: 0.7rem;
-            font-weight: 800;
-            opacity: 0.5;
-            margin-bottom: 10px;
+        .form-status.success {
+            background-color: var(--lime);
+            color: var(--text-dark);
             display: block;
         }
 
-        .connect-tile h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
+        .form-status.error {
+            background-color: var(--orange);
+            color: #fff;
+            display: block;
         }
 
+        /* ============================================
+           SUCCESS STATE (replaces form)
+           ============================================ */
+        .form-success-state {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .form-success-state.visible { display: flex; }
+
+        .success-mark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--lime);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .success-headline {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        /* ============================================
+           BAUHAUS CONNECT SECTION TILES
+           ============================================ */
+        .connect-tile {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Number accent tiles */
+        .number-accent {
+            font-size: 7rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -5px;
+            opacity: 0.15;
+            position: absolute;
+            bottom: -10px;
+            right: 1.5rem;
+        }
+
+        /* Inner 3-col grid for channels */
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            grid-column: span 4;
+        }
+
+        .channel-tile {
+            padding: 2.5rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+            transition: filter 0.3s ease;
+            border-top: none;
+        }
+
+        .channel-tile:hover { filter: invert(1); }
+
+        .channel-tile h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+            word-break: break-all;
+        }
+
+        .channel-tile .channel-icon {
+            font-size: 2.5rem;
+            margin-bottom: auto;
+            margin-top: 0;
+        }
+
+        /* ============================================
+           MEDIA QUERIES
+           ============================================ */
         @media (max-width: 1024px) {
+            .bauhaus-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-hero { flex-direction: column; }
-            .void-side { flex: 0 0 auto; padding: 60px 40px; }
+            .void-side { flex: 0 0 auto; padding: 60px 40px; min-height: auto; }
             .void-side h1 { font-size: 5rem; }
             .void-circle { width: 300px; height: 300px; right: -150px; }
             .form-side { padding: 60px 40px; }
+            .span-col-3, .span-col-4 { grid-column: span 2; }
+            .span-col-2 { grid-column: span 2; }
+            .channel-grid { grid-template-columns: 1fr; grid-column: span 2; }
+            .channel-tile { min-height: 140px; }
+        }
+
+        @media (max-width: 640px) {
+            .bauhaus-grid { grid-template-columns: 1fr; }
+            .contact-hero, .span-col-2, .span-col-3, .span-col-4 { grid-column: span 1; }
+            .b-tile { padding: 2rem; }
+            .form-side { padding: 2rem; }
+            .void-side { padding: 2rem; }
+            .channel-grid { grid-column: span 1; grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <header class="site-header">
         <div class="header-content">
-            <load src="../src/partials/nav.html" />
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <img src="/assets/heather-new-wordmark.svg" alt="Heather New" style="height: 25px; width: auto;" width="150" height="25">
+                </a>
+            </div>
+            <div class="pages-menu-overlay" id="pages-overlay">
+                <div class="pages-menu-content">
+                    <nav class="pages-main-nav">
+                        <a href="/" class="home-link-nav">Home</a>
+                        <a href="/pages/parasite-hunter.html">Parasite Hunter AR Game</a>
+                        <a href="/pages/built-different.html">The Modular Brand: MERGE</a>
+                        <a href="/pages/decision-tree.html">Interactive Zen Garden</a>
+                        <a href="/pages/hotspot.html">Wall of Flame Interactive</a>
+                        <div class="nav-bottom-group" style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                            <a href="/pages/about.html">About</a>
+                            <a href="/pages/contact.html">Contact</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="pages-nav-icon" id="nav-block">
+                <div id="nav-hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="contact-hero">
-            <div class="void-side">
-                <h1>LET'S<br>BUILD.</h1>
-                <div class="void-circle"></div>
-            </div>
-            <div class="form-side">
-                <form class="contact-form" action="#" method="POST">
-                    <div class="form-group">
-                        <label>NAME</label>
-                        <input type="text" name="name" required placeholder="Your name">
-                    </div>
-                    <div class="form-group">
-                        <label>EMAIL</label>
-                        <input type="email" name="email" required placeholder="email@address.com">
-                    </div>
-                    <div class="form-group">
-                        <label>PROJECT TYPE</label>
-                        <input type="text" name="subject" placeholder="What are we making?">
-                    </div>
-                    <div class="form-group">
-                        <label>MESSAGE</label>
-                        <textarea name="message" rows="4" placeholder="Tell me more..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
-                </form>
-            </div>
-        </section>
+        <div class="bauhaus-grid">
 
-        <section class="connect-section">
-            <div class="connect-grid">
-                <a href="mailto:hello@heathernew.com" class="connect-tile">
-                    <span class="meta">EMAIL</span>
-                    <h3>hello@heathernew.com</h3>
-                </a>
-                <a href="https://linkedin.com/in/heathernew09" class="connect-tile orange">
-                    <span class="meta">LINKEDIN</span>
-                    <h3>in/heathernew09</h3>
-                </a>
-                <a href="https://github.com/heathernew" class="connect-tile lime">
-                    <span class="meta">GITHUB</span>
-                    <h3>github/heathernew09</h3>
-                </a>
+            <!-- ======================================
+                 HERO — original asymmetric void
+                 ====================================== -->
+            <section class="contact-hero">
+                <div class="void-side">
+                    <h1>LET'S<br>BUILD.</h1>
+                    <div class="void-circle"></div>
+                </div>
+                <div class="form-side">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="email@address.com" autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Project Type</label>
+                            <input type="text" id="subject" name="subject" placeholder="What are we making?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Tell me more..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            <span class="btn-text">SEND MESSAGE</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+
+                        <div class="form-status" id="form-status" role="alert"></div>
+                    </form>
+
+                    <!-- Success state (shown after send) -->
+                    <div class="form-success-state" id="success-state">
+                        <div class="success-mark">✓</div>
+                        <div class="success-headline">MESSAGE<br>SENT.</div>
+                        <p style="font-size: 1.1rem; font-weight: 600; opacity: 0.7; max-width: 380px; line-height: 1.5;">
+                            Thanks for reaching out. I'll be in touch soon — usually within 24 hours.
+                        </p>
+                        <a href="/" class="arrow-link" style="margin-top: 1rem;">Back to home <span>→</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================
+                 ROW 2: "GOOD AT THIS" TRIPTYCH
+                 ====================================== -->
+            <div class="b-tile bg-dark-teal span-col-2">
+                <span class="meta bright">What I build</span>
+                <div style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-top: 1rem;">
+                    Interactive.<br>Branded.<br>Custom.
+                </div>
+                <div class="bauhaus-circle" style="background-color: var(--orange); margin-top: auto; margin-bottom: 0;"></div>
             </div>
-        </section>
+
+            <div class="b-tile bg-teal hover-invert">
+                <span class="meta" style="color: rgba(255,255,255,0.6);">01</span>
+                <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem;">Trade Show &amp; AR</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6; opacity: 0.9;">Touchscreen kiosks, WebAR activations, and large-format display experiences that stop people mid-aisle.</p>
+                <span class="number-accent" style="color: #fff;">01</span>
+            </div>
+
+            <div class="b-tile bg-lime hover-invert">
+                <span class="meta" style="opacity: 0.6;">02</span>
+                <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem;">Web &amp; Design Systems</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">Custom portfolio sites, component libraries, design tokens — the whole stack built to last.</p>
+                <span class="number-accent">02</span>
+            </div>
+
+            <!-- ======================================
+                 ROW 3: PROCESS TILE + GEOMETRIC ACCENTS
+                 ====================================== -->
+            <div class="b-tile bg-white">
+                <div class="bauhaus-square" style="background-color: var(--teal); border-radius: 0 50% 50% 50%;"></div>
+                <span class="meta">03</span>
+                <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem;">Games &amp; Interactive</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">Canvas 2D games, physics-based experiences, decision trees — if it needs to be memorable, it needs to move.</p>
+            </div>
+
+            <div class="b-tile bg-light-grey span-col-2" style="justify-content: flex-end;">
+                <div>
+                    <span class="meta">Response time</span>
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 1rem;">Usually within<br>a week.</h2>
+                    <p style="font-size: 1rem; line-height: 1.6; max-width: 440px;">No gatekeepers. No intake forms. Just a direct conversation with the person who'll actually build your project.</p>
+                </div>
+            </div>
+
+            <div class="b-tile bg-orange hover-invert">
+                <div class="bauhaus-circle" style="background-color: var(--bg-color); border-radius: 0 0 50% 50%;"></div>
+                <span class="meta" style="color: rgba(255,255,255,0.7);">Philosophy</span>
+                <p style="font-size: 1.05rem; font-weight: 700; line-height: 1.5;">"Design is a lifestyle."<br>— Studio ethic since day one.</p>
+            </div>
+
+            <!-- ======================================
+                 ROW 4: CONNECT CHANNELS
+                 ====================================== -->
+            <div class="b-tile bg-dark-teal compact auto" style="min-height: 0; padding: 2.5rem;">
+                <span class="meta bright">Where to find me</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-top: 0.5rem; text-transform: none;">Direct channels.</h2>
+            </div>
+
+            <!-- Channels as 3-up tiles -->
+            <a href="mailto:contact@heathernew.com" class="b-tile bg-white connect-tile channel-tile compact" style="min-height: 180px;">
+                <span class="meta">Email</span>
+                <h3 style="font-size: 1.15rem;">contact@heathernew.com</h3>
+                <span class="arrow-link" style="margin-top: auto;">Write me <span>→</span></span>
+            </a>
+
+            <a href="https://linkedin.com/in/heathernew09" target="_blank" rel="noopener" class="b-tile bg-teal connect-tile channel-tile compact" style="color: #fff; min-height: 180px;">
+                <span class="meta" style="color: rgba(255,255,255,0.6);">LinkedIn</span>
+                <h3 style="font-size: 1.15rem;">in/heathernew09</h3>
+                <span class="arrow-link" style="color: var(--lime); margin-top: auto;">View profile <span>→</span></span>
+            </a>
+
+            <a href="https://github.com/heathernew09" target="_blank" rel="noopener" class="b-tile bg-dark connect-tile channel-tile compact" style="min-height: 180px;">
+                <span class="meta" style="color: rgba(255,255,255,0.5);">GitHub</span>
+                <h3 style="font-size: 1.15rem; color: #fff;">heathernew09</h3>
+                <span class="arrow-link" style="color: var(--lime); margin-top: auto;">See the code <span>→</span></span>
+            </a>
+
+            <!-- ======================================
+                 ROW 5: BOTTOM GEOMETRIC / FOOTER ROW
+                 ====================================== -->
+            <div class="b-tile bg-lime compact" style="min-height: 160px;">
+                <div class="bauhaus-circle" style="background-color: var(--text-dark); border-radius: 50% 0 50% 50%; margin-bottom: 0;"></div>
+                <a href="#" class="arrow-link" style="margin-top: auto;" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to top <span>↑</span></a>
+            </div>
+
+            <div class="b-tile bg-mid-grey compact" style="min-height: 160px; align-items: center; justify-content: center;">
+                <div class="bauhaus-square" style="background-color: var(--teal); border-radius: 50% 0 0 0;"></div>
+            </div>
+
+            <div class="b-tile bg-orange compact" style="min-height: 160px; align-items: center; justify-content: center;">
+                <div class="bauhaus-circle" style="background-color: var(--bg-color);"></div>
+            </div>
+
+            <div class="b-tile bg-dark-teal compact" style="min-height: 160px; justify-content: center;">
+               
+            </div>
+
+        </div><!-- /.bauhaus-grid -->
     </main>
 
-    <!-- Include Footer -->
-    <div id="footer-trigger">
-        <load src="../src/partials/footer.html" />
+    <div class="footer-scroll-wrapper" id="footer-trigger">
+        <footer class="footer-section">
+            <div class="footer-track">
+                <div id="mouse-skater" class="mouse-skater">
+                    <div class="mouse-flip-container" id="mouse-flipper">
+                        <img src="/assets/mouse_skate.png"
+                             alt="Magic Mouse on Roller Skates"
+                             class="mouse-static">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content-bio">
+                <h3>Heather New</h3>
+                <p>Creative Technologist specializing in interactive experiences at the intersection of design, code, and technology.</p>
+            </div>
+            <div class="footer-nav">
+                <p class="copyright">&copy; <span id="current-year"></span> Heather New | <a href="/pages/privacy.html">Privacy Policy</a> | <a href="/pages/sitemap.xml">Sitemap</a></p>
+                <p class="build-info">Deployment Status: <span id="build-date">Checking...</span></p>
+            </div>
+        </footer>
     </div>
 
-    <script type="module" src="/src/js/site-core.js"></script>
+    <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      try {
+        const buildDate = new Date(__BUILD_DATE__);
+        const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        document.getElementById('build-date').textContent = buildDate.toLocaleDateString(undefined, options);
+      } catch (e) {
+        document.getElementById('build-date').textContent = 'Live';
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+    // ============================================
+    // CONTACT FORM — fetch to contact-handler.php
+    // ============================================
+    const form       = document.getElementById('contact-form');
+    const submitBtn  = document.getElementById('submit-btn');
+    const statusEl   = document.getElementById('form-status');
+    const successEl  = document.getElementById('success-state');
+    const btnText    = submitBtn.querySelector('.btn-text');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Basic client-side validation
+        const name    = form.name.value.trim();
+        const email   = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if (!name || !email || !message) {
+            showStatus('Please fill in your name, email, and message.', 'error');
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showStatus('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        // Loading state
+        submitBtn.disabled = true;
+        btnText.textContent = 'SENDING...';
+        hideStatus();
+
+        try {
+            const data = new FormData(form);
+
+            const response = await fetch('/contact-handler.php', {
+                method: 'POST',
+                body: data
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Show success state, hide form
+                form.style.display = 'none';
+                successEl.classList.add('visible');
+            } else {
+                showStatus(result.message || 'Something went wrong. Please try again.', 'error');
+                resetBtn();
+            }
+
+        } catch (err) {
+            console.error('Form submission error:', err);
+            showStatus('Network error. Please email me directly at hello@heathernew.com', 'error');
+            resetBtn();
+        }
+    });
+
+    function showStatus(msg, type) {
+        statusEl.textContent = msg;
+        statusEl.className = 'form-status ' + type;
+    }
+
+    function hideStatus() {
+        statusEl.className = 'form-status';
+    }
+
+    function resetBtn() {
+        submitBtn.disabled = false;
+        btnText.textContent = 'SEND MESSAGE';
+    }
+    </script>
 </body>
 </html>
